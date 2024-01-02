@@ -1,6 +1,0 @@
-This favicon was generated using the following font:
-
-- Font Title: Gamja Flower
-- Font Author: Copyright (c) YoonDesign Inc. All Rights Reserved.
-- Font Source: http://fonts.gstatic.com/s/gamjaflower/v22/6NUR8FiKJg-Pa0rM6uN40Z4kyf9Fdty2ew.ttf
-- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

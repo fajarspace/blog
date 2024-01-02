@@ -1,6 +1,0 @@
-[build]
-  command = "npm run build"  # Ganti dengan perintah build yang sesuai
-  publish = ".next"
-
-[build.environment]
-  NODE_VERSION = "16"  # Ganti dengan versi Node.js yang sesuai dengan persyaratan ESLint

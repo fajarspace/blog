@@ -1,38 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`nextra-blog`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## My personal site
 
-## Getting Started
+### Getting started
+1. Install the `pnpm` package manager: https://pnpm.io/
+2. Run `pnpm` in the project directory
+3. Run `pnpm dev` to start a local developer server
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Environment variables
+- `GITHUB_TOKEN`: necessary if you want to fetch github stars for projects
+- `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`: required for analytics. See https://maxleiter.com/blog/supabase-next-analytics for more info
+- If you want the git commit hash in the bottom of the home page, you need to host with vercel or provide a `NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA` env var
+ 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Usage:
+- `pnpm <command>`:
+    - `lint`: automatically lints files
+    - `dev`: start a local instance with live reloading
+    - `rss`: generate an RSS feed 
+    - `build`: generate an RSS feed and production site
+    - `analyze`: generate a bundle you can inspect via @next/bundle-analyzer
+    - `start`: start a production instance built via `yarn build`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Directory structure:
+- app
+ - `components/`: react components
+ - `data/`: static data that can eventually be moved to a DB or something
+ - `lib/`: hooks, 3rd party API stuff, utils functions
+ - `pages/`: next.js pages (the actual routes that are rendered)
+ - `styles/`: contains the global styles
+- `pages/api`: nextjs API routes
+- `posts/`: markdown files rendered at build time 
+- `public/`: images for blog, favicon, built files
+- `scripts/`: contain the scripts for building the sitemap and RSS feed
