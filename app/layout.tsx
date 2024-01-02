@@ -63,7 +63,7 @@ export const metadata = {
   twitter: {
     title: 'Fajar A.',
     card: 'summary_large_image',
-    creator: '@max_leiter',
+    creator: '@fajaragngn',
   },
   icons: {
     shortcut: 'https://fajarr.space/favicons/favicon.ico',

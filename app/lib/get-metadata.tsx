@@ -52,7 +52,7 @@ export function getMetadata({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@fajaragngn" />
       <meta property="og:site_name" content="Fajar A.'s site" />
-      <meta name="apple-mobile-web-app-title" content="Max" />
+      <meta name="apple-mobile-web-app-title" content="Fajar" />
       <meta name="author" content={author} />
       <meta property="og:type" content="website" />
       <meta charSet="utf-8" />

@@ -1,4 +1,4 @@
-import { ImageResponse } from "next/og"
+import { ImageResponse } from 'next/og'
 
 export const size = { width: 1200, height: 600 }
 // TODO: update to support alt once nextjs has a solution for params
@@ -10,7 +10,7 @@ export const runtime = 'edge'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async function (): Promise<ImageResponse> {
   const fontData = await fetch(
-    new URL('./fonts/Inter-Medium.ttf', import.meta.url)
+    new URL('./fonts/Inter-Medium.ttf', import.meta.url),
   ).then((res) => res.arrayBuffer())
 
   return new ImageResponse(
@@ -45,7 +45,7 @@ export default async function (): Promise<ImageResponse> {
               padding: '4px 10px',
             }}
           >
-            maxleiter.com
+            fajarr.space
           </span>
         </div>
         <div
@@ -63,7 +63,7 @@ export default async function (): Promise<ImageResponse> {
             fontSize: 100,
           }}
         >
-          Max Leiter&apos;s Website
+          Fajar&apos;s Website
         </div>
       </div>
     ),
@@ -77,6 +77,6 @@ export default async function (): Promise<ImageResponse> {
       ],
       width: 1200,
       height: 630,
-    }
+    },
   )
 }
