@@ -1,12 +1,12 @@
-import getBuku from '@lib/get-buku'
+import getPosts from '@lib/get-posts'
 import Navigation from './post/navigation'
 import PostFooter from './post/post-footer'
 import styles from './layout.module.css'
 import { Metadata } from 'next'
 
 export async function generateStaticParams() {
-  const books = await getBuku()
-  return books.map((post) => ({ slug: post.slug }))
+  const posts = await getPosts()
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
 export const generateMetadata = async ({
@@ -16,33 +16,33 @@ export const generateMetadata = async ({
     slug: string
   }
 }): Promise<Metadata> => {
-  const post = (await getBuku()).find((p) => p?.slug === params.slug)
+  const post = (await getPosts()).find((p) => p?.slug === params.slug)
   return {
     title: post?.title,
     description: post?.description,
     alternates: {
-      canonical: `https://fajarr.space/buku/${params.slug}`,
+      canonical: `https://fajarr.space/blog/${params.slug}`,
     },
   }
 }
 
 async function getData({ slug }: { slug: string }) {
-  const books = await getBuku()
-  const postIndex = books.findIndex((p) => p?.slug === slug)
+  const posts = await getPosts()
+  const postIndex = posts.findIndex((p) => p?.slug === slug)
 
   if (postIndex === -1) {
     throw new Error(
-      `${slug} not found in books. Did you forget to rename the file?`,
+      `${slug} not found in posts. Did you forget to rename the file?`,
     )
   }
 
-  const post = books[postIndex]
+  const post = posts[postIndex]
 
   const { ...rest } = post
 
   return {
-    previous: books[postIndex + 1] || null,
-    next: books[postIndex - 1] || null,
+    previous: posts[postIndex + 1] || null,
+    next: posts[postIndex - 1] || null,
     ...rest,
   }
 }

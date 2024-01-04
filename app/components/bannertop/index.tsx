@@ -1,4 +1,5 @@
 'use client'
+
 import React from 'react'
 import styles from './bannertop.module.css'
 import Link from 'next/link'

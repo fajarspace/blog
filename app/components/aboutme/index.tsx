@@ -8,7 +8,7 @@ const AboutMe = () => (
         Vercel
       </Link> */}
       Suka ngoding yang gak jelas, Sedikit bicara banyak mikir (bukan aksi).
-      Saya tertarik pada politics, tech, dan web.
+      Saya tertarik pada politik, tech, dan web.
     </p>
   </>
 )
