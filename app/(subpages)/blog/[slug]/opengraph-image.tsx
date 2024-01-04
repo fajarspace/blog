@@ -13,7 +13,7 @@ export default async function ({
   params: { slug: string }
 }): Promise<ImageResponse> {
   const res = await fetch(
-    `https://raw.githubusercontent.com/MaxLeiter/maxleiter.com/master/posts/${params.slug}.mdx`
+    `https://raw.githubusercontent.com/fajarspace/blog/master/posts/${params.slug}.mdx`,
   )
 
   if (!res.ok) {
@@ -29,7 +29,7 @@ export default async function ({
   }
 
   const fontData = await fetch(
-    new URL('../../../fonts/Inter-Medium.ttf', import.meta.url)
+    new URL('../../../fonts/Inter-Medium.ttf', import.meta.url),
   ).then((res) => res.arrayBuffer())
 
   return new ImageResponse(
@@ -64,7 +64,7 @@ export default async function ({
               padding: '4px 10px',
             }}
           >
-            maxleiter.com
+            fajarr.space
           </span>
           {date && (
             <div
@@ -118,6 +118,6 @@ export default async function ({
       ],
       width: 1200,
       height: 630,
-    }
+    },
   )
 }

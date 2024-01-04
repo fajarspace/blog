@@ -28,8 +28,23 @@ const Projects: Project[] = [
     title: 'Random anime pict ',
     description: "Random picture waifu's",
     href: 'https://gacha-waifu.netlify.app',
-    role: 'Creator',
-    years: [],
+    role: 'Random-stuff',
+    years: ['2023'],
+  },
+  {
+    title: 'Kodelab',
+    description:
+      'Bikin W3school nya indonesia & Roadmaps untuk kamu para developer!',
+    href: 'https://kodelab.netlify.app',
+    role: 'Education',
+    years: ['2021', 'present'],
+  },
+  {
+    title: 'Jurnal Dev',
+    description: 'Kumpulan blog tentang developer',
+    href: 'https://jurnaldev.netlify.app',
+    role: 'Education',
+    years: ['2020'],
   },
 ]
 
