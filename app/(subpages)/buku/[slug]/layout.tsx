@@ -1,6 +1,6 @@
 import getBuku from '@lib/get-buku'
-import Navigation from './post/navigation'
-import PostFooter from './post/post-footer'
+import Navigation from './buku/navigation'
+import PostFooter from './buku/footer'
 import styles from './layout.module.css'
 import { Metadata } from 'next'
 

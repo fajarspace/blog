@@ -52,7 +52,7 @@ const BlockEntry = (props: Props) => {
         <h4 className={`${styles.title}`}>{title}</h4>
         {description && <p className={styles.description}>{description}</p>}
         {isThirdParty && (
-            <span className={styles.thirdParty}>{new URL(href).hostname}</span>
+          <span className={styles.thirdParty}>{new URL(href).hostname}</span>
         )}
       </Link>
     </li>

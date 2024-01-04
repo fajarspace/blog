@@ -44,6 +44,7 @@ const Posts = (props: Props) => {
             key={`post-item-${post.slug}`}
             href={post.isThirdParty ? post.href! : `/blog/${post.slug}`}
             title={post.title}
+            description={post.description}
             date={new Date(date)}
             views={post.views}
             isThirdParty={post.isThirdParty}

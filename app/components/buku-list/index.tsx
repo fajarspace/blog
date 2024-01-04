@@ -2,10 +2,9 @@
 
 import { useState } from 'react'
 
-import BlockEntry from '@components/entry/block'
-import styles from './posts-list.module.css'
+import BukuBlockEntry from '@components/entry/bukublock'
+import styles from './buku-list.module.css'
 import type { Post } from '@lib/types'
-import Link from 'next/link'
 
 type Props =
   | {
@@ -16,14 +15,14 @@ type Props =
       skeleton: true
     }
 
-const PostsMain = (props: Props) => {
-  const [showMore] = useState(4)
+const Books = (props: Props) => {
+  const [showMore, setShowMore] = useState(4)
 
   if ('skeleton' in props) {
     return (
       <ul className={styles.container}>
         {[...Array(4)].map((_, i) => (
-          <BlockEntry key={i} skeleton />
+          <BukuBlockEntry key={i} skeleton />
         ))}
       </ul>
     )
@@ -41,11 +40,11 @@ const PostsMain = (props: Props) => {
         })
 
         return (
-          <BlockEntry
+          <BukuBlockEntry
             key={`post-item-${post.slug}`}
-            href={post.isThirdParty ? post.href! : `/blog/${post.slug}`}
+            href={post.isThirdParty ? post.href! : `/buku/${post.slug}`}
             title={post.title}
-            description={post.description}
+            tags={post.tags}
             date={new Date(date)}
             views={post.views}
             isThirdParty={post.isThirdParty}
@@ -53,12 +52,17 @@ const PostsMain = (props: Props) => {
         )
       })}
       {paginate && showMore < posts.length && (
-        <li>
-          Lihat post lainnya <Link href="/blog"> disini</Link>
-        </li>
+        <button
+          onClick={() => {
+            setShowMore(showMore + 4)
+          }}
+          className={styles.button}
+        >
+          Show More
+        </button>
       )}
     </ul>
   )
 }
 
-export default PostsMain
+export default Books

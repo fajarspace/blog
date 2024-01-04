@@ -4,7 +4,7 @@ import type { Post } from './types'
 import fs from 'fs/promises'
 import { cache } from 'react'
 
-const thirdPartyPosts: Post[] = [
+const thirdPartyBuku: Post[] = [
   // {
   //   title: 'Introducing the Vercel AI SDK',
   //   description:
@@ -31,16 +31,16 @@ const thirdPartyPosts: Post[] = [
   // },
 ]
 
-export const getPosts = cache(async (includeThirdPartyPosts?: boolean) => {
-  const posts = await fs.readdir('./content/posts/')
+export const getBuku = cache(async (includeThirdPartyBuku?: boolean) => {
+  const book = await fs.readdir('./content/buku/')
 
   const postsWithMetadata = await Promise.all(
-    posts
+    book
       .filter(
         (file) => path.extname(file) === '.md' || path.extname(file) === '.mdx',
       )
       .map(async (file) => {
-        const filePath = `./content/posts/${file}`
+        const filePath = `./content/buku/${file}`
         const postContent = await fs.readFile(filePath, 'utf8')
         const { data, content } = matter(postContent)
 
@@ -54,7 +54,7 @@ export const getPosts = cache(async (includeThirdPartyPosts?: boolean) => {
 
   const postsWithMetadataAndThirdPartyPosts = [
     ...postsWithMetadata,
-    ...(includeThirdPartyPosts ? thirdPartyPosts : []),
+    ...(includeThirdPartyBuku ? thirdPartyBuku : []),
   ]
 
   const filtered = postsWithMetadataAndThirdPartyPosts
@@ -66,9 +66,9 @@ export const getPosts = cache(async (includeThirdPartyPosts?: boolean) => {
   return filtered
 })
 
-export async function getPost(slug: string) {
-  const posts = await getPosts()
-  return posts.find((post) => post.slug === slug)
+export async function buku(slug: string) {
+  const book = await getBuku()
+  return book.find((post) => post.slug === slug)
 }
 
-export default getPosts
+export default getBuku

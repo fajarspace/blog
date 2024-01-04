@@ -9,6 +9,7 @@ import { Suspense } from 'react'
 // import { PostListRSC } from '@components/posts-list/rsc'
 // import Posts from '@components/posts-list'
 import { PostMainRSC } from '@components/posts-list-main/rsc'
+import { BukuListRSC } from '@components/buku-list/rsc'
 
 const PROJECT_COUNT = 3
 
@@ -24,16 +25,20 @@ export default async function HomePage() {
         <Socials />
       </div>
       <AboutMe />
+      <h2>Buku</h2>
+      <Suspense fallback={<div>Loading...</div>}>
+        <BukuListRSC paginate={true} />
+      </Suspense>
+      <h2>Blogs</h2>
+      <Suspense fallback={<div>Loading...</div>}>
+        <PostMainRSC paginate={true} />
+      </Suspense>
       <h2>Projects</h2>
       <ProjectList
         showYears={false}
         count={PROJECT_COUNT}
         projects={projects}
       />
-      <h2>Posts</h2>
-      <Suspense fallback={<div>Loading...</div>}>
-        <PostMainRSC paginate={true} />
-      </Suspense>
       <footer className={styles.footer}>
         <span>
           <Link href="/about">Tentang situs ini</Link>
