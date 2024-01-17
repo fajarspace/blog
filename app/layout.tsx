@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/react'
 import ThemeProvider from '@components/theme-provider'
 import { VercelToolbar } from '@vercel/toolbar/next'
 import { Viewport } from 'next'
-import BannerTop from '@components/bannertop'
+// import BannerTop from '@components/bannertop'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body>
         <ThemeProvider>
-          <BannerTop />
+          {/* <BannerTop /> */}
           <br />
           <div className={styles.wrapper}>
             <main className={styles.main}>{children}</main>

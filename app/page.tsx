@@ -25,7 +25,7 @@ export default async function HomePage() {
         <Socials />
       </div>
       <AboutMe />
-      <h2>Buku</h2>
+      <h2>Buku/Artikel ilmiah</h2>
       <Suspense fallback={<div>Loading...</div>}>
         <BukuListRSC paginate={true} />
       </Suspense>

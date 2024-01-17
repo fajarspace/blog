@@ -5,18 +5,19 @@ import fs from 'fs/promises'
 import { cache } from 'react'
 
 const thirdPartyBuku: Post[] = [
-  // {
-  //   title: 'Introducing the Vercel AI SDK',
-  //   description:
-  //     'An interoperable, streaming-enabled, edge-ready software development kit for AI apps built with React and Svelte.',
-  //   body: '',
-  //   date: '2023-06-15T13:00:00.000Z',
-  //   slug: '',
-  //   tags: [],
-  //   lastModified: 0,
-  //   isThirdParty: true,
-  //   href: 'https://vercel.com/blog/introducing-the-vercel-ai-sdk',
-  // },
+  {
+    title:
+      'Implementasi Vigenere Cipher Pada Keamanan Pesan Text Berbasis Web Chat',
+    description:
+      'Kemajuan pesat dalam teknologi sekarang membuat berbagai layanan komunikasi tumbuh dengan pesat. Salah satu hal yang paling penting dalam komunikasi menggunakan komputer dan jaringan komputer adalah untuk menjamin keamanan pesan, data, atau informasi dalam pertukaran data, sehingga menjadi salah satu pendorong munculnya teknologi kriptografi.',
+    body: '',
+    date: '2023-02-27T13:00:00.000Z',
+    slug: '',
+    tags: ['paper'],
+    lastModified: 0,
+    isThirdParty: true,
+    href: 'https://jurnal.pelitabangsa.ac.id/index.php/SAINTEK/article/view/2140',
+  },
   // {
   //   title: 'Improving the accessibility of our Next.js site',
   //   description:
