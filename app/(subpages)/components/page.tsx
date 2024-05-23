@@ -78,6 +78,7 @@ export default function ComponentsPage() {
             role="Role"
             title="Title"
             href=""
+            tech={['Tech']}
             years={['2023']}
             showYears
           />
