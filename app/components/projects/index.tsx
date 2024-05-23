@@ -26,6 +26,7 @@ const Projects = ({ count = -1, projects = [], showYears = true }: Props) => {
             href={e.href}
             title={e.title}
             description={e.description}
+            tech={e.tech}
             role={e.role}
             stars={e.stars}
           />
@@ -33,7 +34,7 @@ const Projects = ({ count = -1, projects = [], showYears = true }: Props) => {
       })}
       {count > 0 && count < projects.length && (
         <li>
-          Lihat project lainnya <Link href="/projects"> disini</Link>
+          Lihat project lainnya <Link href="/portfolio"> disini</Link>
         </li>
       )}
     </ul>

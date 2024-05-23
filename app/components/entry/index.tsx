@@ -9,6 +9,7 @@ type Props = {
   description: string
   role: string
   years: string[]
+  tech: string[]
   showYears: boolean
   stars?: number
 }
@@ -19,6 +20,7 @@ export const Entry = ({
   description,
   role,
   years,
+  tech,
   showYears = true,
   stars,
 }: Props) => (
@@ -54,5 +56,11 @@ export const Entry = ({
       </div>
     </div>
     <div>{description}</div>
+    <div>
+      <div style={{ color: 'grey', marginTop: '5px' }}>
+        Teknologi yang digunakan:
+        <span style={{ textDecoration: 'underline' }}> {tech}</span>
+      </div>
+    </div>
   </li>
 )

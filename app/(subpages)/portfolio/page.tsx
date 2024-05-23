@@ -5,14 +5,21 @@ export const metadata = {
   title: 'Projects',
   description: 'Hanya roject kecil',
   alternates: {
-    canonical: 'https://fajarr.space/projects',
+    canonical: 'https://fajarr.space/portfolio',
   },
 }
 
 const Projects = async () => {
   const projects = await getProjects()
   return (
-    <ProjectList showYears={true} count={projects.length} projects={projects} />
+    <>
+      <h2>Portfolio</h2>
+      <ProjectList
+        showYears={true}
+        count={projects.length}
+        projects={projects}
+      />
+    </>
   )
 }
 

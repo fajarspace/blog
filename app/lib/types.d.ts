@@ -15,6 +15,7 @@ export type Post = {
 export type Project = {
   title: string
   description: string
+  tech: string[]
   href: string
   role: string
   years: string[]
