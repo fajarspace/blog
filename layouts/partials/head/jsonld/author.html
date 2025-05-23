@@ -1,0 +1,17 @@
+{{- $author := site.Params.author -}}
+{{- $data := dict -}}
+{{- with $author -}}
+  {{- $data = dict
+    "@type" "Person"
+  -}}
+  {{- with .name -}}
+    {{- $data = merge $data ( dict "name" . ) -}}
+  {{- end -}}
+  {{- with .email -}}
+    {{- $data = merge $data ( dict "email" . ) -}}
+  {{- end -}}
+  {{- with site.GetPage "/about" -}}
+    {{- $data = merge $data ( dict "url" .Permalink ) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $data -}}

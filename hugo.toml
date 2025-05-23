@@ -1,0 +1,34 @@
+baseURL = 'https://fajar.today/'
+languageCode = 'en-us'
+title = "Today I Learned"
+copyright = 'Fajar Today' # Used in the footer copyright mention.
+enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's genAI/LLM web crawler blocking feature.
+
+[module]
+  [[module.imports]]
+    path = "github.com/michenriksen/hugo-theme-til"
+
+[outputs]
+  home = ['html']
+  section = ['html', 'rss', 'json']
+  page = ['html']
+
+[menus]
+  [[menus.main]]
+    name = 'Notes'
+    pageRef = '/notes'
+    weight = 20
+  [[menus.main]]
+    name = 'Posts'
+    pageRef = '/posts'
+    weight = 30
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    style = 'tokyonight-night'
+
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true

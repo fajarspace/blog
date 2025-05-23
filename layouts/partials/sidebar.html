@@ -1,0 +1,85 @@
+<aside id="desktop-sidebar" class="fixed bottom-0 left-0 top-0 z-40 h-full w-64 p-5 text-white">
+  <div class="flex h-full flex-col justify-between p-6">
+    <div>
+      <!-- Logo + Title -->
+      <div class="mb-12">
+        <a href="{{ .Site.Home.RelPermalink }}">
+          <h1 class="text-3xl font-semibold leading-tight tracking-tight text-white">Today</h1>
+          <p class="mt-1 text-sm font-normal text-gray-400">I Learned</p>
+          <p class="mt-2 text-xs font-light text-gray-500">by Fajar A Nugroho</p>
+        </a>
+      </div>
+
+      <!-- Navigation from menu -->
+      {{- $page := . }}
+      {{- $menuID := "main" }}
+      {{- with index site.Menus $menuID }}
+        <nav class="space-y-5 text-[15px] font-normal">
+          <ul>
+            {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+          </ul>
+        </nav>
+      {{- end }}
+    </div>
+
+    <!-- Footer Icons -->
+    <div class="mt-8 flex space-x-3">
+      <!-- Tambahkan social icon jika ada -->
+    </div>
+  </div>
+</aside>
+
+<!-- Mobile Navbar (hidden on desktop) -->
+<nav
+  id="mobile-navbar"
+  class="fixed left-0 right-0 top-0 z-50 bg-black text-white shadow-lg lg:hidden"
+>
+  <div class="flex items-center justify-between px-4 py-3">
+    <!-- Logo/Title -->
+    <div class="flex items-center space-x-2">
+      <h1 class="navbar-title text-white">Today</h1>
+      <span class="navbar-subtitle">I Learned</span>
+    </div>
+
+    <!-- Menu Button -->
+    <button
+      id="mobile-menu-toggle"
+      class="rounded-lg bg-gray-800 p-2 transition-colors hover:bg-gray-700"
+      aria-label="Toggle menu"
+    >
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+          class="menu-icon"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+          class="close-icon hidden"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Dropdown Menu -->
+  <div id="mobile-dropdown" class="hidden border-t border-gray-800 bg-black">
+    <!-- <a href="#" class="mobile-menu-item border-b border-gray-800">
+      <span class="mr-2">→</span> Free course
+    </a> -->
+    {{- $page := . }}
+    {{- $menuID := "main" }}
+    {{- with index site.Menus $menuID }}
+      <nav class="space-y-5 p-5 text-[15px] font-normal">
+        <ul>
+          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+        </ul>
+      </nav>
+    {{- end }}
+
+  </div>
+</nav>

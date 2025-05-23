@@ -1,0 +1,656 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    Gitrob: Now in Go | Today I Learned
+</title>
+  <meta name="description" content="I’m happy to announce that a new version of Gitrob has been released. This time it’s a complete rewrite from Ruby to the amazing Go programming language!
+The old Ruby version of Gitrob got messy and was neglected by me because I got tired of the code. I decided it was time for a rethink and rewrite of the project. As I had been planning to pick up Go as my next programming language I thought it would be interesting to make a lean and mean Go implementation. This turned out to be a pretty amazing decision!" />
+<meta property="og:url" content="http://localhost:1313/archive/blog/gitrob-now-in-go/">
+  <meta property="og:site_name" content="Today I Learned">
+  <meta property="og:title" content="Gitrob: Now in Go">
+  <meta property="og:description" content="I’m happy to announce that a new version of Gitrob has been released. This time it’s a complete rewrite from Ruby to the amazing Go programming language!
+The old Ruby version of Gitrob got messy and was neglected by me because I got tired of the code. I decided it was time for a rethink and rewrite of the project. As I had been planning to pick up Go as my next programming language I thought it would be interesting to make a lean and mean Go implementation. This turned out to be a pretty amazing decision!">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="archive">
+    <meta property="article:published_time" content="2018-06-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2018-06-09T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Gitrob: Now in Go">
+  <meta itemprop="description" content="I’m happy to announce that a new version of Gitrob has been released. This time it’s a complete rewrite from Ruby to the amazing Go programming language!
+The old Ruby version of Gitrob got messy and was neglected by me because I got tired of the code. I decided it was time for a rethink and rewrite of the project. As I had been planning to pick up Go as my next programming language I thought it would be interesting to make a lean and mean Go implementation. This turned out to be a pretty amazing decision!">
+  <meta itemprop="datePublished" content="2018-06-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2018-06-09T00:00:00+00:00">
+  <meta itemprop="wordCount" content="612">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Gitrob: Now in Go">
+  <meta name="twitter:description" content="I’m happy to announce that a new version of Gitrob has been released. This time it’s a complete rewrite from Ruby to the amazing Go programming language!
+The old Ruby version of Gitrob got messy and was neglected by me because I got tired of the code. I decided it was time for a rethink and rewrite of the project. As I had been planning to pick up Go as my next programming language I thought it would be interesting to make a lean and mean Go implementation. This turned out to be a pretty amazing decision!">
+
+<link rel="canonical" href="http://localhost:1313/archive/blog/gitrob-now-in-go/" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+
+      <script src="/js/main.js" defer></script>
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "copyrightNotice": "Fajar Today",
+  "description": "I’m happy to announce that a new version of Gitrob has been released. This time it’s a complete rewrite from Ruby to the amazing Go programming language!\nThe old Ruby version of Gitrob got messy and was neglected by me because I got tired of the code. I decided it was time for a rethink and rewrite of the project. As I had been planning to pick up Go as my next programming language I thought it would be interesting to make a lean and mean Go implementation. This turned out to be a pretty amazing decision!",
+  "headline": "Gitrob: Now in Go"
+}
+</script>
+
+
+    <style>
+       
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+       
+      body {
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          sans-serif;
+        min-height: 100vh;
+      }
+
+       
+      @media (min-width: 1024px) {
+         
+        #mobile-navbar {
+          display: none;
+        }
+      }
+
+       
+      @media (max-width: 1023px) {
+        body {
+          padding-top: 4rem;  
+        }
+
+         
+        #desktop-sidebar {
+          display: none;
+        }
+      }
+
+       
+      .sidebar-title,
+      .navbar-title {
+        font-size: 1.875rem;  
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+      }
+
+      .sidebar-subtitle,
+      .navbar-subtitle {
+        font-size: 0.875rem;  
+        font-weight: 400;
+        color: #9ca3af;  
+      }
+
+      .sidebar-author {
+        font-size: 0.8125rem;  
+        font-weight: 300;
+        color: #6b7280;  
+      }
+
+      .sidebar-nav {
+        font-size: 0.9375rem;  
+        font-weight: 400;
+      }
+
+      .sidebar-nav a {
+        color: #e5e7eb;  
+        transition: all 0.2s ease;
+      }
+
+      .sidebar-nav a:hover {
+        color: #ffffff;
+        transform: translateX(4px);
+      }
+
+       
+      .mobile-menu-item {
+        color: #e5e7eb;
+        padding: 0.75rem 1.5rem;
+        display: block;
+        transition: all 0.2s ease;
+        font-size: 1rem;
+      }
+
+      .mobile-menu-item:hover {
+        background-color: #1f2937;
+        color: #ffffff;
+      }
+
+       
+      #desktop-sidebar,
+      #mobile-navbar {
+        background-color: #121212;
+      }
+
+       
+      .social-icon {
+        background-color: #1f2937;  
+        transition: all 0.2s ease;
+      }
+
+      .social-icon:hover {
+        background-color: #374151;  
+        transform: scale(1.05);
+      }
+
+       
+      .navbar-title {
+        font-size: 1.5rem;  
+      }
+
+       
+      #mobile-dropdown {
+        transform-origin: top;
+        transition: all 0.3s ease;
+      }
+
+      #mobile-dropdown.hidden {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+
+      #mobile-dropdown:not(.hidden) {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <aside id="desktop-sidebar" class="fixed bottom-0 left-0 top-0 z-40 h-full w-64 p-5 text-white">
+  <div class="flex h-full flex-col justify-between p-6">
+    <div>
+      
+      <div class="mb-12">
+        <a href="/">
+          <h1 class="text-3xl font-semibold leading-tight tracking-tight text-white">Today</h1>
+          <p class="mt-1 text-sm font-normal text-gray-400">I Learned</p>
+          <p class="mt-2 text-xs font-light text-gray-500">by Fajar A Nugroho</p>
+        </a>
+      </div>
+
+      
+        <nav class="space-y-5 text-[15px] font-normal">
+          <ul>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/notes/">
+      <span class="mr-3 text-lg">→</span> <span>Notes</span></a
+    >
+  </li>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/posts/">
+      <span class="mr-3 text-lg">→</span> <span>Posts</span></a
+    >
+  </li>
+
+          </ul>
+        </nav>
+    </div>
+
+    
+    <div class="mt-8 flex space-x-3">
+      
+    </div>
+  </div>
+</aside>
+
+
+<nav
+  id="mobile-navbar"
+  class="fixed left-0 right-0 top-0 z-50 bg-black text-white shadow-lg lg:hidden"
+>
+  <div class="flex items-center justify-between px-4 py-3">
+    
+    <div class="flex items-center space-x-2">
+      <h1 class="navbar-title text-white">Today</h1>
+      <span class="navbar-subtitle">I Learned</span>
+    </div>
+
+    
+    <button
+      id="mobile-menu-toggle"
+      class="rounded-lg bg-gray-800 p-2 transition-colors hover:bg-gray-700"
+      aria-label="Toggle menu"
+    >
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+          class="menu-icon"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+          class="close-icon hidden"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  
+  <div id="mobile-dropdown" class="hidden border-t border-gray-800 bg-black">
+    
+      <nav class="space-y-5 p-5 text-[15px] font-normal">
+        <ul>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/notes/">
+      <span class="mr-3 text-lg">→</span> <span>Notes</span></a
+    >
+  </li>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/posts/">
+      <span class="mr-3 text-lg">→</span> <span>Posts</span></a
+    >
+  </li>
+
+        </ul>
+      </nav>
+
+  </div>
+</nav>
+
+
+
+    
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        
+
+
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">Gitrob: Now in Go</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2018-06-09T00:00:00&#43;00:00"
+            >June 9, 2018</time
+          >
+        </div>
+    </header>
+
+    <p>I&rsquo;m happy to announce that a new version of Gitrob has been released. This time it&rsquo;s a complete rewrite from Ruby to the amazing <a href="https://golang.org/">Go programming language</a>!</p>
+<p>The old Ruby version of Gitrob got messy and was neglected by me because I got tired of the code. I decided it was time for a rethink and rewrite of the project. As I had been planning to pick up Go as my next programming language I thought it would be interesting to make a lean and mean Go implementation. This turned out to be a pretty amazing decision!</p>
+<h3 id="whats-new" class="scroll-mt-8 group">
+  What&rsquo;s new
+  
+    <a href="#whats-new"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<h4 id="uncover-interesting-files-in-old-commits" class="scroll-mt-8 group">
+  Uncover interesting files in old commits
+  
+    <a href="#uncover-interesting-files-in-old-commits"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>The new Gitrob drills deep into the commit history of a repository to surface files that might contain interesting or sensitive information. The default commit depth is 500 commits which strikes a good balance between speed and coverage, but it can of course be adjusted with a command line option. That old .bash_history file that was accidentally pushed and deleted 300 commits ago? Gitrob will find it.</p>
+<h4 id="no-more-postgresql-database" class="scroll-mt-8 group">
+  No more PostgreSQL database
+  
+    <a href="#no-more-postgresql-database"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>There is no longer any need to install and set up a PostgreSQL server to use Gitrob. The new version simply serves up findings directly from memory, but can also be saved to special session files which can later be loaded again and shared with other people. The session files contain a simple JSON document which is also ideal for parsing and integration with other tools and systems.</p>
+<h4 id="no-more-ruby-dependency-hell" class="scroll-mt-8 group">
+  No more Ruby dependency hell
+  
+    <a href="#no-more-ruby-dependency-hell"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>A big pain point for many users of the old Gitrob was trouble with dealing with Ruby and Ruby gems. Because the new version is written in Go, the whole tool is now a simple compiled binary that runs on Linux, Mac and Windows. No more fighting with RVM and native extensions that won&rsquo;t compile!</p>
+<h4 id="new-sleek-web-ui" class="scroll-mt-8 group">
+  New, sleek web UI
+  
+    <a href="#new-sleek-web-ui"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>The web UI for browsing and analysing Gitrob findings is now faster, prettier and more robust with <a href="https://getbootstrap.com/">Bootstrap</a> and <a href="http://backbonejs.org/">Backbone.js</a>.</p>
+<h4 id="a-mascot" class="scroll-mt-8 group">
+  A mascot!
+  
+    <a href="#a-mascot"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p><a href="https://twitter.com/KentGruber">Kent Gruber</a> was so generous to make me a Gopher mascot for Gitrob! The idea for a Gitrob Gopher was totally stolen from the <a href="https://www.bettercap.org/">Bettercap</a>, but I hope it will help me maintain the project. :)</p>
+<h4 id="general-simplification" class="scroll-mt-8 group">
+  General simplification
+  
+    <a href="#general-simplification"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>A big reason why the old Gitrob got messy and bloated was because I tried to make the tool do too much. The purpose of the new Gitrob is to only find and present interesting files and nothing more. I hope that this will help keep the project more sane and healthy.</p>
+<h3 id="installation" class="scroll-mt-8 group">
+  Installation
+  
+    <a href="#installation"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>Installing Gitrob is super easy. Simply head over to the project on Github and <a href="https://github.com/michenriksen/gitrob/releases">download a pre-compiled binary</a> for your operating system. If you have Go set up, you can also get the latest version with <em>go get github.com/michenriksen/gitrob</em>.</p>
+<p>Read more about installation and setup in the project <a href="https://github.com/michenriksen/gitrob#installation">README</a>.</p>
+<h3 id="thanks" class="scroll-mt-8 group">
+  Thanks
+  
+    <a href="#thanks"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>Thanks to Simone &lsquo;<a href="https://twitter.com/evilsocket">evilsocket</a>&rsquo; Margaritelli for his amazing, open source Go projects. I have learned a lot by looking at his code and a lot of Gitrob&rsquo;s code and structure is inspired by his projects.</p>
+<p>I would also like to say thanks to <a href="https://twitter.com/KentGruber">Kent Gruber</a> for being awesome and for spending time on making the Gitrob Gopher for me!</p>
+<p>If you&rsquo;re interested in coding and security, you should follow both of these fine people on Twitter!</p>
+<h3 id="helping-out" class="scroll-mt-8 group">
+  Helping out
+  
+    <a href="#helping-out"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>I hope you will try out the new version of Gitrob and that you will find it useful! Should you find any bugs or other weirdness, then please <a href="https://github.com/michenriksen/gitrob/issues/new">open an issue</a> on Github! As this is my first real project in Go, I have likely committed several Go crimes in the code and feedback is appreciated, but please go easy on me! ;)</p>
+
+  </article>
+
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2025, Fajar Today.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('mobile-menu-toggle');
+        const dropdown = document.getElementById('mobile-dropdown');
+        const menuIcon = toggleButton.querySelector('.menu-icon');
+        const closeIcon = toggleButton.querySelector('.close-icon');
+
+        
+        function toggleDropdown() {
+          const isOpen = !dropdown.classList.contains('hidden');
+
+          if (isOpen) {
+            
+            dropdown.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+          } else {
+            
+            dropdown.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+          }
+        }
+
+        
+        toggleButton.addEventListener('click', toggleDropdown);
+
+        
+        document.addEventListener('click', function (e) {
+          if (
+            !toggleButton.contains(e.target) &&
+            !dropdown.contains(e.target) &&
+            !dropdown.classList.contains('hidden')
+          ) {
+            toggleDropdown();
+          }
+        });
+
+        
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !dropdown.classList.contains('hidden')) {
+            toggleDropdown();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

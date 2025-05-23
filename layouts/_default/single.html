@@ -1,0 +1,38 @@
+{{ define "main" }}
+  {{- $imgResources := .Resources.ByType "image" -}}
+  <article class="main">
+    <header>
+      <h1 class="!mb-1">{{ .Title | title }}</h1>
+
+      {{- with .Date }}
+        {{- $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" -}}
+        {{- $dateHuman := . | time.Format (default ":date_long" site.Params.dateFormat) -}}
+        <div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="{{ $dateMachine }}"
+            >{{ $dateHuman }}</time
+          >
+        </div>
+      {{- end }}
+
+      {{- with $imgResources.GetMatch "{*feature*,*cover*}" }}
+        <figure class="feature-image !mb-20 block text-center">
+          <img
+            src="{{ .RelPermalink }}"
+            width="{{ .Width }}"
+            height="{{ .Height }}"
+            alt="{{ $.Params.FeatureCaption }}"
+          />
+          {{- with $.Params.FeatureCaption }}
+            <figcaption class="text-xs italic">{{ . |  markdownify }}</figcaption>
+          {{- end }}
+        </figure>
+      {{- end }}
+    </header>
+
+    {{ .Content }}
+  </article>
+
+  {{- if or (eq .Section "posts") (eq .Section "notes") }}
+    {{ partial "page/meta" . }}
+  {{- end }}
+{{ end }}

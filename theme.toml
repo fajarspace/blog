@@ -1,0 +1,16 @@
+name = 'Today I Learned'
+license = 'MIT'
+licenselink = 'https://github.com/michenriksen/hugo-theme-til/LICENSE'
+description = 'A Hugo theme focused on simplicity and readability. Ideal for both traditional blog posts and shorter notes that makes it easy to record and share knowledge that doesn’t need a full blog post. Perfect for quick tips, insights, and discoveries.'
+homepage = 'https://github.com/michenriken/hugo-theme-til'
+demosite = 'https://michenriksen.com/til-example-site'
+
+tags = ['blog', 'notes', 'clean', 'minimal', 'simple', 'light', 'personal', 'obsidian', 'note-taking', 'til']
+features = ['notes', 'side notes', 'admonitions', 'content graph', 'accessibility']
+
+min_version = "0.129.0"
+
+[author]
+  name = 'Michael Henriksen'
+  homepage = 'https://michenriksen.com'
+

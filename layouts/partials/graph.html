@@ -1,0 +1,5 @@
+<content-network-graph
+  class="{{ .class | default "h-96" }}"
+  data-endpoint="{{ relURL "graph/index.json" }}"
+  {{ with .page }}page="{{ .RelPermalink }}"{{ end }}
+></content-network-graph>

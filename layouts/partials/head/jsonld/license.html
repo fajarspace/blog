@@ -1,0 +1,11 @@
+{{- $license := default "none" site.Params.footer.creativeCommonsLicense -}}
+{{- $licenseData := index site.Data.cc $license -}}
+{{- $showCopyright := and site.Copyright ( ne $license "zero" ) -}}
+{{- $data := dict -}}
+{{- if $showCopyright -}}
+  {{- $data = merge $data ( dict "copyrightNotice" ( site.Copyright | plainify | htmlUnescape ) ) -}}
+{{- end -}}
+{{- with $licenseData -}}
+  {{- $data = merge $data ( dict "license" $licenseData.url ) -}}
+{{- end -}}
+{{- return $data -}}

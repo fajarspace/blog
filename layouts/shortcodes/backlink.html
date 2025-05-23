@@ -1,0 +1,12 @@
+{{- $target := index ( where site.RegularPages "File.ContentBaseName" (.Get 0) ) 0 -}}
+{{- with $target.Page.Scratch.Get "incoming" -}}
+  {{- $target.Page.Scratch.Add "incoming" $.Page -}}
+{{- else -}}
+  {{- $target.Page.Scratch.Set "incoming" ( slice $.Page ) -}}
+{{- end -}}
+{{- with $.Page.Scratch.Get "outgoing" -}}
+  {{- $.Page.Scratch.Add "outgoing" $target.Page -}}
+{{- else -}}
+  {{- $.Page.Scratch.Set "outgoing" ( slice $target.Page ) -}}
+{{- end -}}
+<a href="{{ $target.RelPermalink }}" class="backlink">{{ default $target.Title (.Get 1) }}</a>

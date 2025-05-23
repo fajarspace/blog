@@ -1,0 +1,1125 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    Templating all the things | Today I Learned
+</title>
+  <meta name="description" content="I created and released a simple CLI tool to render Go templates using data from YAML, JSON, or TOML files." />
+<meta property="og:url" content="http://localhost:1313/posts/tatt-template-all-the-things/">
+  <meta property="og:site_name" content="Today I Learned">
+  <meta property="og:title" content="Templating all the things">
+  <meta property="og:description" content="I created and released a simple CLI tool to render Go templates using data from YAML, JSON, or TOML files.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-05-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-05-22T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Templating all the things">
+  <meta itemprop="description" content="I created and released a simple CLI tool to render Go templates using data from YAML, JSON, or TOML files.">
+  <meta itemprop="datePublished" content="2024-05-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-05-22T00:00:00+00:00">
+  <meta itemprop="wordCount" content="867">
+  <meta itemprop="keywords" content="Golang,Tool,Open-Source">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Templating all the things">
+  <meta name="twitter:description" content="I created and released a simple CLI tool to render Go templates using data from YAML, JSON, or TOML files.">
+
+<link rel="canonical" href="http://localhost:1313/posts/tatt-template-all-the-things/" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+
+      <script src="/js/main.js" defer></script>
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "http://localhost:1313/posts/tatt-template-all-the-things/",
+  "@type": "BlogPosting",
+  "articleSection": [
+    "Golang",
+    "Tool",
+    "Open-Source"
+  ],
+  "copyrightNotice": "Fajar Today",
+  "datePublished": "2024-05-22",
+  "description": "I created and released a simple CLI tool to render Go templates using data from YAML, JSON, or TOML files.",
+  "headline": "Templating All the Things",
+  "isPartOf": {
+    "@id": "http://localhost:1313/posts/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "mainEntityOfPage": "http://localhost:1313/posts/tatt-template-all-the-things/",
+  "name": "Templating All the Things",
+  "timeRequired": "PT5M",
+  "url": "http://localhost:1313/posts/tatt-template-all-the-things/",
+  "wordCount": 867
+}
+</script>
+
+
+    <style>
+       
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+       
+      body {
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          sans-serif;
+        min-height: 100vh;
+      }
+
+       
+      @media (min-width: 1024px) {
+         
+        #mobile-navbar {
+          display: none;
+        }
+      }
+
+       
+      @media (max-width: 1023px) {
+        body {
+          padding-top: 4rem;  
+        }
+
+         
+        #desktop-sidebar {
+          display: none;
+        }
+      }
+
+       
+      .sidebar-title,
+      .navbar-title {
+        font-size: 1.875rem;  
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+      }
+
+      .sidebar-subtitle,
+      .navbar-subtitle {
+        font-size: 0.875rem;  
+        font-weight: 400;
+        color: #9ca3af;  
+      }
+
+      .sidebar-author {
+        font-size: 0.8125rem;  
+        font-weight: 300;
+        color: #6b7280;  
+      }
+
+      .sidebar-nav {
+        font-size: 0.9375rem;  
+        font-weight: 400;
+      }
+
+      .sidebar-nav a {
+        color: #e5e7eb;  
+        transition: all 0.2s ease;
+      }
+
+      .sidebar-nav a:hover {
+        color: #ffffff;
+        transform: translateX(4px);
+      }
+
+       
+      .mobile-menu-item {
+        color: #e5e7eb;
+        padding: 0.75rem 1.5rem;
+        display: block;
+        transition: all 0.2s ease;
+        font-size: 1rem;
+      }
+
+      .mobile-menu-item:hover {
+        background-color: #1f2937;
+        color: #ffffff;
+      }
+
+       
+      #desktop-sidebar,
+      #mobile-navbar {
+        background-color: #121212;
+      }
+
+       
+      .social-icon {
+        background-color: #1f2937;  
+        transition: all 0.2s ease;
+      }
+
+      .social-icon:hover {
+        background-color: #374151;  
+        transform: scale(1.05);
+      }
+
+       
+      .navbar-title {
+        font-size: 1.5rem;  
+      }
+
+       
+      #mobile-dropdown {
+        transform-origin: top;
+        transition: all 0.3s ease;
+      }
+
+      #mobile-dropdown.hidden {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+
+      #mobile-dropdown:not(.hidden) {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <aside id="desktop-sidebar" class="fixed bottom-0 left-0 top-0 z-40 h-full w-64 p-5 text-white">
+  <div class="flex h-full flex-col justify-between p-6">
+    <div>
+      
+      <div class="mb-12">
+        <a href="/">
+          <h1 class="text-3xl font-semibold leading-tight tracking-tight text-white">Today</h1>
+          <p class="mt-1 text-sm font-normal text-gray-400">I Learned</p>
+          <p class="mt-2 text-xs font-light text-gray-500">by Fajar A Nugroho</p>
+        </a>
+      </div>
+
+      
+        <nav class="space-y-5 text-[15px] font-normal">
+          <ul>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/notes/">
+      <span class="mr-3 text-lg">→</span> <span>Notes</span></a
+    >
+  </li>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" aria-current="true" class="text-white" href="/posts/">
+      <span class="mr-3 text-lg">→</span> <span>Posts</span></a
+    >
+  </li>
+
+          </ul>
+        </nav>
+    </div>
+
+    
+    <div class="mt-8 flex space-x-3">
+      
+    </div>
+  </div>
+</aside>
+
+
+<nav
+  id="mobile-navbar"
+  class="fixed left-0 right-0 top-0 z-50 bg-black text-white shadow-lg lg:hidden"
+>
+  <div class="flex items-center justify-between px-4 py-3">
+    
+    <div class="flex items-center space-x-2">
+      <h1 class="navbar-title text-white">Today</h1>
+      <span class="navbar-subtitle">I Learned</span>
+    </div>
+
+    
+    <button
+      id="mobile-menu-toggle"
+      class="rounded-lg bg-gray-800 p-2 transition-colors hover:bg-gray-700"
+      aria-label="Toggle menu"
+    >
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+          class="menu-icon"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+          class="close-icon hidden"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  
+  <div id="mobile-dropdown" class="hidden border-t border-gray-800 bg-black">
+    
+      <nav class="space-y-5 p-5 text-[15px] font-normal">
+        <ul>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/notes/">
+      <span class="mr-3 text-lg">→</span> <span>Notes</span></a
+    >
+  </li>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" aria-current="true" class="text-white" href="/posts/">
+      <span class="mr-3 text-lg">→</span> <span>Posts</span></a
+    >
+  </li>
+
+        </ul>
+      </nav>
+
+  </div>
+</nav>
+
+
+
+    
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        
+
+
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">Templating All the Things</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2024-05-22T00:00:00&#43;00:00"
+            >May 22, 2024</time
+          >
+        </div>
+    </header>
+
+    <p class="lead">I created and released a simple CLI tool to render Go templates using data from YAML, JSON, or TOML files.</p>
+<p>Lately, I&rsquo;ve frequently used <a href="https://pkg.go.dev/text/template">Go&rsquo;s text/template</a> package for small, one-off tasks
+where I needed to generate specific data formats from simple data.</p>
+<p>Go&rsquo;s templating system offers a robust way to generate textual output, but it always requires some glue code to parse
+the templates and render them with dynamic data.</p>
+<p>To simplify this process, I created a command-line tool called <span class="sidenote">
+  <input
+    aria-label="Show sidenote"
+    type="checkbox"
+    id="sidenote-checkbox-01"
+    class="sidenote-checkbox hidden"
+  />
+  <label
+    tabindex="0"
+    role="mark"
+    aria-details="sidenote-01"
+    for="sidenote-checkbox-01"
+    class="sidenote-mark"
+    >tatt.</label
+  >
+  <small id="sidenote-01" class="sidenote-content">
+    <span class="sr-only"> (sidenote: </span>Acronym for Template All The Things.<span class="sr-only">)</span>
+  </small>
+</span>
+ With tatt, you only need to write the template and provide the data in a parsable format. It&rsquo;s available as open-source under the MIT license at <a href="https://github.com/michenriksen/tatt">https://github.com/michenriksen/tatt</a>.</p>
+<h3 id="usage-example-generating-semgrep-rules" class="scroll-mt-8 group">
+  Usage example: Generating Semgrep rules
+  
+    <a href="#usage-example-generating-semgrep-rules"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>To demonstrate how to use <strong>tatt</strong>, I&rsquo;ll share a recent real-world task I solved with it. I needed to create a
+collection of <a href="https://semgrep.dev/">Semgrep</a> rules to detect the usage of clients from the <a href="https://github.com/aws/aws-sdk-js">JavaScript AWS SDK</a>.</p>
+<p>The SDK has a large number of clients, and Semgrep rules are defined in YAML, making this a perfect task for tatt.</p>
+<h4 id="step-1-defining-the-template" class="scroll-mt-8 group">
+  Step 1: Defining the template
+  
+    <a href="#step-1-defining-the-template"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>First thing is to define a template that loops over a list of objects containing client information to create a Semgrep
+rule for each client in the SDK:</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">go-template</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-01 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-01"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">go-template code snippet start</p>
+  <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go-template" data-lang="go-template"><span class="line"><span class="cl"><span class="x">---
+</span></span></span><span class="line"><span class="cl"><span class="x">rules:
+</span></span></span><span class="line"><span class="cl"><span class="x">  </span><span class="cp">{{-</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="na">.Clients</span><span class="w"> </span><span class="cp">}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="x">  - id: AWS</span><span class="cp">{{</span><span class="na">.Client</span><span class="cp">}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="x">    patterns:
+</span></span></span><span class="line"><span class="cl"><span class="x">      - pattern-either:
+</span></span></span><span class="line"><span class="cl"><span class="x">          - pattern-inside: |
+</span></span></span><span class="line"><span class="cl"><span class="x">              $IMPORT = require(&#39;aws-sdk&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="x">              ...
+</span></span></span><span class="line"><span class="cl"><span class="x">          - pattern-inside: |
+</span></span></span><span class="line"><span class="cl"><span class="x">              import { $CLIENT } from &#39;aws-sdk/clients/</span><span class="cp">{{</span><span class="na">.File</span><span class="cp">}}</span><span class="x">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="x">              ...
+</span></span></span><span class="line"><span class="cl"><span class="x">      - pattern-either:
+</span></span></span><span class="line"><span class="cl"><span class="x">          - pattern: new $IMPORT.</span><span class="cp">{{</span><span class="na">.Client</span><span class="cp">}}</span><span class="x">(...)
+</span></span></span><span class="line"><span class="cl"><span class="x">          - pattern: new $CLIENT(...)
+</span></span></span><span class="line"><span class="cl"><span class="x">    message: AWS </span><span class="cp">{{</span><span class="na">.Client</span><span class="cp">}}</span><span class="x"> detected
+</span></span></span><span class="line"><span class="cl"><span class="x">    severity: INFO
+</span></span></span><span class="line"><span class="cl"><span class="x">    metadata:
+</span></span></span><span class="line"><span class="cl"><span class="x">      features:
+</span></span></span><span class="line"><span class="cl"><span class="x">        - aws
+</span></span></span><span class="line"><span class="cl"><span class="x">        </span><span class="cp">{{-</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="na">.Features</span><span class="w"> </span><span class="cp">}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="x">        </span><span class="cp">{{-</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="na">.</span><span class="w"> </span><span class="cp">}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="x">        - </span><span class="cp">{{</span><span class="na">.</span><span class="cp">}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="x">        </span><span class="cp">{{-</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cp">}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="x">        </span><span class="cp">{{-</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cp">}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="x">      lang: javascript
+</span></span></span><span class="line"><span class="cl"><span class="x">    languages:
+</span></span></span><span class="line"><span class="cl"><span class="x">      - javascript
+</span></span></span><span class="line"><span class="cl"><span class="x">      - typescript
+</span></span></span><span class="line"><span class="cl"><span class="x">  </span><span class="cp">{{-</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cp">}}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+  <p class="sr-only">go-template code snippet end</p>
+
+  
+</figure>
+<p>Based on the template, here are the data requirements for each client:</p>
+<ol>
+<li>The <code>.Client</code> field needs the class name for the rule ID, message, and to detect client instantiation.</li>
+<li>The <code>.File</code> field needs the file name (without extension) to detect client imports.</li>
+<li>A list of <code>.Features</code> can be defined for specific clients to enrich the metadata.</li>
+</ol>
+<h3 id="step-2-extracting-the-client-data" class="scroll-mt-8 group">
+  Step 2: Extracting the client data
+  
+    <a href="#step-2-extracting-the-client-data"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>As mentioned, the AWS SDK contains many clients, so we can use <code>grep</code> and <code>awk</code> to gather most of the client data.
+After cloning the <a href="https://github.com/aws/aws-sdk-js">AWS SDK repository</a>, it&rsquo;s fairly easy to extract the raw data we
+need:</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-02">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">bash-session</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-02 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-02"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">bash-session code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash-session" data-lang="bash-session"><span class="line"><span class="cl"><span class="gp">$</span> <span class="nb">cd</span> aws-sdk-js/clients
+</span></span><span class="line"><span class="cl"><span class="gp">$</span> grep -oE <span class="s1">&#39;AWS\.\w+ = &#39;</span> *.js
+</span></span><span class="line"><span class="cl"><span class="go">accessanalyzer.js:AWS.AccessAnalyzer =
+</span></span></span><span class="line"><span class="cl"><span class="go">account.js:AWS.Account =
+</span></span></span><span class="line"><span class="cl"><span class="go">acm.js:AWS.ACM =
+</span></span></span><span class="line"><span class="cl"><span class="go">acmpca.js:AWS.ACMPCA =
+</span></span></span><span class="line"><span class="cl"><span class="go">amp.js:AWS.Amp =
+</span></span></span><span class="line"><span class="cl"><span class="go">amplify.js:AWS.Amplify =
+</span></span></span><span class="line"><span class="cl"><span class="go">amplifybackend.js:AWS.AmplifyBackend =
+</span></span></span><span class="line"><span class="cl"><span class="go">amplifyuibuilder.js:AWS.AmplifyUIBuilder =
+</span></span></span><span class="line"><span class="cl"><span class="go">. . .
+</span></span></span><span class="line"><span class="cl"><span class="go">wisdom.js:AWS.Wisdom =
+</span></span></span><span class="line"><span class="cl"><span class="go">workdocs.js:AWS.WorkDocs =
+</span></span></span><span class="line"><span class="cl"><span class="go">worklink.js:AWS.WorkLink =
+</span></span></span><span class="line"><span class="cl"><span class="go">workmail.js:AWS.WorkMail =
+</span></span></span><span class="line"><span class="cl"><span class="go">workmailmessageflow.js:AWS.WorkMailMessageFlow =
+</span></span></span><span class="line"><span class="cl"><span class="go">workspaces.js:AWS.WorkSpaces =
+</span></span></span><span class="line"><span class="cl"><span class="go">workspacesthinclient.js:AWS.WorkSpacesThinClient =
+</span></span></span><span class="line"><span class="cl"><span class="go">workspacesweb.js:AWS.WorkSpacesWeb =
+</span></span></span><span class="line"><span class="cl"><span class="go">xray.js:AWS.XRay =
+</span></span></span></code></pre></div>
+  <p class="sr-only">bash-session code snippet end</p>
+
+  
+</figure>
+<p>The <code>grep</code> command extracts all client class declarations along with the files where they are found. We can then use
+<code>sed</code> and <code>awk</code> to process this data into a list of client information in YAML format:</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-03">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">bash-session</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-03 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-03"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">bash-session code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash-session" data-lang="bash-session"><span class="line"><span class="cl"><span class="gp">$</span> grep -oE <span class="s1">&#39;AWS\.\w+ = &#39;</span> *.js <span class="p">|</span> sed <span class="s1">&#39;s/\.js:AWS\./:/&#39;</span> <span class="p">|</span> awk -F <span class="s1">&#39;[:,=]&#39;</span> <span class="s1">&#39;{printf &#34;  - Client: %s\n    File: %s\n&#34;, $2, $1}&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="go">  - Client: AccessAnalyzer
+</span></span></span><span class="line"><span class="cl"><span class="go">    File: accessanalyzer
+</span></span></span><span class="line"><span class="cl"><span class="go">  - Client: Account
+</span></span></span><span class="line"><span class="cl"><span class="go">    File: account
+</span></span></span><span class="line"><span class="cl"><span class="go">  - Client: ACM
+</span></span></span><span class="line"><span class="cl"><span class="go">    File: acm
+</span></span></span><span class="line"><span class="cl"><span class="go">  - Client: ACMPCA
+</span></span></span><span class="line"><span class="cl"><span class="go">    File: acmpca
+</span></span></span><span class="line"><span class="cl"><span class="go">. . .
+</span></span></span><span class="line"><span class="cl"><span class="go">  - Client: WorkMailMessageFlow
+</span></span></span><span class="line"><span class="cl"><span class="go">    File: workmailmessageflow
+</span></span></span><span class="line"><span class="cl"><span class="go">  - Client: WorkSpaces
+</span></span></span><span class="line"><span class="cl"><span class="go">    File: workspaces
+</span></span></span><span class="line"><span class="cl"><span class="go">  - Client: WorkSpacesThinClient
+</span></span></span><span class="line"><span class="cl"><span class="go">    File: workspacesthinclient
+</span></span></span><span class="line"><span class="cl"><span class="go">  - Client: WorkSpacesWeb
+</span></span></span><span class="line"><span class="cl"><span class="go">    File: workspacesweb
+</span></span></span><span class="line"><span class="cl"><span class="go">  - Client: XRay
+</span></span></span><span class="line"><span class="cl"><span class="go">    File: xray
+</span></span></span></code></pre></div>
+  <p class="sr-only">bash-session code snippet end</p>
+
+  
+</figure>
+<p>Finally, copy and paste the output into a file under the <code>Clients</code> field to create the final data file:</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-04">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">yaml</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-04 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-04"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">yaml code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Clients</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">Client</span><span class="p">:</span><span class="w"> </span><span class="l">AccessAnalyzer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">File</span><span class="p">:</span><span class="w"> </span><span class="l">accessanalyzer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">Client</span><span class="p">:</span><span class="w"> </span><span class="l">Account</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">File</span><span class="p">:</span><span class="w"> </span><span class="l">account</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">Client</span><span class="p">:</span><span class="w"> </span><span class="l">ACM</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">File</span><span class="p">:</span><span class="w"> </span><span class="l">acm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">Client</span><span class="p">:</span><span class="w"> </span><span class="l">ACMPCA</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">File</span><span class="p">:</span><span class="w"> </span><span class="l">acmpca</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">. . .</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">Client</span><span class="p">:</span><span class="w"> </span><span class="l">WorkMailMessageFlow</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">File</span><span class="p">:</span><span class="w"> </span><span class="l">workmailmessageflow</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">Client</span><span class="p">:</span><span class="w"> </span><span class="l">WorkSpaces</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">File</span><span class="p">:</span><span class="w"> </span><span class="l">workspaces</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">Client</span><span class="p">:</span><span class="w"> </span><span class="l">WorkSpacesThinClient</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">File</span><span class="p">:</span><span class="w"> </span><span class="l">workspacesthinclient</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">Client</span><span class="p">:</span><span class="w"> </span><span class="l">WorkSpacesWeb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">File</span><span class="p">:</span><span class="w"> </span><span class="l">workspacesweb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">Client</span><span class="p">:</span><span class="w"> </span><span class="l">XRay</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">File</span><span class="p">:</span><span class="w"> </span><span class="l">xray</span></span></span></code></pre></div>
+  <p class="sr-only">yaml code snippet end</p>
+
+  
+</figure>
+<h3 id="step-3-rendering-the-template" class="scroll-mt-8 group">
+  Step 3: Rendering the template
+  
+    <a href="#step-3-rendering-the-template"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>With the template and data ready, it&rsquo;s possible to have tatt do the rest of the work:</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-05">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">bash-session</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-05 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-05"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">bash-session code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash-session" data-lang="bash-session"><span class="line"><span class="cl"><span class="gp">$</span> tatt --data semgrep_aws-sdk-js-clients.data.yaml semgrep_aws-sdk-js-clients.yaml.tmpl
+</span></span><span class="line"><span class="cl"><span class="go">---
+</span></span></span><span class="line"><span class="cl"><span class="go">rules:
+</span></span></span><span class="line"><span class="cl"><span class="go">  - id: AWSAccessAnalyzer
+</span></span></span><span class="line"><span class="cl"><span class="go">    patterns:
+</span></span></span><span class="line"><span class="cl"><span class="go">      - pattern-either:
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern-inside: |
+</span></span></span><span class="line"><span class="cl"><span class="go">              $IMPORT = require(&#39;aws-sdk&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="go">              ...
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern-inside: |
+</span></span></span><span class="line"><span class="cl"><span class="go">              import { $CLIENT } from &#39;aws-sdk/clients/accessanalyzer&#39;
+</span></span></span><span class="line"><span class="cl"><span class="go">              ...
+</span></span></span><span class="line"><span class="cl"><span class="go">      - pattern-either:
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern: new $IMPORT.AccessAnalyzer(...)
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern: new $CLIENT(...)
+</span></span></span><span class="line"><span class="cl"><span class="go">    message: AWS AccessAnalyzer detected
+</span></span></span><span class="line"><span class="cl"><span class="go">    severity: INFO
+</span></span></span><span class="line"><span class="cl"><span class="go">    metadata:
+</span></span></span><span class="line"><span class="cl"><span class="go">      features:
+</span></span></span><span class="line"><span class="cl"><span class="go">        - aws
+</span></span></span><span class="line"><span class="cl"><span class="go">      lang: javascript
+</span></span></span><span class="line"><span class="cl"><span class="go">    languages:
+</span></span></span><span class="line"><span class="cl"><span class="go">      - javascript
+</span></span></span><span class="line"><span class="cl"><span class="go">      - typescript
+</span></span></span><span class="line"><span class="cl"><span class="go">  - id: AWSAccount
+</span></span></span><span class="line"><span class="cl"><span class="go">    patterns:
+</span></span></span><span class="line"><span class="cl"><span class="go">      - pattern-either:
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern-inside: |
+</span></span></span><span class="line"><span class="cl"><span class="go">              $IMPORT = require(&#39;aws-sdk&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="go">              ...
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern-inside: |
+</span></span></span><span class="line"><span class="cl"><span class="go">. . .
+</span></span></span><span class="line"><span class="cl"><span class="go">  languages:
+</span></span></span><span class="line"><span class="cl"><span class="go">      - javascript
+</span></span></span><span class="line"><span class="cl"><span class="go">      - typescript
+</span></span></span><span class="line"><span class="cl"><span class="go">  - id: AWSXRay
+</span></span></span><span class="line"><span class="cl"><span class="go">    patterns:
+</span></span></span><span class="line"><span class="cl"><span class="go">      - pattern-either:
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern-inside: |
+</span></span></span><span class="line"><span class="cl"><span class="go">              $IMPORT = require(&#39;aws-sdk&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="go">              ...
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern-inside: |
+</span></span></span><span class="line"><span class="cl"><span class="go">              import { $CLIENT } from &#39;aws-sdk/clients/xray&#39;
+</span></span></span><span class="line"><span class="cl"><span class="go">              ...
+</span></span></span><span class="line"><span class="cl"><span class="go">      - pattern-either:
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern: new $IMPORT.XRay(...)
+</span></span></span><span class="line"><span class="cl"><span class="go">          - pattern: new $CLIENT(...)
+</span></span></span><span class="line"><span class="cl"><span class="go">    message: AWS XRay detected
+</span></span></span><span class="line"><span class="cl"><span class="go">    severity: INFO
+</span></span></span><span class="line"><span class="cl"><span class="go">    metadata:
+</span></span></span><span class="line"><span class="cl"><span class="go">      features:
+</span></span></span><span class="line"><span class="cl"><span class="go">        - aws
+</span></span></span><span class="line"><span class="cl"><span class="go">      lang: javascript
+</span></span></span><span class="line"><span class="cl"><span class="go">    languages:
+</span></span></span><span class="line"><span class="cl"><span class="go">      - javascript
+</span></span></span><span class="line"><span class="cl"><span class="go">      - typescript
+</span></span></span></code></pre></div>
+  <p class="sr-only">bash-session code snippet end</p>
+
+  
+</figure>
+<p>tatt prints the rendered template to standard out, but this can of course be redirected to a file if needed.</p>
+<p>For more information and installation instructions, see the <a href="https://github.com/michenriksen/tatt">project README</a>.</p>
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-shapes h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
+  />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+</svg>
+
+        <span>Categories</span>
+      </h2>
+
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/categories/golang/" class="taxonomy category">Golang</a>
+          </li>
+          <li>
+            <a href="/categories/tool/" class="taxonomy category">tool</a>
+          </li>
+          <li>
+            <a href="/categories/open-source/" class="taxonomy category">open-source</a>
+          </li>
+      </ul>
+    </section>
+    <section class="flex flex-col space-y-4" aria-hidden="true">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-chart-network h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="m13.11 7.664 1.78 2.672M14.162 12.788l-3.324 1.424M20 4l-6.06 1.515M3 3v16a2 2 0 0 0 2 2h16"
+  />
+  <circle cx="12" cy="6" r="2" />
+  <circle cx="16" cy="12" r="2" />
+  <circle cx="9" cy="15" r="2" />
+</svg>
+
+        <span>Graph</span>
+      </h2>
+
+      <content-network-graph
+  class="h-64 ml-6"
+  data-endpoint="/graph/index.json"
+  page="/posts/tatt-template-all-the-things/"
+></content-network-graph>
+
+    </section>
+</aside>
+
+
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2025, Fajar Today.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('mobile-menu-toggle');
+        const dropdown = document.getElementById('mobile-dropdown');
+        const menuIcon = toggleButton.querySelector('.menu-icon');
+        const closeIcon = toggleButton.querySelector('.close-icon');
+
+        
+        function toggleDropdown() {
+          const isOpen = !dropdown.classList.contains('hidden');
+
+          if (isOpen) {
+            
+            dropdown.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+          } else {
+            
+            dropdown.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+          }
+        }
+
+        
+        toggleButton.addEventListener('click', toggleDropdown);
+
+        
+        document.addEventListener('click', function (e) {
+          if (
+            !toggleButton.contains(e.target) &&
+            !dropdown.contains(e.target) &&
+            !dropdown.classList.contains('hidden')
+          ) {
+            toggleDropdown();
+          }
+        });
+
+        
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !dropdown.classList.contains('hidden')) {
+            toggleDropdown();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

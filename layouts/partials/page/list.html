@@ -1,0 +1,32 @@
+<ol class="not-prose {{ .class }}">
+  {{- range .pages }}
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="{{ .RelPermalink }}"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="{{ .Title }}"
+              >{{ .Title | title }}</a
+            >
+          </h3>
+        </header>
+        {{- with .Page.GetTerms "categories" }}
+          <ul class="flex flex-row items-center justify-end space-x-2">
+            {{- range . }}
+              <li>
+                <a
+                  href="{{ .RelPermalink }}"
+                  class="taxonomy"
+                  title="Posts and notes on {{ .LinkTitle }}"
+                  >{{ .LinkTitle }}</a
+                >
+              </li>
+            {{- end }}
+          </ul>
+        {{- end }}
+      </article>
+    </li>
+  {{- end }}
+</ol>

@@ -1,0 +1,42 @@
+{{- $title := .Title | plainify | htmlUnescape | chomp | title -}}
+{{- $description := or .Description .Summary | plainify | htmlUnescape | chomp -}}
+{{- $keywords := slice -}}
+{{- with .Keywords -}}
+  {{- $keywords = . -}}
+{{- end -}}
+{{- range .GetTerms "tags" -}}
+  {{- $keywords = $keywords | append .Title -}}
+{{- end -}}
+{{- $keywords = uniq ( sort $keywords ) -}}
+{{- $categories := slice -}}
+{{- range .GetTerms "categories" -}}
+  {{- $categories = $categories | append .Title -}}
+{{- end -}}
+{{- $data := dict
+  "@context" "https://schema.org/"
+  "@type" "BlogPosting"
+  "@id" .Permalink
+  "mainEntityOfPage" .Permalink
+  "headline" $title
+  "name" $title
+  "description" $description
+  "datePublished" ( .Date.Format "2006-01-02" )
+  "url" .Permalink
+  "wordCount" .WordCount
+  "timeRequired" ( printf "PT%dM" .ReadingTime )
+  "isPartOf" ( dict
+  "@type" "Blog"
+  "@id" .CurrentSection.Permalink
+  "name" ( .CurrentSection.Title | plainify | htmlUnescape | chomp | title )
+  )
+-}}
+{{- if lt ( .Date.AddDate 0 0 2 ) .Lastmod -}}
+  {{- $data = merge $data ( dict "dateModified" ( .Lastmod.Format "2006-01-02" ) ) -}}
+{{- end -}}
+{{- with $keywords -}}
+  {{- $data = merge $data ( dict "keywords" $keywords ) -}}
+{{- end -}}
+{{- with $categories -}}
+  {{- $data = merge $data ( dict "articleSection" . ) -}}
+{{- end -}}
+{{- return $data -}}

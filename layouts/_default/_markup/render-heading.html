@@ -1,0 +1,10 @@
+<h{{ add .Level 1 }} id="{{ .Anchor | safeURL }}" class="scroll-mt-8 group">
+  {{ .Text | safeHTML }}
+  {{ with partial "svg/Link.html" }}
+    <a href="#{{ $.Anchor | safeURL }}"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        {{ . | safeHTML }}
+    </a>
+  {{ end }}
+</h{{ add .Level 1 }}>

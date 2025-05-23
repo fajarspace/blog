@@ -1,0 +1,18 @@
+{{- $title := cond .IsHome site.Title .Title | plainify | htmlUnescape | chomp | title -}}
+{{- $description := or .Description .Summary site.Params.description | plainify | htmlUnescape | chomp -}}
+{{- $author := partial "head/jsonld/author" . -}}
+{{- $license := partial "head/jsonld/license" . -}}
+{{- $data := dict
+  "@context" "https://schema.org"
+  "@type" "WebPage"
+  "headline" ( $title | plainify | htmlUnescape | title )
+  "description" ( $description | plainify | htmlUnescape )
+-}}
+{{- if and .IsPage ( or ( eq .Section "posts" ) ( eq .Section "notes" ) ) -}}
+  {{- $data = merge $data ( partial "head/jsonld/blogPosting" . ) -}}
+{{- end -}}
+{{- with $author -}}{{ $data = merge $data ( dict "author" . ) }}{{- end -}}
+{{- with $license -}}{{ $data = merge $data . }}{{- end -}}
+<script type="application/ld+json">
+{{ jsonify (dict "indent" "  ") $data | safeJS }}
+</script>

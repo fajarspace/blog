@@ -1,0 +1,147 @@
+{{- $noop := partialCached "functions/linkable-pages" . -}}
+{{- $incomingPosts := slice -}}
+{{- $outgoingPosts := slice -}}
+{{- $incomingNotes := slice -}}
+{{- $outgoingNotes := slice -}}
+{{- with .Scratch.Get "incoming" -}}
+  {{- $incomingPosts = where . "Section" "posts" -}}
+  {{- $incomingNotes = where . "Section" "notes" -}}
+{{- end -}}
+{{- with .Scratch.Get "outgoing" -}}
+  {{- $outgoingNotes = where . "Section" "notes" -}}
+  {{- $outgoingPosts = where . "Section" "posts" -}}
+{{- end -}}
+{{- $relatedPosts := where (.Site.RegularPages.Related .) "Section" "posts" | first 5 -}}
+{{- $relatedNotes := where (.Site.RegularPages.Related .) "Section" "notes" | first 5 -}}
+{{- $postsCount := add ( len $incomingPosts ) ( len $outgoingPosts ) ( len $relatedPosts ) -}}
+{{- $notesCount := add ( len $incomingNotes ) ( len $outgoingNotes ) ( len $relatedNotes ) -}}
+<aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+  {{- with .GetTerms "categories" }}
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        {{ partial "svg/shapes" }}
+        <span>Categories</span>
+      </h2>
+
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+        {{- range . }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="taxonomy category">{{ .Name }}</a>
+          </li>
+        {{- end }}
+      </ul>
+    </section>
+  {{- end }}
+
+  {{- with .GetTerms "tags" }}
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        {{ partial "svg/tags" }}
+        <span>Tags</span>
+      </h2>
+
+      <ul class="not-prose ml-6 flex flex-row flex-wrap items-center space-x-2">
+        {{- range . }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="taxonomy tag">{{ .Name }}</a>
+          </li>
+        {{- end }}
+      </ul>
+    </section>
+  {{- end }}
+
+  {{- if default true site.Params.showGraph }}
+    <section class="flex flex-col space-y-4" aria-hidden="true">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        {{ partial "svg/chart-network" }}
+        <span>Graph</span>
+      </h2>
+
+      {{ partial "graph" ( dict "page" . "class" "h-64 ml-6" ) }}
+    </section>
+  {{- end }}
+
+  {{- if gt $postsCount 0 }}
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        {{ partial "svg/newspaper" }}
+        <span>Posts</span>
+      </h2>
+
+      {{- with $incomingPosts }}
+        <section class="flex flex-col space-y-1">
+          <h3 class="flex flex-row items-center space-x-2 text-sm font-semibold">
+            {{ partial "svg/arrow-down-to-dot" }}
+            <span>Incoming</span>
+          </h3>
+
+          {{ partial "page/list" ( dict "pages" . "class" "ml-6" ) }}
+        </section>
+      {{- end }}
+
+      {{- with $outgoingPosts }}
+        <section class="flex flex-col space-y-1">
+          <h3 class="flex flex-row items-center space-x-2 text-sm font-semibold">
+            {{ partial "svg/arrow-up-from-dot" }}
+            <span>Outgoing</span>
+          </h3>
+
+          {{ partial "page/list" ( dict "pages" . "class" "ml-6" ) }}
+        </section>
+      {{- end }}
+
+      {{- with $relatedPosts }}
+        <section class="flex flex-col space-y-1">
+          <h3 class="flex flex-row items-center space-x-2 text-sm font-semibold">
+            {{ partial "svg/approximate-equals" }}
+            <span>Related</span>
+          </h3>
+
+          {{ partial "page/list" ( dict "pages" . "class" "ml-6" ) }}
+        </section>
+      {{- end }}
+    </section>
+  {{- end }}
+
+  {{- if gt $notesCount 0 }}
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        {{ partial "svg/notebook-text" }}
+        <span>Notes</span>
+      </h2>
+
+      {{- with $incomingNotes }}
+        <section class="flex flex-col space-y-1">
+          <h3 class="flex flex-row items-center space-x-2 text-sm font-semibold">
+            {{ partial "svg/arrow-down-to-dot" }}
+            <span>Incoming</span>
+          </h3>
+
+          {{ partial "page/list" ( dict "pages" . "class" "ml-6" ) }}
+        </section>
+      {{- end }}
+
+      {{- with $outgoingNotes }}
+        <section class="flex flex-col space-y-1">
+          <h3 class="flex flex-row items-center space-x-2 text-sm font-semibold">
+            {{ partial "svg/arrow-up-from-dot" }}
+            <span>Outgoing</span>
+          </h3>
+
+          {{ partial "page/list" ( dict "pages" . "class" "ml-6" ) }}
+        </section>
+      {{- end }}
+
+      {{- with $relatedNotes }}
+        <section class="flex flex-col space-y-1">
+          <h3 class="flex flex-row items-center space-x-2 text-sm font-semibold">
+            {{ partial "svg/approximate-equals" }}
+            <span>Related</span>
+          </h3>
+
+          {{ partial "page/list" ( dict "pages" . "class" "ml-6" ) }}
+        </section>
+      {{- end }}
+    </section>
+  {{- end }}
+</aside>

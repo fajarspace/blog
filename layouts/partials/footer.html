@@ -1,0 +1,50 @@
+{{- $license := default "none" site.Params.footer.creativeCommonsLicense -}}
+{{- $licenseData := index site.Data.til.cc $license -}}
+{{- $showCopyright := and site.Copyright ( ne $license "zero" ) -}}
+<section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+    {{- if $showCopyright }}
+      <p>Copyright &copy; {{ now.Year }}, {{ default "all rights reserved" site.Copyright }}.</p>
+    {{- end }}
+
+    {{- with $licenseData }}
+      <div
+        xmlns:cc="https://creativecommons.org/ns#"
+        xmlns:dct="http://purl.org/dc/terms/"
+        about="https://creativecommons.org"
+      >
+        Content is available under
+        <a href="{{ .url }}" rel="license" class="inline-block" title="Creative Commons {{ .name }}"
+          >{{ .abbr }}</a
+        >
+        unless otherwise noted.
+      </div>
+      {{- if (default true site.Params.footer.showCreativeCommonsIcons) }}
+        <div
+          class="mt-2 flex items-center space-x-2 fill-slate-400 hover:fill-slate-600 motion-safe:transition-colors"
+        >
+          <div class="flex-none cursor-help">{{ partial "svg/cc.html" }}</div>
+          {{- range .elements -}}
+            <div class="flex-none cursor-help">{{ partial ( printf "svg/cc-%s.html" . ) }}</div>
+          {{- end }}
+        </div>
+      {{- end }}
+    {{- else }}
+      {{- if ne $license "none" }}
+        {{- errorf "unknown %q CC license specified in hugo.toml" $license -}}
+      {{- end }}
+    {{- end }}
+
+  </div>
+
+  {{- if default true site.Params.footer.showThemeCredit }}
+    <div>
+      <a
+        href="{{ site.Data.til.meta.themeUrl }}"
+        title="{{ site.Data.til.meta.themeName }} &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="{{ site.Data.til.meta.themeVersion }}"
+        >theme: til</a
+      >
+    </div>
+  {{- end }}
+</section>

@@ -1,0 +1,25 @@
+{{- $pages := partialCached "functions/linkable-pages" . -}}
+{{- $pageDict := dict -}}
+{{- $graphDict := dict -}}
+{{- range $pages -}}
+  {{- $noop := .Content -}}
+  {{- $pageDict = merge $pageDict ( dict .RelPermalink ( dict
+    "permalink" .RelPermalink
+    "title" ( .Title | plainify | htmlUnescape | chomp | title )
+    "section" .Section
+    )
+    )
+    -}}
+{{- end -}}
+{{- range $pages -}}
+  {{- $incoming := slice -}}
+  {{- $outgoing := slice -}}
+  {{- range .Scratch.Get "incoming" -}}
+    {{- $incoming = $incoming | append .RelPermalink -}}
+  {{- end -}}
+  {{- range .Scratch.Get "outgoing" -}}
+    {{- $outgoing = $outgoing | append .RelPermalink -}}
+  {{- end -}}
+  {{- $graphDict = merge $graphDict ( dict .RelPermalink ( dict "in" $incoming "out" $outgoing ) ) -}}
+{{- end -}}
+{{ jsonify (dict "indent" "  ") ( dict "pages" $pageDict "graph" $graphDict ) }}

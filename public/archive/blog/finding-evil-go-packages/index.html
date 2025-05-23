@@ -1,0 +1,648 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    Finding Evil Go Packages | Today I Learned
+</title>
+  <meta name="description" content="Because of the big SolarWinds hack and the recent blog post describing a new Dependency Confusion attack, there has been a lot of talk lately about supply chain attacks, the sneaky technique of compromising less secure elements in a supply chain to compromise more secure targets.
+A popular target for supply chain attacks has always been the many package management systems for popular programming languages such as NPM for JavaScript, Rubygems for Ruby, and PyPI for Python. These systems have been plagued for years by malicious actors uploading malicious packages and waiting for victims to install them." />
+<meta property="og:url" content="http://localhost:1313/archive/blog/finding-evil-go-packages/">
+  <meta property="og:site_name" content="Today I Learned">
+  <meta property="og:title" content="Finding Evil Go Packages">
+  <meta property="og:description" content="Because of the big SolarWinds hack and the recent blog post describing a new Dependency Confusion attack, there has been a lot of talk lately about supply chain attacks, the sneaky technique of compromising less secure elements in a supply chain to compromise more secure targets.
+A popular target for supply chain attacks has always been the many package management systems for popular programming languages such as NPM for JavaScript, Rubygems for Ruby, and PyPI for Python. These systems have been plagued for years by malicious actors uploading malicious packages and waiting for victims to install them.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="archive">
+    <meta property="article:published_time" content="2021-02-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-02-28T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Finding Evil Go Packages">
+  <meta itemprop="description" content="Because of the big SolarWinds hack and the recent blog post describing a new Dependency Confusion attack, there has been a lot of talk lately about supply chain attacks, the sneaky technique of compromising less secure elements in a supply chain to compromise more secure targets.
+A popular target for supply chain attacks has always been the many package management systems for popular programming languages such as NPM for JavaScript, Rubygems for Ruby, and PyPI for Python. These systems have been plagued for years by malicious actors uploading malicious packages and waiting for victims to install them.">
+  <meta itemprop="datePublished" content="2021-02-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-02-28T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1291">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Finding Evil Go Packages">
+  <meta name="twitter:description" content="Because of the big SolarWinds hack and the recent blog post describing a new Dependency Confusion attack, there has been a lot of talk lately about supply chain attacks, the sneaky technique of compromising less secure elements in a supply chain to compromise more secure targets.
+A popular target for supply chain attacks has always been the many package management systems for popular programming languages such as NPM for JavaScript, Rubygems for Ruby, and PyPI for Python. These systems have been plagued for years by malicious actors uploading malicious packages and waiting for victims to install them.">
+
+<link rel="canonical" href="http://localhost:1313/archive/blog/finding-evil-go-packages/" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+
+      <script src="/js/main.js" defer></script>
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "copyrightNotice": "Fajar Today",
+  "description": "Because of the big SolarWinds hack and the recent blog post describing a new Dependency Confusion attack, there has been a lot of talk lately about supply chain attacks, the sneaky technique of compromising less secure elements in a supply chain to compromise more secure targets.\nA popular target for supply chain attacks has always been the many package management systems for popular programming languages such as NPM for JavaScript, Rubygems for Ruby, and PyPI for Python. These systems have been plagued for years by malicious actors uploading malicious packages and waiting for victims to install them.",
+  "headline": "Finding Evil Go Packages"
+}
+</script>
+
+
+    <style>
+       
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+       
+      body {
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          sans-serif;
+        min-height: 100vh;
+      }
+
+       
+      @media (min-width: 1024px) {
+         
+        #mobile-navbar {
+          display: none;
+        }
+      }
+
+       
+      @media (max-width: 1023px) {
+        body {
+          padding-top: 4rem;  
+        }
+
+         
+        #desktop-sidebar {
+          display: none;
+        }
+      }
+
+       
+      .sidebar-title,
+      .navbar-title {
+        font-size: 1.875rem;  
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+      }
+
+      .sidebar-subtitle,
+      .navbar-subtitle {
+        font-size: 0.875rem;  
+        font-weight: 400;
+        color: #9ca3af;  
+      }
+
+      .sidebar-author {
+        font-size: 0.8125rem;  
+        font-weight: 300;
+        color: #6b7280;  
+      }
+
+      .sidebar-nav {
+        font-size: 0.9375rem;  
+        font-weight: 400;
+      }
+
+      .sidebar-nav a {
+        color: #e5e7eb;  
+        transition: all 0.2s ease;
+      }
+
+      .sidebar-nav a:hover {
+        color: #ffffff;
+        transform: translateX(4px);
+      }
+
+       
+      .mobile-menu-item {
+        color: #e5e7eb;
+        padding: 0.75rem 1.5rem;
+        display: block;
+        transition: all 0.2s ease;
+        font-size: 1rem;
+      }
+
+      .mobile-menu-item:hover {
+        background-color: #1f2937;
+        color: #ffffff;
+      }
+
+       
+      #desktop-sidebar,
+      #mobile-navbar {
+        background-color: #121212;
+      }
+
+       
+      .social-icon {
+        background-color: #1f2937;  
+        transition: all 0.2s ease;
+      }
+
+      .social-icon:hover {
+        background-color: #374151;  
+        transform: scale(1.05);
+      }
+
+       
+      .navbar-title {
+        font-size: 1.5rem;  
+      }
+
+       
+      #mobile-dropdown {
+        transform-origin: top;
+        transition: all 0.3s ease;
+      }
+
+      #mobile-dropdown.hidden {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+
+      #mobile-dropdown:not(.hidden) {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <aside id="desktop-sidebar" class="fixed bottom-0 left-0 top-0 z-40 h-full w-64 p-5 text-white">
+  <div class="flex h-full flex-col justify-between p-6">
+    <div>
+      
+      <div class="mb-12">
+        <a href="/">
+          <h1 class="text-3xl font-semibold leading-tight tracking-tight text-white">Today</h1>
+          <p class="mt-1 text-sm font-normal text-gray-400">I Learned</p>
+          <p class="mt-2 text-xs font-light text-gray-500">by Fajar A Nugroho</p>
+        </a>
+      </div>
+
+      
+        <nav class="space-y-5 text-[15px] font-normal">
+          <ul>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/notes/">
+      <span class="mr-3 text-lg">→</span> <span>Notes</span></a
+    >
+  </li>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/posts/">
+      <span class="mr-3 text-lg">→</span> <span>Posts</span></a
+    >
+  </li>
+
+          </ul>
+        </nav>
+    </div>
+
+    
+    <div class="mt-8 flex space-x-3">
+      
+    </div>
+  </div>
+</aside>
+
+
+<nav
+  id="mobile-navbar"
+  class="fixed left-0 right-0 top-0 z-50 bg-black text-white shadow-lg lg:hidden"
+>
+  <div class="flex items-center justify-between px-4 py-3">
+    
+    <div class="flex items-center space-x-2">
+      <h1 class="navbar-title text-white">Today</h1>
+      <span class="navbar-subtitle">I Learned</span>
+    </div>
+
+    
+    <button
+      id="mobile-menu-toggle"
+      class="rounded-lg bg-gray-800 p-2 transition-colors hover:bg-gray-700"
+      aria-label="Toggle menu"
+    >
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+          class="menu-icon"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+          class="close-icon hidden"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  
+  <div id="mobile-dropdown" class="hidden border-t border-gray-800 bg-black">
+    
+      <nav class="space-y-5 p-5 text-[15px] font-normal">
+        <ul>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/notes/">
+      <span class="mr-3 text-lg">→</span> <span>Notes</span></a
+    >
+  </li>
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/posts/">
+      <span class="mr-3 text-lg">→</span> <span>Posts</span></a
+    >
+  </li>
+
+        </ul>
+      </nav>
+
+  </div>
+</nav>
+
+
+
+    
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        
+
+
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">Finding Evil Go Packages</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2021-02-28T00:00:00&#43;00:00"
+            >February 28, 2021</time
+          >
+        </div>
+    </header>
+
+    <p>Because of the big <a href="https://en.wikipedia.org/wiki/2020_United_States_federal_government_data_breach">SolarWinds hack</a> and the recent blog post describing a new <a href="https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610">Dependency Confusion attack</a>, there has been a lot of talk lately about supply chain attacks, the sneaky technique of compromising less secure elements in a supply chain to compromise more secure targets.</p>
+<p>A popular target for supply chain attacks has always been the many package management systems for popular programming languages such as NPM for JavaScript, Rubygems for Ruby, and PyPI for Python. These systems have been plagued for years by malicious actors uploading malicious packages and waiting for victims to install them.</p>
+<p>I haven&rsquo;t heard much talk about how the situation looks for the Go ecosystem, and since Go is my new language of choice, I decided to do some investigation.</p>
+<p>The novel <a href="https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610">Dependency Confusion attack</a> vector is luckily not something a Go developer has to worry about since the source is always explicitly specified when importing a package, so when Go fetches the external dependency, it can&rsquo;t be confused about where to fetch it:</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">go</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-01 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-01"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">go code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;github.com/stretchr/testify&#34;</span></span></span></code></pre></div>
+  <p class="sr-only">go code snippet end</p>
+
+  
+</figure>
+<p>There is however still a possible attack vector via simple <a href="https://en.wikipedia.org/wiki/Typosquatting">typosquatting</a> where the attacker exploits the fact that people often hit the wrong keys when typing on their keyboard. This could both be done on the host domain where the attacker registers a common typo of github.com, but even easier would be to simply register a new user on GitHub, or any other open package host, with a common typo of the package owner&rsquo;s username.</p>
+<p>With this in mind, I set out to build a tool that would help me uncover potential typosquat packages in the wild:</p>
+<ol>
+<li>Take a large list of Go package import paths (e.g. <code>github.com/stretchr/testify</code>)</li>
+<li>Permutate the username of every unique package owner to get a list of potential typosquats</li>
+<li>Check if any of the typosquat users exists on the platform</li>
+<li>If a potential typosquat user is found, retrieve all of their repositories</li>
+<li>Log any of the repositories that have a name equal to the original packages being checked</li>
+</ol>
+<p>This resulted in a new tool I call <code>pkgtwist</code> which is <a href="https://gitlab.com/michenriksen/pkgtwist">available on GitLab</a> (the name is inspired by the awesome <a href="https://github.com/elceef/dnstwist">dnstwist</a> tool)  if you are interested in doing your own evil Go package hunting.</p>
+<h3 id="permutations" class="scroll-mt-8 group">
+  Permutations
+  
+    <a href="#permutations"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>Probably the most important part of <code>pkgtwist</code> was the generation of good username permutations in order to have the best chance of detecting typosquats. A bit of research led me to <a href="https://github.com/zntrio/typogenerator">zntrio/typogenerater</a> which looked like the perfect package for generating potential username typos. The package implements a pretty long list of permutation strategies that I picked a few from so that pkgtwist only spends time on checking what I feel are the most likely typosquats:</p>
+<ul>
+<li><strong>Omission:</strong> removal of a single character (missing a keypress, <code>stretchr</code> =&gt; <code>strechr</code>)</li>
+<li><strong>Repetition:</strong> repetition of characters (pressing a key twice, <code>gobuffalo</code> =&gt; <code>gobuffallo</code>)</li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Bitsquatting">Bitsquatting</a>:</strong> possible bit-flip errors (<code>stretchr</code> =&gt; <code>strftchr</code>)</li>
+<li><strong>Transposition:</strong> swapping of adjacent characters (pressing keys in the wrong order, <code>stretchr</code> =&gt; <code>strethcr</code>)</li>
+</ul>
+<p>This means that if pkgtwist is given the package <code>github.com/stretchr/testify</code> as input, it will check if any of the of following users exist on GitHub, and if they do, check if they have also have a repository called <code>testify</code>:</p>
+<p><code>tretchr</code> <code>sretchr</code> <code>stetchr</code> <code>strtchr</code> <code>strechr</code> <code>strethr</code> <code>stretcr</code> <code>stretch</code> <code>sstretchr</code> <code>sttretchr</code> <code>strretchr</code> <code>streetchr</code> <code>strettchr</code> <code>stretcchr</code> <code>stretchhr</code> <code>stretchrr</code> <code>rtretchr</code> <code>qtretchr</code> <code>ptretchr</code> <code>wtretchr</code> <code>vtretchr</code> <code>utretchr</code> <code>ttretchr</code> <code>suretchr</code> <code>svretchr</code> <code>swretchr</code> <code>spretchr</code> <code>sqretchr</code> <code>srretchr</code> <code>ssretchr</code> <code>stsetchr</code> <code>stpetchr</code> <code>stqetchr</code> <code>stvetchr</code> <code>stwetchr</code> <code>sttetchr</code> <code>stuetchr</code> <code>strdtchr</code> <code>strgtchr</code> <code>strftchr</code> <code>stratchr</code> <code>strctchr</code> <code>strbtchr</code> <code>streuchr</code> <code>strevchr</code> <code>strewchr</code> <code>strepchr</code> <code>streqchr</code> <code>strerchr</code> <code>streschr</code> <code>stretbhr</code> <code>stretahr</code> <code>stretghr</code> <code>stretfhr</code> <code>stretehr</code> <code>stretdhr</code> <code>stretcir</code> <code>stretcjr</code> <code>stretckr</code> <code>stretclr</code> <code>stretcmr</code> <code>stretcnr</code> <code>stretcor</code> <code>stretchs</code> <code>stretchp</code> <code>stretchq</code> <code>stretchv</code> <code>stretchw</code> <code>stretcht</code> <code>stretchu</code> <code>tsretchr</code> <code>srtetchr</code> <code>stertchr</code> <code>strtechr</code> <code>strecthr</code> <code>strethcr</code> <code>stretcrh</code></p>
+<h3 id="subjects" class="scroll-mt-8 group">
+  Subjects
+  
+    <a href="#subjects"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>Next up was to find a list of packages to check. Initially, I thought about finding some sort of &ldquo;Top X Go packages&rdquo; list, but I couldn&rsquo;t really find a good resource for that, so I ended up running pkgtwist against every github.com and gitlab.com hosted packages from the <a href="https://index.golang.org/index">Go Module Index</a> (731 packages in all).</p>
+<h3 id="results" class="scroll-mt-8 group">
+  Results
+  
+    <a href="#results"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>After several hours of crunching through the 731 packages, pkgtwist finished with a list of 7 potential typosquat packages to investigate further. I honestly expected the list to be bigger, but I was of course happy to see that the Go ecosystem isn&rsquo;t completely infested (yet) with malicious typosquat packages.</p>
+<p>There were however a couple of typosquat packages that jumped out at me&hellip;</p>
+<h4 id="githubcomsiruspenlogrus-" class="scroll-mt-8 group">
+  github.com/siruspen/logrus ⚠️
+  
+    <a href="#githubcomsiruspenlogrus-"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>The <a href="https://github.com/sirupsen/logrus/">logrus</a> package by <a href="https://github.com/sirupsen">sirupsen</a> is a very popular logging package (17.3k stars on GitHub) that many Go projects use, which obviously makes it a target for a typosquat supply chain attack. So when I saw that the user <code>siruspen</code> (notice the letter swapping) had a similarly named repository, I quickly checked out what it was doing.</p>
+<p>It turns out that the project is a fork of the original <code>logrus</code> repository, so doing a comparison to find the differences was pretty easy. At the time of writing, the only thing that is added to the potential typosquat repository, <a href="https://github.com/sirupsen/logrus/compare/master...siruspen:master#diff-ff87b7c4777a35588053a509583d66c9f404ccbea9e1c71d2a5f224d7ad1323eR13-R16">is a small init function</a> with a single <code>Println</code> call:</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>While this is not malicious in any way it could very quickly be changed by the owner in the future, so I will definitely keep an eye on this repository. I would also recommend double-checking your projects if you use <code>logrus</code> to make sure you&rsquo;re not using this package instead of the real one!</p>
+<h4 id="githubcomutfavecli-" class="scroll-mt-8 group">
+  github.com/utfave/cli ⚠️
+  
+    <a href="#githubcomutfavecli-"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p><a href="https://github.com/urfave/cli">urfave/cli</a> is another popular Go package (15.4k stars on GitHub) for building CLI projects. So when I saw the user <code>utfave</code> also had a repository called <code>cli</code>, my alarm bells went off and I investigated further.</p>
+<p>It turns out that the <a href="https://github.com/utfave/cli/commit/4af15496c49f613503d37d43b99df767f831bae1#diff-8d9ca23280f24fe6444d03ae46e7a15dd152170f32f57f978dfbdfd3cfe8ff55L26-R36">second-last commit</a> introduces a highly suspicious <code>init</code> function:</p>
+<!-- raw HTML omitted -->
+<p>It looks like the author <code>utfave</code> wants to know the hostname, operating system, and architecture of all the machines using their version of <code>urfave/cli</code>. The function extracts the system information and then calls out to the IP address <code>122.51.124.140</code> belonging to the Chinese company Shenzhen Tencent Computer Systems via HTTP with the system information added as URL parameters.</p>
+<p>While this code won&rsquo;t give them any access to systems, it&rsquo;s highly suspicious that they collect this information and the actor can quickly change this code to call back with a reverse shell if they identify a system to be valuable or interesting.</p>
+<p>I reported this repository to GitHub and hope to see it taken down in the near future. Until then, I recommend double-checking your projects if you use the <code>urfave/cli</code> to make sure you&rsquo;re not using the typosquatted version.</p>
+<h3 id="conclusion" class="scroll-mt-8 group">
+  Conclusion
+  
+    <a href="#conclusion"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>While my little research project didn&rsquo;t cover every single Go package out there, I feel it covered enough to give a rough picture of what the supply chain attack situation looks like for the Go ecosystem. The two repositories <code>siruspen/logrus</code> and <code>utfave/cli</code>, were the only ones out of the 7 flagged repos that really worried me, but I will keep a close eye on the rest as they could in theory become malicious at any time.</p>
+<p>I think Go is in a better situation than other programming languages because the source of packages is always explicitly written every time they are used, but code editor automation could make typosquat attacks more likely to happen as the developer doesn&rsquo;t write the import paths manually as often. As an example, if the popular <a href="https://marketplace.visualstudio.com/items?itemName=golang.Go">Go extension</a> for <a href="https://code.visualstudio.com/">VS Code</a> is installed, a developer will typically only type a package import on the first usage, and then the editor will automatically add the import in any other files as soon as the package name is used. If the developer mistypes the import path the first time, a malicious package could be introduced and live for a long time in a Go project before it&rsquo;s discovered.</p>
+
+  </article>
+
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2025, Fajar Today.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('mobile-menu-toggle');
+        const dropdown = document.getElementById('mobile-dropdown');
+        const menuIcon = toggleButton.querySelector('.menu-icon');
+        const closeIcon = toggleButton.querySelector('.close-icon');
+
+        
+        function toggleDropdown() {
+          const isOpen = !dropdown.classList.contains('hidden');
+
+          if (isOpen) {
+            
+            dropdown.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+          } else {
+            
+            dropdown.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+          }
+        }
+
+        
+        toggleButton.addEventListener('click', toggleDropdown);
+
+        
+        document.addEventListener('click', function (e) {
+          if (
+            !toggleButton.contains(e.target) &&
+            !dropdown.contains(e.target) &&
+            !dropdown.classList.contains('hidden')
+          ) {
+            toggleDropdown();
+          }
+        });
+
+        
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !dropdown.classList.contains('hidden')) {
+            toggleDropdown();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

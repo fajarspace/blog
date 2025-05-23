@@ -1,117 +1,102 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://fajarr.space/</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/buku/mudah-membuat-framework-css-dari-nol</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/cara-bertanya</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/supabase-next-analytics</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/mengabaikan-kompetitor</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/keahlian-vs-attitude</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/projects</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/about</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/saya-tidak-suka-telepon</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/sesuatu-yang-tidak-bisa-dilihat</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/keinginan-kita-mengubah-kita</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/hidup-dengan-think-to-be-thing</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.33</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/dilema-freelancer</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.26</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/viral-itu-efek-samping</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.21</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/komunikasi-dengan-jelas</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.17</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/pengen-jadi-orang-lain</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.13</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/asumsikan-keduanya-benar</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.11</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/berkarya-butuh-istirahat</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.09</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/berlomba-gagal</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.07</priority>
-</url>
-<url>
-  <loc>https://fajarr.space/blog/berbagi-untuk-sekitar</loc>
-  <lastmod>2024-04-18T15:11:14+00:00</lastmod>
-  <priority>0.05</priority>
-</url>
-
-
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/gaming/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/stalker-2-mods/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/alacritty/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/neovim/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/alacritty-tmux-neovim-colors-and-undercurl/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/tmux/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/regex/</loc>
+    <lastmod>2024-11-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/regex101-urls-with-pre-filled-values/</loc>
+    <lastmod>2024-11-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/web-tools/</loc>
+    <lastmod>2024-11-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/cicd/</loc>
+    <lastmod>2024-10-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/gitlab/</loc>
+    <lastmod>2024-10-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/golang/</loc>
+    <lastmod>2024-10-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/private-go-modules-gitlab-ci/</loc>
+    <lastmod>2024-10-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/nvim-go-template-syntax-highlighting/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/cara-bertanya/</loc>
+    <lastmod>2023-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2023-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/saya-tidak-suka-telepon/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/viral-itu-efek-samping/</loc>
+    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/merasa-orang-lain-akan-paham/</loc>
+    <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/kehidupan-orang-lain-terlihat-lebih-menarik/</loc>
+    <lastmod>2021-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/asumsikan-keduanya-benar/</loc>
+    <lastmod>2021-08-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/berbagi-untuk-sekitar/</loc>
+    <lastmod>2021-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/weeknotes/</loc>
+    <lastmod>2021-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/archive/</loc>
+    <lastmod>2021-02-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/archive/blog/finding-evil-go-packages/</loc>
+    <lastmod>2021-02-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/archive/blog/aquatone-now-in-go/</loc>
+    <lastmod>2018-11-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/archive/blog/drawio-for-threat-modeling/</loc>
+    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/archive/blog/gitrob-now-in-go/</loc>
+    <lastmod>2018-06-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/about/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+  </url>
 </urlset>

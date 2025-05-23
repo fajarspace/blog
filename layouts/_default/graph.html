@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <article class="main">
+    <header>
+      <h1 class="!mb-1">{{ .Title | title }}</h1>
+    </header>
+
+    {{ .Content }}
+
+
+    <section class="mt-8">
+      {{ partial "graph" ( dict "scaleNodes" true "class" "h-96" ) }}
+    </section>
+  </article>
+{{ end }}

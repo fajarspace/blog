@@ -1,101 +1,39 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
-  "scripts": {
-    "lint": "next lint && prettier --write '**/*.{js,ts,tsx}' --log-level warn",
-    "dev": "next dev",
-    "build": "concurrently \"pnpm:build-*\"",
-    "build-next": "next build",
-    "build-rss": "ts-node --project ./node.tsconfig.json scripts/rss",
-    "analyze": "ANALYZE=true pnpm build-next",
-    "start": "next start"
+  "comments": {
+    "dependencies": {
+      "vis-network": "project"
+    },
+    "devDependencies": {
+      "@tailwindcss/typography": "project",
+      "@typescript-eslint/eslint-plugin": "project",
+      "@typescript-eslint/parser": "project",
+      "eslint": "project",
+      "npm-run-all": "project",
+      "postcss-import": "project",
+      "prettier": "project",
+      "prettier-plugin-go-template": "project",
+      "prettier-plugin-tailwindcss": "project"
+    }
   },
-  "pre-commit": "lint",
-  "license": "MIT",
   "dependencies": {
-    "@fec/remark-a11y-emoji": "3.1.0",
-    "@mdx-js/loader": "3.0.0",
-    "@mdx-js/react": "3.0.0",
-    "@next/bundle-analyzer": "14.0.3",
-    "@next/eslint-plugin-next": "14.0.3",
-    "@next/mdx": "14.0.3",
-    "@octokit/rest": "20.0.2",
-    "@supabase/supabase-js": "2.21.0",
-    "@vercel/analytics": "1.1.1",
-    "@vercel/toolbar": "0.1.5",
-    "bright": "0.8.4",
-    "diff": "5.1.0",
-    "globby": "13.2.2",
-    "htmlparser2": "9.0.0",
-    "lodash.debounce": "4.0.8",
-    "next": "14.0.3",
-    "next-mdx-remote": "4.4.1",
-    "next-remote-watch": "2.0.0",
-    "next-themes": "0.2.1",
-    "postcss": "8.4.26",
-    "prettier": "3.0.0",
-    "react": "canary",
-    "react-diff-viewer": "3.1.1",
-    "react-dom": "canary",
-    "react-tweet": "3.1.1",
-    "rehype-highlight": "6.0.0",
-    "rehype-img-size": "1.0.1",
-    "remark-frontmatter": "4.0.1",
-    "remark-toc": "8.0.1",
-    "rss-parser": "3.13.0",
-    "swr": "2.2.4",
-    "tiny-glob": "0.2.9",
-    "youtubei": "0.0.1-rc.36"
+    "vis-network": "^9.1.10"
   },
   "devDependencies": {
-    "@types/diff": "5.0.3",
-    "@types/marked": "5.0.1",
-    "@types/mdx": "2.0.10",
-    "@types/node": "20.7.2",
-    "@types/prettier": "2.7.3",
-    "@types/react": "18.2.23",
-    "@types/react-dom": "18.2.8",
-    "@types/rss": "0.0.30",
-    "@typescript-eslint/eslint-plugin": "6.7.3",
-    "@typescript-eslint/parser": "6.7.3",
-    "clsx": "1.2.1",
-    "concurrently": "8.2.1",
-    "critters": "0.0.20",
-    "dotenv": "16.3.1",
-    "eslint": "8.50.0",
-    "eslint-config-next": "14.0.3",
-    "eslint-plugin-import": "2.28.1",
-    "eslint-plugin-mdx": "2.2.0",
-    "eslint-plugin-react": "7.33.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "gray-matter": "4.0.3",
-    "marked": "5.1.1",
-    "postcss-flexbugs-fixes": "5.0.2",
-    "postcss-hover-media-feature": "1.0.2",
-    "postcss-nested": "6.0.1",
-    "postcss-preset-env": "9.1.4",
-    "rehype-autolink-headings": "6.1.1",
-    "rehype-slug": "5.1.0",
-    "remark-gfm": "3.0.1",
-    "rss": "1.2.2",
-    "ts-node": "10.9.1",
-    "typescript": "5.2.2",
-    "typescript-plugin-css-modules": "5.0.1"
+    "@tailwindcss/typography": "^0.5.13",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-import": "^16.1.0",
+    "prettier": "3.3.3",
+    "prettier-plugin-go-template": "^0.0.15",
+    "prettier-plugin-tailwindcss": "^0.6.5"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  },
-  "next-unused": {
-    "alias": {
-      "@components": "components/",
-      "@data": "data/",
-      "@lib": "lib/",
-      "@styles": "styles/"
-    },
-    "include": [
-      "components",
-      "lib"
-    ]
+  "scripts": {
+    "build": "hugo -s exampleSite --gc --themesDir=../..",
+    "dev": "run-p dev-hugo dev-tailwind",
+    "dev-hugo": "hugo server -s exampleSite --gc --themesDir=../..",
+    "dev-tailwind": "tailwindcss -i assets/css/main.css -o assets/css/index.css --watch",
+    "format": "prettier --write ."
   }
 }

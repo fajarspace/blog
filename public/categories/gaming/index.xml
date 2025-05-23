@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gaming on Today I Learned</title>
+    <link>http://localhost:1313/categories/gaming/</link>
+    <description>Recent content in Gaming on Today I Learned</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Fajar Today</copyright>
+    <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/gaming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>S.T.A.L.K.E.R 2 mods I play with</title>
+      <link>http://localhost:1313/notes/stalker-2-mods/</link>
+      <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/stalker-2-mods/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.stalker2.com/&#34;&gt;S.T.A.L.K.E.R. 2: Heart of Chornobyl&lt;/a&gt; is a great game but, IMO, it needs some tweaks for a better experience. These&#xA;are the mods I play with:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.nexusmods.com/stalker2heartofchornobyl/mods/23&#34;&gt;Grok&amp;rsquo;s Modular Mutants Health&lt;/a&gt;: Mutants are ridiculously tanky. This mod reduces their health pool to something more&#xA;reasonable.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.nexusmods.com/stalker2heartofchornobyl/mods/113&#34;&gt;Maklane&amp;rsquo;s Better gunfights&lt;/a&gt;: Adjusts NPC bullet dispersion for medium and long distances, making their aim less&#xA;precise at range while keeping close-range accuracy unchanged for more balanced and fun firefights.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.nexusmods.com/stalker2heartofchornobyl/mods/100&#34;&gt;Axxii&amp;rsquo;s Stealth Mod&lt;/a&gt;: I like a sneaky/tactical play style, and this mod tweaks the game&amp;rsquo;s mechanics to be more&#xA;playable in this fashion.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.nexusmods.com/stalker2heartofchornobyl/mods/89&#34;&gt;Realistic Damage&lt;/a&gt;: A human should not survive 3+ assault rifle rounds to the chest. The &lt;em&gt;Realistic EXtreme&lt;/em&gt; variant&#xA;of this mod makes damage to humans more realistic. And it goes both ways, so NPCs will also have an easier time killing&#xA;you, which is only fair.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.nexusmods.com/stalker2heartofchornobyl/mods/57&#34;&gt;Equalized Aim Sensitivity X-Y&lt;/a&gt;: Adjusts mouse sensitivity to ensure equal scaling for both X (horizontal) and Y&#xA;(vertical) axes.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.nexusmods.com/stalker2heartofchornobyl/mods/293&#34;&gt;Empty Hands Zoom&lt;/a&gt;: Increases empty hand zoom by +50%, +100%, or +150% to work as a primitive substitute for the&#xA;&lt;a href=&#34;https://stalker.fandom.com/wiki/Binoculars&#34;&gt;binoculars&lt;/a&gt; in the previous games.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

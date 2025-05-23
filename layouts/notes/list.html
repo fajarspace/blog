@@ -1,0 +1,52 @@
+{{ define "main" }}
+  <h1 class="flex flex-row items-center space-x-2">
+    <span>{{ .Title }}</span>
+    {{- with .OutputFormats.Get "rss" }}
+      <a
+        rel="alternate"
+        type="application/rss+xml"
+        href="{{ .RelPermalink }}"
+        title="Subscribe to the {{ $.Title }} RSS feed"
+        class="text-slate-300 hover:text-orange-600"
+      >
+        {{ partial "svg/rss.html" }}
+      </a>
+    {{- end }}
+  </h1>
+
+  {{ .Content }}
+
+
+  <div class="flex flex-col space-y-8">
+    <aside class="relative flex flex-col space-y-1">
+      {{- if default true site.Params.notes.showCategoryFilter }}
+        <details class="not-prose">
+          <summary class="cursor-pointer">See all categories</summary>
+          <ul class="flex flex-row flex-wrap space-x-2 pl-2">
+            {{ $categories:= site.Taxonomies.categories }}
+            {{ range $name, $taxonomy := $categories }}
+              {{ $count := 0 }}
+              {{- range $page := $taxonomy.Pages }}
+                {{ if eq $page.Section "notes" }}{{ $count = add $count 1 }}{{ end }}
+              {{- end }}
+              {{- if gt $count 0 }}
+                <li class="first:ml-2">
+                  <a href="{{ $taxonomy.Page.RelPermalink }}" class="taxonomy">
+                    <span>{{ $name }}</span>
+                    <span class="count">{{ $count }}</span>
+                  </a>
+                </li>
+              {{- end }}
+            {{- end }}
+          </ul>
+        </details>
+      {{- end }}
+    </aside>
+
+    <section class="not-prose">
+      {{ $pager := .Paginate .Pages (default 20 site.Params.notes.pageSize) }}
+      {{ partial "notes/list.html" $pager.Pages }}
+      {{ if gt $pager.TotalPages 1 }}{{ partial "pagination.html" . }}{{ end }}
+    </section>
+  </div>
+{{ end }}

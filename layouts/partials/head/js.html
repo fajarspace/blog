@@ -1,0 +1,21 @@
+{{- with resources.Get "ts/main.ts" }}
+  {{- $opts := dict "targetPath" "js/main.js" -}}
+  {{- if hugo.IsDevelopment }}
+    {{- with . | js.Build $opts }}
+      <script src="{{ .RelPermalink }}" defer></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts = merge $opts ( dict "minify" true ) -}}
+    {{- with . | js.Build $opts  | fingerprint }}
+      <script
+        src="{{ .RelPermalink }}"
+        integrity="{{- .Data.Integrity }}"
+        crossorigin="anonymous"
+        defer
+      ></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- if site.Config.Services.GoogleAnalytics }}
+  {{ template "_internal/google_analytics.html" . }}
+{{- end }}

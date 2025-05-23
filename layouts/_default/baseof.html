@@ -1,0 +1,220 @@
+<!doctype html>
+<html
+  lang="{{ or site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}"
+>
+  <head>
+    {{ partial "head.html" . }}
+    <style>
+      /* Import font untuk typography yang lebih baik */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+      /* Base typography */
+      body {
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          sans-serif;
+        min-height: 100vh;
+      }
+
+      /* Desktop: Sidebar layout */
+      @media (min-width: 1024px) {
+        /* Hide mobile navbar on desktop */
+        #mobile-navbar {
+          display: none;
+        }
+      }
+
+      /* Mobile: Top navbar layout */
+      @media (max-width: 1023px) {
+        body {
+          padding-top: 4rem; /* Space for fixed navbar */
+        }
+
+        /* Hide desktop sidebar on mobile */
+        #desktop-sidebar {
+          display: none;
+        }
+      }
+
+      /* Typography improvements */
+      .sidebar-title,
+      .navbar-title {
+        font-size: 1.875rem; /* 30px */
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+      }
+
+      .sidebar-subtitle,
+      .navbar-subtitle {
+        font-size: 0.875rem; /* 14px */
+        font-weight: 400;
+        color: #9ca3af; /* gray-400 */
+      }
+
+      .sidebar-author {
+        font-size: 0.8125rem; /* 13px */
+        font-weight: 300;
+        color: #6b7280; /* gray-500 */
+      }
+
+      .sidebar-nav {
+        font-size: 0.9375rem; /* 15px */
+        font-weight: 400;
+      }
+
+      .sidebar-nav a {
+        color: #e5e7eb; /* gray-200 */
+        transition: all 0.2s ease;
+      }
+
+      .sidebar-nav a:hover {
+        color: #ffffff;
+        transform: translateX(4px);
+      }
+
+      /* Mobile dropdown menu styles */
+      .mobile-menu-item {
+        color: #e5e7eb;
+        padding: 0.75rem 1.5rem;
+        display: block;
+        transition: all 0.2s ease;
+        font-size: 1rem;
+      }
+
+      .mobile-menu-item:hover {
+        background-color: #1f2937;
+        color: #ffffff;
+      }
+
+      /* Ensure black background */
+      #desktop-sidebar,
+      #mobile-navbar {
+        background-color: #121212;
+      }
+
+      /* Icon button styles */
+      .social-icon {
+        background-color: #1f2937; /* gray-800 */
+        transition: all 0.2s ease;
+      }
+
+      .social-icon:hover {
+        background-color: #374151; /* gray-700 */
+        transform: scale(1.05);
+      }
+
+      /* Mobile navbar specific */
+      .navbar-title {
+        font-size: 1.5rem; /* Smaller for mobile */
+      }
+
+      /* Dropdown animation */
+      #mobile-dropdown {
+        transform-origin: top;
+        transition: all 0.3s ease;
+      }
+
+      #mobile-dropdown.hidden {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+
+      #mobile-dropdown:not(.hidden) {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Desktop Sidebar (hidden on mobile) -->
+    {{ partial "sidebar.html" . }}
+
+
+    <!-- Main Content -->
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        {{ partial "header.html" . }}
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        {{ block "main" . }}{{ end }}
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        {{ partial "footer.html" . }}
+      </footer>
+    </div>
+
+    {{ if .Store.Get "hasMermaid" }}
+      <script
+        src="https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.min.js"
+        integrity="sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="
+        crossorigin="anonymous"
+      ></script>
+      <script type="text/javascript">
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'neutral',
+          fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        });
+      </script>
+    {{ end }}
+
+
+    <!-- Navigation toggle script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('mobile-menu-toggle');
+        const dropdown = document.getElementById('mobile-dropdown');
+        const menuIcon = toggleButton.querySelector('.menu-icon');
+        const closeIcon = toggleButton.querySelector('.close-icon');
+
+        // Toggle dropdown function
+        function toggleDropdown() {
+          const isOpen = !dropdown.classList.contains('hidden');
+
+          if (isOpen) {
+            // Close dropdown
+            dropdown.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+          } else {
+            // Open dropdown
+            dropdown.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+          }
+        }
+
+        // Add click event listener
+        toggleButton.addEventListener('click', toggleDropdown);
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (e) {
+          if (
+            !toggleButton.contains(e.target) &&
+            !dropdown.contains(e.target) &&
+            !dropdown.classList.contains('hidden')
+          ) {
+            toggleDropdown();
+          }
+        });
+
+        // Close dropdown on escape key
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !dropdown.classList.contains('hidden')) {
+            toggleDropdown();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

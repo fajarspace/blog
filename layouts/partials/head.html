@@ -1,0 +1,40 @@
+{{- $description := or .Description .Summary site.Params.description | plainify | htmlUnescape | chomp -}}
+{{- $author := or .Params.author site.Author -}}
+<meta charset="utf-8" />
+<meta name="language" content="{{ site.Language.LanguageName | default "en" }}" />
+<meta name="viewport" content="width=device-width" />
+<title>
+  {{- if .IsHome }}
+    {{ site.Title }}
+  {{- else }}
+    {{ printf "%s | %s" .Title site.Title }}
+  {{- end }}
+</title>
+{{- with $description }}
+  <meta name="description" content="{{ $description }}" />
+{{- end }}
+{{- with $author }}
+  <meta name="author" content="{{ $author }}" />
+{{- end }}
+{{ if eq "404" .Kind -}}
+  <meta name="robots" content="noindex" />
+{{ end -}}
+{{ if fileExists "static/images/favicon.svg" -}}
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+{{ end -}}
+{{ if fileExists "static/images/favicon.png" -}}
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+{{ end -}}
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/schema.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
+<link rel="canonical" href="{{ .Permalink }}" />
+{{- range .AlternativeOutputFormats -}}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" />
+{{- end }}
+{{ partialCached "head/css" . }}
+{{ partialCached "head/js" . }}
+{{- if or .Params.math site.Params.math }}
+  {{ partial "head/math" . }}
+{{- end }}
+{{ partial "head/jsonld" . }}

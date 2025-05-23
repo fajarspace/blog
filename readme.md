@@ -1,34 +1,54 @@
-## My personal site
+# Today I Learned
 
-### Getting started
-1. Install the `pnpm` package manager: https://pnpm.io/
-2. Run `pnpm` in the project directory
-3. Run `pnpm dev` to start a local developer server
+A Hugo theme focused on simplicity and readability. Ideal for both traditional blog posts and shorter notes that makes
+it easy to record and share knowledge that doesn’t need a full blog post. Perfect for quick tips, insights, and
+discoveries.
 
+Check out the theme demo at <https://michenriksen.com/til-example-site> or [browse the repository] to see how it's set
+up.
 
-### Environment variables
-- `GITHUB_TOKEN`: necessary if you want to fetch github stars for projects
-- `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`: required for analytics. See https://maxleiter.com/blog/supabase-next-analytics for more info
-- If you want the git commit hash in the bottom of the home page, you need to host with vercel or provide a `NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA` env var
- 
+> [!NOTE]
+> This theme is in beta and is not yet feature-complete. Bugs and quirks may still be present. Check back regularly for updates with new features and bug fixes!
 
-### Usage:
-- `pnpm <command>`:
-    - `lint`: automatically lints files
-    - `dev`: start a local instance with live reloading
-    - `rss`: generate an RSS feed 
-    - `build`: generate an RSS feed and production site
-    - `analyze`: generate a bundle you can inspect via @next/bundle-analyzer
-    - `start`: start a production instance built via `yarn build`
+## Features
 
-### Directory structure:
-- app
- - `components/`: react components
- - `data/`: static data that can eventually be moved to a DB or something
- - `lib/`: hooks, 3rd party API stuff, utils functions
- - `pages/`: next.js pages (the actual routes that are rendered)
- - `styles/`: contains the global styles
-- `pages/api`: nextjs API routes
-- `posts/`: markdown files rendered at build time 
-- `public/`: images for blog, favicon, built files
-- `scripts/`: contain the scripts for building the sitemap and RSS feed
+### Content graph view
+
+Visualize connections between notes and posts like seen in Apps like Obsidian. The content graph provides a web of your
+knowledge, letting you and your readers explore related notes and see how everything connects.
+
+### Side notes
+
+Add side notes that sit neatly alongside your main content. Perfect for extra details, tips, or fun facts without
+breaking up the flow of your writing.
+
+### Admonitions
+
+Highlight important notes, warnings, tips, or anything that deserves special attention with styled callout boxes. Great
+for keeping readers informed.
+
+### Improved JSON-LD data
+
+The theme enhances Hugo’s built-in [JSON-LD] structured data by adding more detailed metadata, helping search engines
+better understand your content and making it easier for your posts to appear in relevant search results.
+
+### Built-in blocking of generative AI/LLM associated web crawlers
+
+If you’re concerned about your content being used as training data for generative AI and language models, the theme’s
+robots.txt template allows you to easily block a wide range of genAI and LLM-related web crawlers.
+
+### Easy Creative Commons licensing
+
+The theme includes simple options for adding a [Creative Commons license] to your content, allowing you to define how
+others can use, share, or adapt your work. You can choose the most appropriate Creative Commons license, and it will
+automatically appear in the website footer with optional usage icons.
+
+## Documentation
+
+- [Installation and Setup](https://michenriksen.com/til-example-site/posts/installation/)
+- [Configuration Reference](https://michenriksen.com/til-example-site/posts/configuration/)
+- [Shortcodes](https://michenriksen.com/til-example-site/posts/shortcodes/)
+
+[JSON-LD]: https://json-ld.org/
+[Creative Commons license]: https://creativecommons.org/share-your-work/cclicenses/
+[browse the repository]: https://github.com/michenriksen/til-example-site

@@ -1,0 +1,37 @@
+{{- $id := printf "diagram-%02d" ( add .Ordinal 1) -}}
+<figure class="diagram not-prose relative scroll-mt-8 rounded border pt-6" id="{{ $id }}">
+  <aside
+    class="absolute -top-[1px] right-0 z-50 hidden rounded-bl-sm rounded-tr-sm bg-gray-200 px-2 py-1 text-gray-500 transition-opacity md:inline-block"
+  >
+    <div class="diagram-meta flex max-w-xs flex-row items-center space-x-3">
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy Mermaid definition to clipboard"
+          title="Copy Mermaid definition to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#{{ $id }} .raw-diagram"
+        >
+          {{ partial "svg/clipboard.html" }}
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#{{ $id }}"
+          class="block !text-gray-200"
+          aria-label="Link to this diagram"
+          title="Link to this diagram"
+        >
+          {{ partial "svg/Link.html" }}
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">Mermaid diagram start</p>
+  <pre class="mermaid !bg-inherit">
+    {{- .Inner | safeHTML }}
+  </pre>
+  <p class="sr-only">Mermaid diagram end</p>
+  <div class="raw-diagram hidden">{{- .Inner }}</div>
+</figure>
+{{- .Page.Store.Set "hasMermaid" true -}}

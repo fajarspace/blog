@@ -1,0 +1,22 @@
+{{- $data := slice -}}
+{{- range .RegularPages -}}
+  {{- $categories := slice -}}
+  {{- range .GetTerms "categories" -}}
+    {{- $categories = $categories | append .Title -}}
+  {{- end -}}
+  {{- $tags := slice -}}
+  {{- range .GetTerms "tags" -}}
+    {{- $tags = $tags | append .Title -}}
+  {{- end -}}
+  {{- $entry := dict
+    "id" .RelPermalink
+    "title" .Title
+    "summary" .Summary
+    "date" .Date
+    "keywords" ( default slice .Keywords )
+    "categories" $categories
+    "tags" $tags
+  -}}
+  {{- $data = $data | append $entry -}}
+{{- end -}}
+{{ $data | jsonify }}

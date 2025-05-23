@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <article>
+    <h1>Page not found</h1>
+
+    <p class="lead">It seems you've stumbled upon a page that doesn't exist on this website.</p>
+
+    <p class="font-bold">Here are a few things you can do:</p>
+
+    <ul>
+      <li>Return to the <a href="{{ .Site.Home.RelPermalink }}">home page</a>.</li>
+      <li>
+        <a href="https://web.archive.org/web/*/{{ .Permalink | urlize }}"
+          >See if the Internet Archive has a copy</a
+        >
+        if you believe this page once existed.
+      </li>
+      {{- with (where .Pages "Section" "posts" ) }}
+        <li>Check out my <a href="{{ relURL "posts" }}">recent blog posts</a>.</li>
+      {{- end }}
+    </ul>
+
+    {{- with .Site.Author.email }}
+      <p>
+        If you arrived here by following a link on the website, I'd be grateful if you could
+        <a href="mailto:{{ . }}">drop me an email</a> to let me know. Thanks a bunch!
+      </p>
+    {{- end }}
+  </article>
+{{ end }}

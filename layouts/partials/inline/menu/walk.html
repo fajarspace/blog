@@ -1,0 +1,31 @@
+{{- $page := .page }}
+{{- range .menuEntries }}
+  {{- $attrs := dict "href" .URL }}
+  {{- if $page.IsMenuCurrent .Menu . }}
+    {{- $attrs = merge $attrs (dict "class" "text-white font-semibold" "aria-current" "page") }}
+  {{- else if $page.HasMenuCurrent .Menu . }}
+    {{- $attrs = merge $attrs (dict "class" "text-white" "aria-current" "true") }}
+  {{- else }}
+    {{- $attrs = merge $attrs (dict "class" "block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white") }}
+  {{- end }}
+  {{- $name := .Name }}
+  {{- with .Identifier }}
+    {{- with T . }}
+      {{- $name = . }}
+    {{- end }}
+  {{- end }}
+  <li
+    class="flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+  >
+    <a
+      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white"
+      {{- range $k, $v := $attrs }}
+        {{- with $v }}
+          {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+        {{- end }}
+      {{- end -}}
+    >
+      <span class="mr-3 text-lg">→</span> <span>{{ $name }}</span></a
+    >
+  </li>
+{{- end }}
