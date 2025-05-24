@@ -32,3 +32,6 @@ enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's g
     [markup.goldmark.parser]
       [markup.goldmark.parser.attribute]
         block = true
+        
+[permalinks]
+  posts = "/:slug/"

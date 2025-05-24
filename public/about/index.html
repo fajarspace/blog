@@ -71,7 +71,7 @@ You can also find me on Mastodon where I post more frequent, bite-sized updates 
       }
 
        
-      @media (min-width: 1024px) {
+      @media (min-width: 1280px) {
          
         #mobile-navbar {
           display: none;
@@ -79,7 +79,7 @@ You can also find me on Mastodon where I post more frequent, bite-sized updates 
       }
 
        
-      @media (max-width: 1023px) {
+      @media (max-width: 1280px) {
         body {
           padding-top: 4rem;  
         }
@@ -182,7 +182,7 @@ You can also find me on Mastodon where I post more frequent, bite-sized updates 
   </head>
   <body>
     
-    <aside id="desktop-sidebar" class="fixed bottom-0 left-0 top-0 z-40 h-full w-72 p-4 text-white">
+    <aside id="desktop-sidebar" class="fixed bottom-0 left-0 top-0 z-[999] h-full w-72 p-4 text-white">
   <div class="flex h-full flex-col justify-between p-6">
     <div>
       
@@ -218,7 +218,7 @@ You can also find me on Mastodon where I post more frequent, bite-sized updates 
     <div class="mt-8 flex justify-around">
       
       <a
-        href="https://github.com/username"
+        href="https://github.com/fajarspace"
         target="_blank"
         rel="noopener noreferrer"
         class="text-gray-400 hover:text-white"
@@ -232,7 +232,7 @@ You can also find me on Mastodon where I post more frequent, bite-sized updates 
 
       
       <a
-        href="https://instagram.com/username"
+        href="https://instagram.com/fajaragngn"
         target="_blank"
         rel="noopener noreferrer"
         class="text-gray-400 hover:text-white"
@@ -246,7 +246,7 @@ You can also find me on Mastodon where I post more frequent, bite-sized updates 
 
       
       <a
-        href="https://linkedin.com/in/username"
+        href="https://linkedin.com/in/fajaragngn"
         target="_blank"
         rel="noopener noreferrer"
         class="text-gray-400 hover:text-white"
@@ -262,12 +262,14 @@ You can also find me on Mastodon where I post more frequent, bite-sized updates 
 </aside>
 
 
-<nav id="mobile-navbar" class="fixed left-0 right-0 top-0 z-50 bg-black text-white shadow-lg xl:hidden">
-  <div class="flex items-center justify-between px-4 py-3">
+<nav id="mobile-navbar" class="fixed left-0 right-0 top-0 z-[99999] bg-black text-white xl:hidden">
+  <div class="flex items-center justify-between px-4 py-2">
     
     <div class="flex items-center space-x-2">
-      <h1 class="navbar-title text-white">Today</h1>
-      <span class="navbar-subtitle">I Learned</span>
+      <a href="/">
+        <h1 class="navbar-title text-white">Today</h1>
+        <span class="navbar-subtitle">I Learned</span>
+      </a>
     </div>
 
     
@@ -321,6 +323,12 @@ You can also find me on Mastodon where I post more frequent, bite-sized updates 
 
 
 
+    
+    <div
+      class="sticky left-0 top-0 z-50 w-full bg-yellow-400 py-2 text-center text-sm font-medium text-black shadow xl:translate-x-40"
+    >
+      <a class="mr-5 underline" href="">📢 Rekomendasi buku</a>
+    </div>
     
     <div
       class="container mx-auto flex max-w-prose transform flex-col justify-end space-y-10 p-4 md:p-6 xl:translate-x-40"

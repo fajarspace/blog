@@ -177,7 +177,7 @@
   </head>
   <body>
     
-    <aside id="desktop-sidebar" class="fixed bottom-0 left-0 top-0 z-40 h-full w-72 p-4 text-white">
+    <aside id="desktop-sidebar" class="fixed bottom-0 left-0 top-0 z-[999] h-full w-72 p-4 text-white">
   <div class="flex h-full flex-col justify-between p-6">
     <div>
       
@@ -257,12 +257,14 @@
 </aside>
 
 
-<nav id="mobile-navbar" class="fixed left-0 right-0 top-0 z-50 bg-black text-white shadow-lg xl:hidden">
-  <div class="flex items-center justify-between px-4 py-3">
+<nav id="mobile-navbar" class="fixed left-0 right-0 top-0 z-[99999] bg-black text-white xl:hidden">
+  <div class="flex items-center justify-between px-4 py-2">
     
     <div class="flex items-center space-x-2">
-      <h1 class="navbar-title text-white">Today</h1>
-      <span class="navbar-subtitle">I Learned</span>
+      <a href="/">
+        <h1 class="navbar-title text-white">Today</h1>
+        <span class="navbar-subtitle">I Learned</span>
+      </a>
     </div>
 
     
@@ -318,6 +320,12 @@
 
     
     <div
+      class="sticky left-0 top-0 z-50 w-full bg-yellow-400 py-2 text-center text-sm font-medium text-black shadow xl:translate-x-40"
+    >
+      <a class="mr-5 underline" href="">📢 Rekomendasi buku</a>
+    </div>
+    
+    <div
       class="container mx-auto flex max-w-prose transform flex-col justify-end space-y-10 p-4 md:p-6 xl:translate-x-40"
     >
       <header class="flex flex-row items-center justify-between">
@@ -360,7 +368,7 @@
           <header>
             <h3 class="text-lg font-semibold leading-none">
               <a
-                href="/posts/cara-bertanya/"
+                href="/cara-bertanya/"
                 class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
                 >Cara bertanya</a
               >
@@ -377,7 +385,7 @@
           <header>
             <h3 class="text-lg font-semibold leading-none">
               <a
-                href="/posts/saya-tidak-suka-telepon/"
+                href="/saya-tidak-suka-telepon/"
                 class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
                 >Saya tidak suka telepon</a
               >
@@ -394,7 +402,7 @@
           <header>
             <h3 class="text-lg font-semibold leading-none">
               <a
-                href="/posts/viral-itu-efek-samping/"
+                href="/viral-itu-efek-samping/"
                 class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
                 >Viral itu efek samping</a
               >
