@@ -1,21 +1,18 @@
 <!doctype html>
-<html
-  lang="{{ or site.Language.LanguageCode }}"
-  dir="{{ or site.Language.LanguageDirection `ltr` }}"
->
+<html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
   <head>
     {{ partial "head.html" . }}
     <style>
       /* Import font untuk typography yang lebih baik */
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
       /* Base typography */
       body {
         font-family:
-          'Inter',
+          "Inter",
           -apple-system,
           BlinkMacSystemFont,
-          'Segoe UI',
+          "Segoe UI",
           Roboto,
           Oxygen,
           Ubuntu,
@@ -25,7 +22,7 @@
       }
 
       /* Desktop: Sidebar layout */
-      @media (min-width: 1024px) {
+      @media (min-width: 1280px) {
         /* Hide mobile navbar on desktop */
         #mobile-navbar {
           display: none;
@@ -33,7 +30,7 @@
       }
 
       /* Mobile: Top navbar layout */
-      @media (max-width: 1023px) {
+      @media (max-width: 1280px) {
         body {
           padding-top: 4rem; /* Space for fixed navbar */
         }
@@ -140,7 +137,9 @@
 
 
     <!-- Main Content -->
-    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+    <div
+      class="container mx-auto flex max-w-prose transform flex-col justify-end space-y-10 p-4 md:p-6 xl:translate-x-40"
+    >
       <header class="flex flex-row items-center justify-between">
         {{ partial "header.html" . }}
       </header>
@@ -161,8 +160,8 @@
       <script type="text/javascript">
         mermaid.initialize({
           startOnLoad: true,
-          theme: 'neutral',
-          fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+          theme: "neutral",
+          fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         });
       </script>
     {{ end }}
@@ -170,47 +169,47 @@
 
     <!-- Navigation toggle script -->
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const toggleButton = document.getElementById('mobile-menu-toggle');
-        const dropdown = document.getElementById('mobile-dropdown');
-        const menuIcon = toggleButton.querySelector('.menu-icon');
-        const closeIcon = toggleButton.querySelector('.close-icon');
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleButton = document.getElementById("mobile-menu-toggle");
+        const dropdown = document.getElementById("mobile-dropdown");
+        const menuIcon = toggleButton.querySelector(".menu-icon");
+        const closeIcon = toggleButton.querySelector(".close-icon");
 
         // Toggle dropdown function
         function toggleDropdown() {
-          const isOpen = !dropdown.classList.contains('hidden');
+          const isOpen = !dropdown.classList.contains("hidden");
 
           if (isOpen) {
             // Close dropdown
-            dropdown.classList.add('hidden');
-            menuIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            dropdown.classList.add("hidden");
+            menuIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+            document.body.style.overflow = "auto";
           } else {
             // Open dropdown
-            dropdown.classList.remove('hidden');
-            menuIcon.classList.add('hidden');
-            closeIcon.classList.remove('hidden');
+            dropdown.classList.remove("hidden");
+            menuIcon.classList.add("hidden");
+            closeIcon.classList.remove("hidden");
           }
         }
 
         // Add click event listener
-        toggleButton.addEventListener('click', toggleDropdown);
+        toggleButton.addEventListener("click", toggleDropdown);
 
         // Close dropdown when clicking outside
-        document.addEventListener('click', function (e) {
+        document.addEventListener("click", function (e) {
           if (
             !toggleButton.contains(e.target) &&
             !dropdown.contains(e.target) &&
-            !dropdown.classList.contains('hidden')
+            !dropdown.classList.contains("hidden")
           ) {
             toggleDropdown();
           }
         });
 
         // Close dropdown on escape key
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && !dropdown.classList.contains('hidden')) {
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && !dropdown.classList.contains("hidden")) {
             toggleDropdown();
           }
         });

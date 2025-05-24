@@ -16,14 +16,11 @@
           {{ with .Page.GetTerms "categories" }}
             <ul class="flex flex-row items-center justify-end space-x-2">
               {{ range . }}
-                <li>
-                  <a
-                    href="{{ .RelPermalink }}"
-                    class="taxonomy"
-                    title="See notes on {{ .LinkTitle }}"
+                <!-- <li>
+                  <a href="{{ .RelPermalink }}" class="taxonomy" title="See notes on {{ .LinkTitle }}"
                     >{{ .LinkTitle }}</a
                   >
-                </li>
+                </li> -->
               {{ end }}
             </ul>
           {{ end }}

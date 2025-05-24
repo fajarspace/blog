@@ -2,32 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/gaming/</loc>
-    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-11-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/notes/</loc>
-    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/notes/stalker-2-mods/</loc>
-    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/alacritty/</loc>
-    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/neovim/</loc>
-    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/notes/alacritty-tmux-neovim-colors-and-undercurl/</loc>
-    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/tmux/</loc>
-    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/regex/</loc>
     <lastmod>2024-11-05T00:00:00+00:00</lastmod>
@@ -49,9 +31,6 @@
   </url><url>
     <loc>http://localhost:1313/notes/private-go-modules-gitlab-ci/</loc>
     <lastmod>2024-10-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/notes/nvim-go-template-syntax-highlighting/</loc>
-    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/cara-bertanya/</loc>
     <lastmod>2023-10-04T00:00:00+00:00</lastmod>
@@ -80,11 +59,35 @@
     <loc>http://localhost:1313/categories/weeknotes/</loc>
     <lastmod>2021-07-08T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/notes/customize-terminal-menggunakan-iterm-powerline10k/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/iterm/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/terminal/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/archive/</loc>
     <lastmod>2021-02-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/archive/blog/finding-evil-go-packages/</loc>
     <lastmod>2021-02-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</loc>
+    <lastmod>2020-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/macos/</loc>
+    <lastmod>2020-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/python/</loc>
+    <lastmod>2020-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/migrasi-dari-jekyll-ke-hugo/</loc>
+    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/mykisah/</loc>
+    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/archive/blog/aquatone-now-in-go/</loc>
     <lastmod>2018-11-04T00:00:00+00:00</lastmod>

@@ -18613,10 +18613,10 @@
     }
   });
 
-  // ns-hugo-imp:/Users/gopal/Documents/hugo-theme-til/assets/ts/components/ContentNetworkGraph.ts
+  // ns-hugo-imp:/Users/gopal/Documents/github/blog/assets/ts/components/ContentNetworkGraph.ts
   var import_vis_network = __toESM(require_vis_network_min());
 
-  // ns-hugo-imp:/Users/gopal/Documents/hugo-theme-til/assets/ts/lib/Page.ts
+  // ns-hugo-imp:/Users/gopal/Documents/github/blog/assets/ts/lib/Page.ts
   var Page = class {
     permalink;
     title;
@@ -52988,7 +52988,7 @@ input.vis-configuration.vis-config-range:focus::-ms-fill-upper {
     return options;
   };
 
-  // ns-hugo-imp:/Users/gopal/Documents/hugo-theme-til/assets/ts/lib/Graph.ts
+  // ns-hugo-imp:/Users/gopal/Documents/github/blog/assets/ts/lib/Graph.ts
   var NODE_MIN_SIZE = 4;
   var NODE_MAX_SIZE = 16;
   var NODE_FOCUS_SIZE = 8;
@@ -53094,7 +53094,7 @@ input.vis-configuration.vis-config-range:focus::-ms-fill-upper {
     }
   };
 
-  // ns-hugo-imp:/Users/gopal/Documents/hugo-theme-til/assets/ts/components/ContentNetworkGraph.ts
+  // ns-hugo-imp:/Users/gopal/Documents/github/blog/assets/ts/components/ContentNetworkGraph.ts
   var NETWORK_OPTIONS = {
     nodes: {
       shape: "dot",
@@ -53384,7 +53384,7 @@ input.vis-configuration.vis-config-range:focus::-ms-fill-upper {
     }
   };
 
-  // ns-hugo-imp:/Users/gopal/Documents/hugo-theme-til/assets/ts/components/ClipboardCopier.ts
+  // ns-hugo-imp:/Users/gopal/Documents/github/blog/assets/ts/components/ClipboardCopier.ts
   var classSuccess = "!text-green-500";
   var classFailure = "!text-red-500";
   var clearStatusDelayMs = 3500;

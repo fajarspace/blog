@@ -7,36 +7,8 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Fajar Today</copyright>
-    <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Gaming</title>
-      <link>http://localhost:1313/categories/gaming/</link>
-      <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/gaming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Alacritty</title>
-      <link>http://localhost:1313/categories/alacritty/</link>
-      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/alacritty/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Neovim</title>
-      <link>http://localhost:1313/categories/neovim/</link>
-      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/neovim/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tmux</title>
-      <link>http://localhost:1313/categories/tmux/</link>
-      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/tmux/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Regex</title>
       <link>http://localhost:1313/categories/regex/</link>
@@ -77,6 +49,41 @@
       <link>http://localhost:1313/categories/weeknotes/</link>
       <pubDate>Thu, 08 Jul 2021 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/weeknotes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iterm</title>
+      <link>http://localhost:1313/categories/iterm/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/iterm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terminal</title>
+      <link>http://localhost:1313/categories/terminal/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/terminal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Macos</title>
+      <link>http://localhost:1313/categories/macos/</link>
+      <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/categories/python/</link>
+      <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MyKisah</title>
+      <link>http://localhost:1313/categories/mykisah/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/mykisah/</guid>
       <description></description>
     </item>
   </channel>
