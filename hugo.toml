@@ -22,6 +22,10 @@ enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's g
     name = 'Posts'
     pageRef = '/posts'
     weight = 30
+  [[menus.main]]
+    name = 'Book Recommendations'
+    pageRef = '/rekomendasi-buku'
+    weight = 40
 
 [markup]
   [markup.highlight]
