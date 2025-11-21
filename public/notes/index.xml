@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes on fajar.today</title>
-    <link>http://localhost:1313/notes/</link>
+    <link>http://localhost:53241/notes/</link>
     <description>Recent content in Notes on fajar.today</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53241/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build dan Push Docker Image ke Docker Hub</title>
-      <link>http://localhost:1313/notes/build-and-push-docker/</link>
+      <link>http://localhost:53241/notes/build-and-push-docker/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/build-and-push-docker/</guid>
+      <guid>http://localhost:53241/notes/build-and-push-docker/</guid>
       <description>&lt;p&gt;Build Docker image dan mengunggahnya ke Docker Hub, termasuk opsi untuk membuat image multi-architecture (&lt;code&gt;amd64&lt;/code&gt;, &lt;code&gt;arm64&lt;/code&gt;).&lt;/p&gt;</description>
     </item>
     <item>
       <title>regex101 URLs with pre-filled values</title>
-      <link>http://localhost:1313/notes/regex101-urls-with-pre-filled-values/</link>
+      <link>http://localhost:53241/notes/regex101-urls-with-pre-filled-values/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/regex101-urls-with-pre-filled-values/</guid>
+      <guid>http://localhost:53241/notes/regex101-urls-with-pre-filled-values/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s possible to link to &lt;a href=&#34;https://regex101.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;regex101&lt;/a&gt;  with pre-filled regular expression, flags, and test string,&#xA;as well as pre-selected flavor/engine with these undocumented URL parameters:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Private Go modules in GitLab CI/CD</title>
-      <link>http://localhost:1313/notes/private-go-modules-gitlab-ci/</link>
+      <link>http://localhost:53241/notes/private-go-modules-gitlab-ci/</link>
       <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/private-go-modules-gitlab-ci/</guid>
+      <guid>http://localhost:53241/notes/private-go-modules-gitlab-ci/</guid>
       <description>&lt;p&gt;This took way too long for me to figure out, so here&amp;rsquo;s how to install private Go modules in &lt;a href=&#34;https://docs.gitlab.com/ee/ci/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitLab CI/CD&lt;/a&gt;  pipeline&#xA;jobs:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Customize iTerm menggunakan ohmyzsh&#43;powerline10k</title>
-      <link>http://localhost:1313/notes/customize-terminal-menggunakan-iterm-powerline10k/</link>
+      <link>http://localhost:53241/notes/customize-terminal-menggunakan-iterm-powerline10k/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/customize-terminal-menggunakan-iterm-powerline10k/</guid>
+      <guid>http://localhost:53241/notes/customize-terminal-menggunakan-iterm-powerline10k/</guid>
       <description></description>
     </item>
     <item>
       <title>Fix BUILD FAILED (OS X 11.0.1 bigsur using python-build 20180424)</title>
-      <link>http://localhost:1313/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</link>
+      <link>http://localhost:53241/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</link>
       <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</guid>
+      <guid>http://localhost:53241/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</guid>
       <description>&lt;p&gt;➜ brew install zlib openssl readline&lt;/p&gt;</description>
     </item>
     <item>
       <title>Migrasi dari jekyll ke hugo</title>
-      <link>http://localhost:1313/notes/migrasi-dari-jekyll-ke-hugo/</link>
+      <link>http://localhost:53241/notes/migrasi-dari-jekyll-ke-hugo/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/migrasi-dari-jekyll-ke-hugo/</guid>
+      <guid>http://localhost:53241/notes/migrasi-dari-jekyll-ke-hugo/</guid>
       <description></description>
     </item>
   </channel>

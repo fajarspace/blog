@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on fajar.today</title>
-    <link>http://localhost:1313/categories/golang/</link>
+    <link>http://localhost:53241/categories/golang/</link>
     <description>Recent content in Golang on fajar.today</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 30 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53241/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Private Go modules in GitLab CI/CD</title>
-      <link>http://localhost:1313/notes/private-go-modules-gitlab-ci/</link>
+      <link>http://localhost:53241/notes/private-go-modules-gitlab-ci/</link>
       <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/private-go-modules-gitlab-ci/</guid>
+      <guid>http://localhost:53241/notes/private-go-modules-gitlab-ci/</guid>
       <description>&lt;p&gt;This took way too long for me to figure out, so here&amp;rsquo;s how to install private Go modules in &lt;a href=&#34;https://docs.gitlab.com/ee/ci/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitLab CI/CD&lt;/a&gt;  pipeline&#xA;jobs:&lt;/p&gt;</description>
     </item>
   </channel>

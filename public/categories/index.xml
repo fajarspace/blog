@@ -2,87 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on fajar.today</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>http://localhost:53241/categories/</link>
     <description>Recent content in Categories on fajar.today</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53241/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker</title>
-      <link>http://localhost:1313/categories/docker/</link>
+      <link>http://localhost:53241/categories/docker/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/docker/</guid>
+      <guid>http://localhost:53241/categories/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Terminal</title>
-      <link>http://localhost:1313/categories/terminal/</link>
+      <link>http://localhost:53241/categories/terminal/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/terminal/</guid>
+      <guid>http://localhost:53241/categories/terminal/</guid>
       <description></description>
     </item>
     <item>
       <title>Regex</title>
-      <link>http://localhost:1313/categories/regex/</link>
+      <link>http://localhost:53241/categories/regex/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/regex/</guid>
+      <guid>http://localhost:53241/categories/regex/</guid>
       <description></description>
     </item>
     <item>
       <title>Web-Tools</title>
-      <link>http://localhost:1313/categories/web-tools/</link>
+      <link>http://localhost:53241/categories/web-tools/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/web-tools/</guid>
+      <guid>http://localhost:53241/categories/web-tools/</guid>
       <description></description>
     </item>
     <item>
       <title>CICD</title>
-      <link>http://localhost:1313/categories/cicd/</link>
+      <link>http://localhost:53241/categories/cicd/</link>
       <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/cicd/</guid>
+      <guid>http://localhost:53241/categories/cicd/</guid>
       <description></description>
     </item>
     <item>
       <title>Gitlab</title>
-      <link>http://localhost:1313/categories/gitlab/</link>
+      <link>http://localhost:53241/categories/gitlab/</link>
       <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/gitlab/</guid>
+      <guid>http://localhost:53241/categories/gitlab/</guid>
       <description></description>
     </item>
     <item>
       <title>Golang</title>
-      <link>http://localhost:1313/categories/golang/</link>
+      <link>http://localhost:53241/categories/golang/</link>
       <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/golang/</guid>
+      <guid>http://localhost:53241/categories/golang/</guid>
       <description></description>
     </item>
     <item>
       <title>Iterm</title>
-      <link>http://localhost:1313/categories/iterm/</link>
+      <link>http://localhost:53241/categories/iterm/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/iterm/</guid>
+      <guid>http://localhost:53241/categories/iterm/</guid>
       <description></description>
     </item>
     <item>
       <title>Macos</title>
-      <link>http://localhost:1313/categories/macos/</link>
+      <link>http://localhost:53241/categories/macos/</link>
       <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/macos/</guid>
+      <guid>http://localhost:53241/categories/macos/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/categories/python/</link>
+      <link>http://localhost:53241/categories/python/</link>
       <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/python/</guid>
+      <guid>http://localhost:53241/categories/python/</guid>
       <description></description>
     </item>
     <item>
       <title>MyKisah</title>
-      <link>http://localhost:1313/categories/mykisah/</link>
+      <link>http://localhost:53241/categories/mykisah/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/mykisah/</guid>
+      <guid>http://localhost:53241/categories/mykisah/</guid>
       <description></description>
     </item>
   </channel>

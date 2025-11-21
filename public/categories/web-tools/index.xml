@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web-Tools on fajar.today</title>
-    <link>http://localhost:1313/categories/web-tools/</link>
+    <link>http://localhost:53241/categories/web-tools/</link>
     <description>Recent content in Web-Tools on fajar.today</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 05 Nov 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/web-tools/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53241/categories/web-tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>regex101 URLs with pre-filled values</title>
-      <link>http://localhost:1313/notes/regex101-urls-with-pre-filled-values/</link>
+      <link>http://localhost:53241/notes/regex101-urls-with-pre-filled-values/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/regex101-urls-with-pre-filled-values/</guid>
+      <guid>http://localhost:53241/notes/regex101-urls-with-pre-filled-values/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s possible to link to &lt;a href=&#34;https://regex101.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;regex101&lt;/a&gt;  with pre-filled regular expression, flags, and test string,&#xA;as well as pre-selected flavor/engine with these undocumented URL parameters:&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,150 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>fajar.today</title>
-    <link>http://localhost:1313/</link>
+    <link>http://localhost:53241/</link>
     <description>Recent content on fajar.today</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53241/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build dan Push Docker Image ke Docker Hub</title>
-      <link>http://localhost:1313/notes/build-and-push-docker/</link>
+      <link>http://localhost:53241/notes/build-and-push-docker/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/build-and-push-docker/</guid>
+      <guid>http://localhost:53241/notes/build-and-push-docker/</guid>
       <description>&lt;p&gt;Build Docker image dan mengunggahnya ke Docker Hub, termasuk opsi untuk membuat image multi-architecture (&lt;code&gt;amd64&lt;/code&gt;, &lt;code&gt;arm64&lt;/code&gt;).&lt;/p&gt;</description>
     </item>
     <item>
       <title>regex101 URLs with pre-filled values</title>
-      <link>http://localhost:1313/notes/regex101-urls-with-pre-filled-values/</link>
+      <link>http://localhost:53241/notes/regex101-urls-with-pre-filled-values/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/regex101-urls-with-pre-filled-values/</guid>
+      <guid>http://localhost:53241/notes/regex101-urls-with-pre-filled-values/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s possible to link to &lt;a href=&#34;https://regex101.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;regex101&lt;/a&gt;  with pre-filled regular expression, flags, and test string,&#xA;as well as pre-selected flavor/engine with these undocumented URL parameters:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Private Go modules in GitLab CI/CD</title>
-      <link>http://localhost:1313/notes/private-go-modules-gitlab-ci/</link>
+      <link>http://localhost:53241/notes/private-go-modules-gitlab-ci/</link>
       <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/private-go-modules-gitlab-ci/</guid>
+      <guid>http://localhost:53241/notes/private-go-modules-gitlab-ci/</guid>
       <description>&lt;p&gt;This took way too long for me to figure out, so here&amp;rsquo;s how to install private Go modules in &lt;a href=&#34;https://docs.gitlab.com/ee/ci/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitLab CI/CD&lt;/a&gt;  pipeline&#xA;jobs:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tuban, Indonesia</title>
-      <link>http://localhost:1313/photos/tuban-indonesia/</link>
+      <link>http://localhost:53241/photos/tuban-indonesia/</link>
       <pubDate>Wed, 19 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/photos/tuban-indonesia/</guid>
+      <guid>http://localhost:53241/photos/tuban-indonesia/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://id.wikipedia.org/wiki/Kabupaten_Tuban&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tuban&lt;/a&gt; ,&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kuala Lumpur, Malaysia</title>
-      <link>http://localhost:1313/photos/kl-malaysia/</link>
+      <link>http://localhost:53241/photos/kl-malaysia/</link>
       <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/photos/kl-malaysia/</guid>
+      <guid>http://localhost:53241/photos/kl-malaysia/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://id.wikipedia.org/wiki/Kuala_Lumpur&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Malaysia&lt;/a&gt; ,&lt;/p&gt;</description>
     </item>
     <item>
       <title>Melaka, Malaysia</title>
-      <link>http://localhost:1313/photos/melaka-malaysia/</link>
+      <link>http://localhost:53241/photos/melaka-malaysia/</link>
       <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/photos/melaka-malaysia/</guid>
+      <guid>http://localhost:53241/photos/melaka-malaysia/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://id.wikipedia.org/wiki/Kota_Melaka&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Melaka&lt;/a&gt; ,&lt;/p&gt;</description>
     </item>
     <item>
       <title>Singapore</title>
-      <link>http://localhost:1313/photos/singapore/</link>
+      <link>http://localhost:53241/photos/singapore/</link>
       <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/photos/singapore/</guid>
+      <guid>http://localhost:53241/photos/singapore/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://id.wikipedia.org/wiki/Singapura&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Singapore&lt;/a&gt; , formerly Panjim, is the capital of the Indian state of Goa and the headquarters of North Goa district. It lies on the banks of the Mandovi River estuary in the Ilhas de Goa sub-district (taluka). With a population of 114,759 in the metropolitan area, Panjim is Goa&amp;rsquo;s largest urban agglomeration, ahead of Margão and Vasco da Gama.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Changi International Airport, Singapore</title>
-      <link>http://localhost:1313/photos/changi-airport-singapore/</link>
+      <link>http://localhost:53241/photos/changi-airport-singapore/</link>
       <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/photos/changi-airport-singapore/</guid>
+      <guid>http://localhost:53241/photos/changi-airport-singapore/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.google.com/search?q=changi&amp;#43;airport&amp;amp;oq=changi&amp;amp;gs_lcrp=EgZjaHJvbWUqDQgAEAAY4wIYsQMYgAQyDQgAEAAY4wIYsQMYgAQyEAgBEC4YrwEYxwEYsQMYgAQyCggCEC4YsQMYgAQyDAgDEAAYQxiABBiKBTIHCAQQABiABDIMCAUQABhDGIAEGIoFMgcIBhAAGIAEMgYIBxBFGDzSAQgxNTA2ajBqOagCBrACAfEF7vD2FneCHMM&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Changi Airport&lt;/a&gt; ,&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cara bertanya</title>
-      <link>http://localhost:1313/cara-bertanya/</link>
+      <link>http://localhost:53241/cara-bertanya/</link>
       <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/cara-bertanya/</guid>
+      <guid>http://localhost:53241/cara-bertanya/</guid>
       <description>&lt;p&gt;Begitu kita masuk ke dalam dunia komunikasi, seringkali kita menemui situasi di mana seseorang memulai percakapan dengan kata &amp;ldquo;Halo&amp;rdquo; atau meminta izin untuk bertanya, seperti &amp;ldquo;Boleh saya bertanya?, Kamu lagi sibuk nggak?&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Saya tidak suka telepon</title>
-      <link>http://localhost:1313/saya-tidak-suka-telepon/</link>
+      <link>http://localhost:53241/saya-tidak-suka-telepon/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/saya-tidak-suka-telepon/</guid>
+      <guid>http://localhost:53241/saya-tidak-suka-telepon/</guid>
       <description>&lt;p&gt;Tidak ada waktu untuk berpikir dengan matang,&lt;/p&gt;</description>
     </item>
     <item>
       <title>Viral itu efek samping</title>
-      <link>http://localhost:1313/viral-itu-efek-samping/</link>
+      <link>http://localhost:53241/viral-itu-efek-samping/</link>
       <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/viral-itu-efek-samping/</guid>
+      <guid>http://localhost:53241/viral-itu-efek-samping/</guid>
       <description>&lt;p&gt;Akhir akhir ini saya kaget melihat pemuda yg nekat membuat konten berbahaya, dimana aksinya memberhentikan truk yang sedang melintas di tengah jalan raya hanya demi VIRAL, bisa terbayang bagaimana nasib supir truk nya&lt;/p&gt;</description>
     </item>
     <item>
       <title>Merasa orang lain akan paham</title>
-      <link>http://localhost:1313/merasa-orang-lain-akan-paham/</link>
+      <link>http://localhost:53241/merasa-orang-lain-akan-paham/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/merasa-orang-lain-akan-paham/</guid>
+      <guid>http://localhost:53241/merasa-orang-lain-akan-paham/</guid>
       <description>&lt;p&gt;Saat kita interaksi pasti terjadi komunikasi, bukan sekedar komunikasi, tapi komunikasi dengan jelas&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kehidupan orang lain terlihat lebih menarik</title>
-      <link>http://localhost:1313/kehidupan-orang-lain-terlihat-lebih-menarik/</link>
+      <link>http://localhost:53241/kehidupan-orang-lain-terlihat-lebih-menarik/</link>
       <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kehidupan-orang-lain-terlihat-lebih-menarik/</guid>
+      <guid>http://localhost:53241/kehidupan-orang-lain-terlihat-lebih-menarik/</guid>
       <description>&lt;p&gt;Mau menjadi “dia”, Berusaha seperti dia, Padahal Tuhan sengaja Menciptakan kita berbeda&lt;/p&gt;</description>
     </item>
     <item>
       <title>Asumsikan keduanya benar</title>
-      <link>http://localhost:1313/asumsikan-keduanya-benar/</link>
+      <link>http://localhost:53241/asumsikan-keduanya-benar/</link>
       <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/asumsikan-keduanya-benar/</guid>
+      <guid>http://localhost:53241/asumsikan-keduanya-benar/</guid>
       <description>&lt;p&gt;Terkadang, kita sangat ingin melawan ide baru (untuk melindungi ide lama) sehingga kita kehilangan kesempatan untuk membayangkan bagaimana kita bisa maju.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Berbagi untuk sekitar</title>
-      <link>http://localhost:1313/berbagi-untuk-sekitar/</link>
+      <link>http://localhost:53241/berbagi-untuk-sekitar/</link>
       <pubDate>Thu, 08 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/berbagi-untuk-sekitar/</guid>
+      <guid>http://localhost:53241/berbagi-untuk-sekitar/</guid>
       <description>&lt;p&gt;Berbagi bahagia di Bulan Ramadhan 1442 H melalui program &lt;strong&gt;Mari Berbagi&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Customize iTerm menggunakan ohmyzsh&#43;powerline10k</title>
-      <link>http://localhost:1313/notes/customize-terminal-menggunakan-iterm-powerline10k/</link>
+      <link>http://localhost:53241/notes/customize-terminal-menggunakan-iterm-powerline10k/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/customize-terminal-menggunakan-iterm-powerline10k/</guid>
+      <guid>http://localhost:53241/notes/customize-terminal-menggunakan-iterm-powerline10k/</guid>
       <description></description>
     </item>
     <item>
       <title>Fix BUILD FAILED (OS X 11.0.1 bigsur using python-build 20180424)</title>
-      <link>http://localhost:1313/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</link>
+      <link>http://localhost:53241/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</link>
       <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</guid>
+      <guid>http://localhost:53241/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</guid>
       <description>&lt;p&gt;➜ brew install zlib openssl readline&lt;/p&gt;</description>
     </item>
     <item>
       <title>Introduction</title>
-      <link>http://localhost:1313/introduction/</link>
+      <link>http://localhost:53241/introduction/</link>
       <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/introduction/</guid>
+      <guid>http://localhost:53241/introduction/</guid>
       <description>&lt;p&gt;Hugo is an open-source project and lives by the work of its contributors. There are plenty of open issues, and we need your help to make Hugo even more awesome. You don&amp;rsquo;t need to be a Go guru to contribute to the project&amp;rsquo;s development.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Migrasi dari jekyll ke hugo</title>
-      <link>http://localhost:1313/notes/migrasi-dari-jekyll-ke-hugo/</link>
+      <link>http://localhost:53241/notes/migrasi-dari-jekyll-ke-hugo/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/migrasi-dari-jekyll-ke-hugo/</guid>
+      <guid>http://localhost:53241/notes/migrasi-dari-jekyll-ke-hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>http://localhost:53241/about/</link>
       <pubDate>Sat, 05 Nov 2016 21:05:33 +0530</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>http://localhost:53241/about/</guid>
       <description>&lt;p&gt;A minimal and responsive Hugo theme inspired by the system console, crafted for optimal performance with an average page load time of under one second.&lt;/p&gt;&#xA;&lt;p&gt;Theme is based on a modern and minimal &lt;a href=&#34;https://terminalcss.xyz/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Terminal CSS&lt;/a&gt;  framework.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://github.com/mrmierzejewski/hugo-theme-console/blob/master/images/preview.png?raw=true&#34; alt=&#34;Console&#34; class=&#34;img-responsive&#34;&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;live-demo&#34;&gt;Live demo&lt;/h2&gt; &lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://mrmierzejewski.com/hugo-theme-console/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://mrmierzejewski.com/hugo-theme-console/&lt;/a&gt; &lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt; &lt;p&gt;From the root of your Hugo site, clone the theme into &lt;code&gt;themes/hugo-theme-console&lt;/code&gt; by running :&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ git submodule add https://github.com/mrmierzejewski/hugo-theme-console.git hugo-theme-console&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;See the &lt;a href=&#34;https://gohugo.io/hugo-modules/theme-components/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo documentation&lt;/a&gt;  for more information.&lt;/p&gt;&#xA;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt; &lt;p&gt;Set theme parameter in your config file:&lt;/p&gt;</description>
     </item>
   </channel>
