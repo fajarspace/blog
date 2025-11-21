@@ -6,7 +6,7 @@ title: "Build dan Push Docker Image ke Docker Hub"
 
 Build Docker image dan mengunggahnya ke Docker Hub, termasuk opsi untuk membuat image multi-architecture (`amd64`, `arm64`).
 
----
+<!--more-->
 
 ## Login ke Docker Hub
 

@@ -1,36 +1,12 @@
-DBG_MAKEFILE ?=
-ifeq ($(DBG_MAKEFILE),1)
-    $(warning ***** starting Makefile for goal(s) "$(MAKECMDGOALS)")
-    $(warning ***** $(shell date))
-else
-    MAKEFLAGS += -s
-endif
+PWD ?= $(shell pwd)/
 
-MAKEFLAGS += --no-builtin-rules
-MAKEFLAGS += --warn-undefined-variables
-.SUFFIXES:
+usage: ### Usage (default)
+	@echo
+	@echo "USAGE:"
+	@echo "   make command [options]"
+	@echo
+	@echo "COMMANDS:"
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed 's/^/   /' | sed -e 's/\\$$//' | sed -e 's/#/	/g'
 
-dev: # @HELP runs development processes
-dev:
-	npm run dev
-
-format: # @HELP formats files
-format:
-	npm run format
-
-changelog: # @HELP updates CHANGELOG.md
-changelog:
-	git-chglog -o CHANGELOG.md
-
-release: # @HELP releases a new version as defined in ./scripts/release.sh
-release:
-	./scripts/release.sh
-
-help: # @HELP prints this message
-help:
-	echo "TARGETS:"
-	grep -E '^.*: *# *@HELP' $(MAKEFILE_LIST)     \
-	    | awk '                                   \
-	        BEGIN {FS = ": *# *@HELP"};           \
-	        { printf "  %-30s %s\n", $$1, $$2 };  \
-	    '
+hugo-server: ## Run Hugo web server and serve the example site
+	cd exampleSite; hugo server --cleanDestinationDir --themesDir ../../ -t hugo-theme-console

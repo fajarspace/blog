@@ -1,3 +1,3 @@
-module github.com/michenriksen/hugo-theme-til
+module github.com/mrmierzejewski/hugo-theme-console
 
-go 1.23.2
+go 1.12

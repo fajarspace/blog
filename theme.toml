@@ -1,18 +1,18 @@
-name = 'Today I Learned'
-license = 'MIT'
-licenselink = 'https://github.com/michenriksen/hugo-theme-til/LICENSE'
-description = 'A Hugo theme focused on simplicity and readability. Ideal for both traditional blog posts and shorter notes that makes it easy to record and share knowledge that doesn’t need a full blog post. Perfect for quick tips, insights, and discoveries.'
-homepage = 'https://github.com/michenriken/hugo-theme-til'
-demosite = 'https://michenriksen.com/til-example-site'
-
-tags = ['blog', 'notes', 'clean', 'minimal', 'simple', 'light', 'personal', 'obsidian', 'note-taking', 'til']
-features = ['notes', 'side notes', 'admonitions', 'content graph', 'accessibility']
-
-min_version = "0.129.0"
+name = "hugo-theme-console"
+license = "MIT"
+licenselink = "https://github.com/mrmierzejewski/hugo-theme-console/blob/master/LICENSE"
+description = " minimal and responsive Hugo theme inspired by the system console, crafted for optimal performance with an average page load time of under one second."
+homepage = "https://github.com/mrmierzejewski/hugo-theme-console"
+tags = ["blog", "gallery", "portfolio", "console", "terminal", "clean", "personal", "minimal", "monotone", "simple", "technical", "responsive", "mobile", "minimalist", "retro", "animation"]
+features = ["disqus", "responsive", "google analytics"]
+min_version = "0.90.0"
 
 [author]
-  name = 'Michael Henriksen'
-  homepage = 'https://michenriksen.com'
+  name = "Marcin Mierzejewski"
+  homepage = "https://mrmierzejewski.com"
+  github = "https://github.com/mrmierzejewski"
 
-[permalinks]
-  posts = "/:slug/"
+[original]
+  author = "Jonas D."
+  homepage = "https://terminalcss.xyz/"
+  repo = "https://github.com/Gioni06/terminal.css"

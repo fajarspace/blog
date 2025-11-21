@@ -1,449 +1,76 @@
-<!doctype html>
-<html lang="en-us" dir="ltr">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8" />
-<meta name="language" content="en" />
-<meta name="viewport" content="width=device-width" />
-<title>
-    regex101 URLs with pre-filled values | Today I Learned
-</title>
-  <meta name="description" content="It’s possible to link to regex101 with pre-filled regular expression, flags, and test string, as well as pre-selected flavor/engine with these undocumented URL parameters:
-code snippet start" />
-<meta property="og:url" content="http://localhost:1313/notes/regex101-urls-with-pre-filled-values/">
-  <meta property="og:site_name" content="Today I Learned">
-  <meta property="og:title" content="regex101 URLs with pre-filled values">
-  <meta property="og:description" content="It’s possible to link to regex101 with pre-filled regular expression, flags, and test string, as well as pre-selected flavor/engine with these undocumented URL parameters:
-code snippet start">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="notes">
-    <meta property="article:published_time" content="2024-11-05T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-11-05T00:00:00+00:00">
-
-
-  <meta itemprop="name" content="regex101 URLs with pre-filled values">
-  <meta itemprop="description" content="It’s possible to link to regex101 with pre-filled regular expression, flags, and test string, as well as pre-selected flavor/engine with these undocumented URL parameters:
-code snippet start">
-  <meta itemprop="datePublished" content="2024-11-05T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-11-05T00:00:00+00:00">
-  <meta itemprop="wordCount" content="93">
-  <meta itemprop="keywords" content="Regex,Web-Tools">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="regex101 URLs with pre-filled values">
-  <meta name="twitter:description" content="It’s possible to link to regex101 with pre-filled regular expression, flags, and test string, as well as pre-selected flavor/engine with these undocumented URL parameters:
-code snippet start">
-
-<link rel="canonical" href="http://localhost:1313/notes/regex101-urls-with-pre-filled-values/" />
-
-    <link rel="stylesheet" href="/css/index.css" />
-
-
-      <script src="/js/main.js" defer></script>
-  
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org/",
-  "@id": "http://localhost:1313/notes/regex101-urls-with-pre-filled-values/",
-  "@type": "BlogPosting",
-  "articleSection": [
-    "Regex",
-    "Web-Tools"
-  ],
-  "copyrightNotice": "Fajar Today",
-  "datePublished": "2024-11-05",
-  "description": "It’s possible to link to regex101 with pre-filled regular expression, flags, and test string, as well as pre-selected flavor/engine with these undocumented URL parameters:\ncode snippet start",
-  "headline": "Regex101 URLs With Pre-Filled Values",
-  "isPartOf": {
-    "@id": "http://localhost:1313/notes/",
-    "@type": "Blog",
-    "name": "Notes"
-  },
-  "mainEntityOfPage": "http://localhost:1313/notes/regex101-urls-with-pre-filled-values/",
-  "name": "Regex101 URLs With Pre-Filled Values",
-  "timeRequired": "PT1M",
-  "url": "http://localhost:1313/notes/regex101-urls-with-pre-filled-values/",
-  "wordCount": 93
-}
-</script>
-
-
-    <style>
-       
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-
-       
-      body {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          Oxygen,
-          Ubuntu,
-          Cantarell,
-          sans-serif;
-        min-height: 100vh;
-      }
-
-       
-      @media (min-width: 1280px) {
-         
-        #mobile-navbar {
-          display: none;
-        }
-      }
-
-       
-      @media (max-width: 1280px) {
-        body {
-          padding-top: 4rem;  
-        }
-
-         
-        #desktop-sidebar {
-          display: none;
-        }
-      }
-
-       
-      .sidebar-title,
-      .navbar-title {
-        font-size: 1.875rem;  
-        font-weight: 600;
-        line-height: 1.2;
-        letter-spacing: -0.025em;
-      }
-
-      .sidebar-subtitle,
-      .navbar-subtitle {
-        font-size: 0.875rem;  
-        font-weight: 400;
-        color: #9ca3af;  
-      }
-
-      .sidebar-author {
-        font-size: 0.8125rem;  
-        font-weight: 300;
-        color: #6b7280;  
-      }
-
-      .sidebar-nav {
-        font-size: 0.9375rem;  
-        font-weight: 400;
-      }
-
-      .sidebar-nav a {
-        color: #e5e7eb;  
-        transition: all 0.2s ease;
-      }
-
-      .sidebar-nav a:hover {
-        color: #ffffff;
-        transform: translateX(4px);
-      }
-
-       
-      .mobile-menu-item {
-        color: #e5e7eb;
-        padding: 0.75rem 1.5rem;
-        display: block;
-        transition: all 0.2s ease;
-        font-size: 1rem;
-      }
-
-      .mobile-menu-item:hover {
-        background-color: #1f2937;
-        color: #ffffff;
-      }
-
-       
-      #desktop-sidebar,
-      #mobile-navbar {
-        background-color: #121212;
-      }
-
-       
-      .social-icon {
-        background-color: #1f2937;  
-        transition: all 0.2s ease;
-      }
-
-      .social-icon:hover {
-        background-color: #374151;  
-        transform: scale(1.05);
-      }
-
-       
-      .navbar-title {
-        font-size: 1.5rem;  
-      }
-
-       
-      #mobile-dropdown {
-        transform-origin: top;
-        transition: all 0.3s ease;
-      }
-
-      #mobile-dropdown.hidden {
-        transform: scaleY(0);
-        opacity: 0;
-      }
-
-      #mobile-dropdown:not(.hidden) {
-        transform: scaleY(1);
-        opacity: 1;
-      }
-    </style>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>fajar.today/notes/regex101-urls-with-pre-filled-values/</title>
     
-    <aside id="desktop-sidebar" class="fixed bottom-0 left-0 top-0 z-[999] h-full w-72 p-4 text-white">
-  <div class="flex h-full flex-col justify-between p-6">
-    <div>
-      
-      <div class="mb-12">
-        <a href="/">
-          <h1 class="text-4xl font-semibold leading-tight tracking-tight text-white">Today</h1>
-          <p class="mt-1 text-sm font-normal text-gray-400">I Learned</p>
-          <p class="mt-2 text-xs font-light text-gray-500">by Fajar A Nugroho</p>
-        </a>
-      </div>
-
-      
-        <nav class="space-y-5 text-[15px] font-normal">
-          <ul>
-  <li class="mb-5 flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white">
-    <a
-      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" aria-current="true" class="text-white" href="/notes/">
-      <span class="mr-3 text-lg">→</span> <span>Notes</span></a
-    >
-  </li>
-  <li class="mb-5 flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white">
-    <a
-      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/posts/">
-      <span class="mr-3 text-lg">→</span> <span>Posts</span></a
-    >
-  </li>
-  <li class="mb-5 flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white">
-    <a
-      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/rekomendasi-buku/">
-      <span class="mr-3 text-lg">→</span> <span>Book Recommendations</span></a
-    >
-  </li>
-
-          </ul>
-        </nav>
-    </div>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/terminal-0.7.4.min.css">
+    <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/animate-4.1.1.min.css">
+    <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/console.css">
     
-    <div class="mt-8 flex justify-around">
-      
-      <a
-        href="https://github.com/fajarspace"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-gray-400 hover:text-white"
-      >
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.29 3.438 9.787 8.205 11.387.6.113.82-.263.82-.583 0-.287-.01-1.048-.015-2.057-3.338.726-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.753-1.333-1.753-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.775.42-1.305.763-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.47-2.382 1.236-3.222-.124-.305-.536-1.533.117-3.197 0 0 1.008-.322 3.3 1.23.96-.267 1.987-.4 3.008-.404 1.02.004 2.048.137 3.01.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.664.243 2.892.12 3.197.77.84 1.235 1.912 1.235 3.222 0 4.61-2.803 5.624-5.475 5.922.43.372.823 1.102.823 2.222 0 1.606-.015 2.9-.015 3.293 0 .323.217.698.825.58C20.565 22.283 24 17.79 24 12.5 24 5.87 18.63.5 12 .5z"
-          />
-        </svg>
-      </a>
-
-      
-      <a
-        href="https://instagram.com/fajaragngn"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-gray-400 hover:text-white"
-      >
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5A4.25 4.25 0 0020.5 16.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm4.75-.75a1 1 0 110 2 1 1 0 010-2z"
-          />
-        </svg>
-      </a>
-
-      
-      <a
-        href="https://linkedin.com/in/fajaragngn"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-gray-400 hover:text-white"
-      >
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zm-9 19H7V9h3v10zm-1.5-11.3c-1 0-1.7-.8-1.7-1.7s.8-1.7 1.7-1.7S10 5 10 5.9 9.2 7.7 8.5 7.7zM20 19h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2V19h-3V9h3v1.3c.7-1 2.1-1.6 3.3-1.6 2.3 0 4.2 1.9 4.2 4.2V19z"
-          />
-        </svg>
-      </a>
-    </div>
-  </div>
-</aside>
-
-
-<nav id="mobile-navbar" class="fixed left-0 right-0 top-0 z-[99999] bg-black text-white xl:hidden">
-  <div class="flex items-center justify-between px-4 py-2">
-    
-    <div class="flex items-center space-x-2">
-      <a href="/">
-        <h1 class="navbar-title text-white">Today</h1>
-        <span class="navbar-subtitle">I Learned</span>
-      </a>
-    </div>
-
-    
-    <button
-      id="mobile-menu-toggle"
-      class="rounded-lg bg-gray-800 p-2 transition-colors hover:bg-gray-700"
-      aria-label="Toggle menu"
-    >
-      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"
-          class="menu-icon"
-        ></path>
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"
-          class="close-icon hidden"
-        ></path>
-      </svg>
-    </button>
-  </div>
-
-  
-  <div id="mobile-dropdown" class="hidden border-t border-gray-800 bg-black">
-    
-      <nav class="space-y-5 p-5 text-[15px] font-normal">
-        <ul>
-  <li class="mb-5 flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white">
-    <a
-      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" aria-current="true" class="text-white" href="/notes/">
-      <span class="mr-3 text-lg">→</span> <span>Notes</span></a
-    >
-  </li>
-  <li class="mb-5 flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white">
-    <a
-      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/posts/">
-      <span class="mr-3 text-lg">→</span> <span>Posts</span></a
-    >
-  </li>
-  <li class="mb-5 flex items-center space-y-5 text-gray-200 transition-transform hover:translate-x-1 hover:text-white">
-    <a
-      class="flex items-center text-gray-200 transition-transform hover:translate-x-1 hover:text-white" class="block pl-7 text-gray-200 transition-transform hover:translate-x-1 hover:text-white" href="/rekomendasi-buku/">
-      <span class="mr-3 text-lg">→</span> <span>Book Recommendations</span></a
-    >
-  </li>
-
-        </ul>
-      </nav>
-
-  </div>
-</nav>
+      <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+       <meta property="og:title" content="regex101 URLs with pre-filled values" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/notes/regex101-urls-with-pre-filled-values/" /><meta property="article:published_time" content="2024-11-05T00:00:00+00:00" />
 
 
 
-    
-    
-    
-    <div
-      class="container mx-auto flex max-w-prose transform flex-col justify-end space-y-10 p-4 md:p-6 xl:translate-x-40"
-    >
-      <header class="flex flex-row items-center justify-between">
-        
+<meta name="twitter:title" content="regex101 URLs with pre-filled values"/>
+<meta name="twitter:description" content="It&rsquo;s possible to link to regex101  with pre-filled regular expression, flags, and test string,
+as well as pre-selected flavor/engine with these undocumented URL parameters:"/>
 
-
-
-      </header>
-      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
-        <article class="main">
-    <header>
-      <h1 class="!mb-1">Regex101 URLs With Pre-Filled Values</h1><div class="flex flex-row items-center space-x-4">
-          <time class="text-sm italic opacity-80" datetime="2024-11-05T00:00:00&#43;00:00"
-            >November 5, 2024</time
-          >
+</head>
+<body class="terminal">
+    <div class="container">
+        <div class="terminal-nav">
+          <header class="terminal-logo">
+            <div class="logo terminal-prompt">
+              
+              
+              <a href="http://localhost:1313/" class="no-style site-name">fajar.today</a>:~# 
+              <a href='http://localhost:1313/notes'>notes</a>/<a href='http://localhost:1313/notes/regex101-urls-with-pre-filled-values'>regex101-urls-with-pre-filled-values</a>/</div></header>
+          <nav class="terminal-menu">
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" href="http://localhost:1313/posts/">
+                    <span property="name">posts/</span></a>
+                    <meta property="position" content="1" />
+                </li>
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" href="http://localhost:1313/notes/">
+                    <span property="name">notes/</span></a>
+                    <meta property="position" content="2" />
+                </li>
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" href="http://localhost:1313/photos/">
+                    <span property="name">photos/</span></a>
+                    <meta property="position" content="3" />
+                </li>
+                
+            </ul>
+          </nav>
         </div>
-    </header>
-
-    <p>It&rsquo;s possible to link to <a href="https://regex101.com/">regex101</a> with pre-filled regular expression, flags, and test string,
-as well as pre-selected flavor/engine with these undocumented URL parameters:</p>
-<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
-  <aside
-    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
-  >
-    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
-      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
-        <span class="relative"></span>
-      </div>
-      <div>
-        <clipboard-copy
-          type="button"
-          aria-label="Copy code to clipboard"
-          title="Copy code to clipboard"
-          class="block cursor-pointer transition-colors hover:text-sky-400"
-          target="#codeblock-01 code"
-        >
-          <svg
-  xmlns="http://www.w3.org/2000/svg"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="lucide lucide-clipboard h-4 w-4"
-  viewBox="0 0 24 24"
->
-  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-</svg>
-
-        </clipboard-copy>
-      </div>
-      <div>
-        <a
-          href="#codeblock-01"
-          class="block"
-          aria-label="Link to this code block"
-          title="Link to this code block"
-        >
-          <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="16"
-  height="16"
-  fill="none"
-  stroke="currentColor"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  stroke-width="2"
-  class="lucide lucide-link w-4 h-4 block"
-  viewBox="0 0 24 24"
->
-  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-</svg>
-
-        </a>
-      </div>
     </div>
-  </aside>
-  <p class="sr-only"> code snippet start</p>
-  <pre tabindex="0"><code>
-https://regex101.com/?regex=...&amp;testString=...&amp;flags=...&amp;flavor=...</code></pre>
-  <p class="sr-only"> code snippet end</p>
 
-  
-</figure>
-<p><a href="https://regex101.com/?regex=p%28%5Ba%2Dz%5D%2B%29ch&amp;testString=peach%20punch%20pinch&amp;flavor=golang"><strong>Example link</strong></a></p>
+    <div class="container animated zoomIn fast" >
+        
+<h1>regex101 URLs with pre-filled values</h1>
+<p>It&rsquo;s possible to link to <a href="https://regex101.com/" target="_blank" rel="noopener">regex101</a>  with pre-filled regular expression, flags, and test string,
+as well as pre-selected flavor/engine with these undocumented URL parameters:</p>
+<pre tabindex="0"><code>
+https://regex101.com/?regex=...&amp;testString=...&amp;flags=...&amp;flavor=...
+</code></pre><p><a href="https://regex101.com/?regex=p%28%5Ba%2Dz%5D%2B%29ch&amp;testString=peach%20punch%20pinch&amp;flavor=golang" target="_blank" rel="noopener"><strong>Example link</strong></a> </p>
 <p>The <code>flavor</code> value can be one of the following:</p>
 <ul>
 <li><code>pcre2</code> for PCRE2 (PHP &gt;=7.3)</li>
@@ -458,144 +85,11 @@ https://regex101.com/?regex=...&amp;testString=...&amp;flags=...&amp;flavor=...<
 <p>While regex101 has a nice feature for saving and sharing, these parameters are convenient for programmatically
 creating playground links.</p>
 
-  </article>
-    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
-    <section class="flex flex-col space-y-4">
-      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
-        <svg
-  xmlns="http://www.w3.org/2000/svg"
-  fill="none"
-  stroke="currentColor"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  stroke-width="2"
-  class="lucide lucide-shapes h-4 w-4"
-  viewBox="0 0 24 24"
-  aria-hidden="true"
->
-  <path
-    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
-  />
-  <rect width="7" height="7" x="3" y="14" rx="1" />
-  <circle cx="17.5" cy="17.5" r="3.5" />
-</svg>
+        <div class="footer">
+    Powered by <a href="https://gohugo.io/">Hugo</a> with
+    <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>. 
+</div>
 
-        <span>Categories</span>
-      </h2>
-
-      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
-          <li>
-            <a href="/categories/regex/" class="taxonomy category">regex</a>
-          </li>
-          <li>
-            <a href="/categories/web-tools/" class="taxonomy category">web-tools</a>
-          </li>
-      </ul>
-    </section>
-    <section class="flex flex-col space-y-4" aria-hidden="true">
-      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
-        <svg
-  xmlns="http://www.w3.org/2000/svg"
-  fill="none"
-  stroke="currentColor"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  stroke-width="2"
-  class="lucide lucide-chart-network h-4 w-4"
-  viewBox="0 0 24 24"
-  aria-hidden="true"
->
-  <path
-    d="m13.11 7.664 1.78 2.672M14.162 12.788l-3.324 1.424M20 4l-6.06 1.515M3 3v16a2 2 0 0 0 2 2h16"
-  />
-  <circle cx="12" cy="6" r="2" />
-  <circle cx="16" cy="12" r="2" />
-  <circle cx="9" cy="15" r="2" />
-</svg>
-
-        <span>Graph</span>
-      </h2>
-
-      <content-network-graph
-  class="h-64 ml-6"
-  data-endpoint="/graph/index.json"
-  page="/notes/regex101-urls-with-pre-filled-values/"
-></content-network-graph>
-
-    </section>
-</aside>
-
-
-      </main>
-      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
-        <section class="items-top flex flex-row justify-between opacity-70">
-  <div class="flex flex-col space-y-2">
-      <p>Copyright &copy; 2025, Fajar Today.</p>
-
-  </div>
-    <div>
-      <a
-        href="https://github.com/michenriksen/hugo-theme-til"
-        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
-        data-theme-version="0.6.0"
-        >theme: til</a
-      >
     </div>
-</section>
-
-      </footer>
-    </div>
-
-    
-
-
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const toggleButton = document.getElementById("mobile-menu-toggle");
-        const dropdown = document.getElementById("mobile-dropdown");
-        const menuIcon = toggleButton.querySelector(".menu-icon");
-        const closeIcon = toggleButton.querySelector(".close-icon");
-
-        
-        function toggleDropdown() {
-          const isOpen = !dropdown.classList.contains("hidden");
-
-          if (isOpen) {
-            
-            dropdown.classList.add("hidden");
-            menuIcon.classList.remove("hidden");
-            closeIcon.classList.add("hidden");
-            document.body.style.overflow = "auto";
-          } else {
-            
-            dropdown.classList.remove("hidden");
-            menuIcon.classList.add("hidden");
-            closeIcon.classList.remove("hidden");
-          }
-        }
-
-        
-        toggleButton.addEventListener("click", toggleDropdown);
-
-        
-        document.addEventListener("click", function (e) {
-          if (
-            !toggleButton.contains(e.target) &&
-            !dropdown.contains(e.target) &&
-            !dropdown.classList.contains("hidden")
-          ) {
-            toggleDropdown();
-          }
-        });
-
-        
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && !dropdown.classList.contains("hidden")) {
-            toggleDropdown();
-          }
-        });
-      });
-    </script>
   </body>
 </html>

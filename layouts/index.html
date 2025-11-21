@@ -1,0 +1,80 @@
+{{ define "main" }}
+
+<div style="display: flex; align-items: center; gap: 16px;">
+  <img 
+    src="/pic.png" 
+    alt="Profile" 
+    style="
+      width: 90px; 
+      height: 90px;
+      border-radius: 50%; 
+      object-fit: cover;
+      flex-shrink: 0;
+    "
+  />
+
+  <div>
+    <h1>Halo 👋</h1>
+    <p>
+      Occasional posts from a software engineer on coding, side projects, life, 
+      and tech spelunking.
+    </p>
+  </div>
+</div>
+
+<br/>
+
+<h1>Latest posts</h1>
+
+<div class="posts-list">
+{{ with .Site.GetPage "/posts" }}
+    {{ range first 3 (sort .Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
+        <div class="post">
+            <p>
+                <div class="date">{{ .Date | time.Format ":date_medium" }}</div>
+                <h1><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
+                {{ .Summary }}
+            </p>
+        </div>    
+    {{ end }}
+{{ end }}
+</div>
+
+<h1>Latest notes</h1>
+
+<div class="posts-list">
+{{ with .Site.GetPage "/notes" }}
+    {{ range first 3 (sort .Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
+        <div class="post">
+            <p>
+                <div class="date">{{ .Date | time.Format ":date_medium" }}</div>
+                <h1><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
+                <!-- {{ .Summary }} -->
+            </p>
+        </div>    
+    {{ end }}
+{{ end }}
+</div>
+
+
+<h1>Latest photos</h1>
+
+<div class="bento-grid">
+{{ with .Site.GetPage "/photos" }}
+    {{ range $index, $page := first 3 (sort .Pages "Date" "desc")}}
+        {{ if and (isset .Params "image") .Params.image }}
+            <a href="{{ .Permalink }}" title="{{ .Title }}" class="bento-item bento-item-{{ $index }}">
+            {{ $image := .Resources.GetMatch .Params.image }}
+            {{ with $image }}
+                {{ $thumb := .Resize "800x" }}
+                <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
+                <div class="bento-overlay">
+                    <h3>{{ $page.Title }}</h3>
+                </div>
+            {{end}}
+            </a>
+        {{ end }}
+    {{ end }}
+{{ end }}
+</div>
+{{ end }}

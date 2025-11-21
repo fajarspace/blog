@@ -1,11 +1,13 @@
 ---
 title: Private Go modules in GitLab CI/CD
 date: 2024-10-30
-categories: [Golang, Gitlab, 'CICD']
+categories: [Golang, Gitlab, "CICD"]
 ---
 
 This took way too long for me to figure out, so here's how to install private Go modules in [GitLab CI/CD] pipeline
 jobs:
+
+<!--more-->
 
 ## netrc and GOPRIVATE
 
@@ -14,8 +16,8 @@ username which hosts the private Go modules:
 
 ```yaml
 before_script:
-    - echo -e "machine gitlab.com login gitlab-ci-token password ${CI_JOB_TOKEN}" > ~/.netrc
-    - go env -w GOPRIVATE="gitlab.com/<namespace>"
+  - echo -e "machine gitlab.com login gitlab-ci-token password ${CI_JOB_TOKEN}" > ~/.netrc
+  - go env -w GOPRIVATE="gitlab.com/<namespace>"
 ```
 
 The special [.netrc] file will be used by `go get`/`go mod tidy` to fetch the private modules by authenticating with

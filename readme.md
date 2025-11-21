@@ -1,54 +1,144 @@
-# Today I Learned
+# Hugo Theme: Console
 
-A Hugo theme focused on simplicity and readability. Ideal for both traditional blog posts and shorter notes that makes
-it easy to record and share knowledge that doesn’t need a full blog post. Perfect for quick tips, insights, and
-discoveries.
+A minimal and responsive Hugo theme inspired by the system console, crafted for optimal performance with an average page load time of under one second.
 
-Check out the theme demo at <https://michenriksen.com/til-example-site> or [browse the repository] to see how it's set
-up.
-
-> [!NOTE]
-> This theme is in beta and is not yet feature-complete. Bugs and quirks may still be present. Check back regularly for updates with new features and bug fixes!
+Theme is based on a modern and minimal [Terminal CSS](https://terminalcss.xyz/) framework.
 
 ## Features
 
-### Content graph view
+- **Fast Performance**: Optimized for speed with sub-second load times
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **Console-Inspired**: Clean, terminal-like aesthetic with modern typography
+- **Photo Gallery Support**: Built-in gallery functionality for photo collections
+- **Blog Ready**: Full support for blog posts with metadata
+- **Easy Customization**: Simple configuration and extensible design
+- **Hugo v0.146.0+ Compatible**: Updated for the latest Hugo template system 
 
-Visualize connections between notes and posts like seen in Apps like Obsidian. The content graph provides a web of your
-knowledge, letting you and your readers explore related notes and see how everything connects.
+![Console](https://github.com/mrmierzejewski/hugo-theme-console/blob/master/images/preview.png?raw=true)
 
-### Side notes
+## Live demo
 
-Add side notes that sit neatly alongside your main content. Perfect for extra details, tips, or fun facts without
-breaking up the flow of your writing.
+* [https://mrmierzejewski.com/hugo-theme-console/](https://mrmierzejewski.com/hugo-theme-console/)
 
-### Admonitions
+## Installation
 
-Highlight important notes, warnings, tips, or anything that deserves special attention with styled callout boxes. Great
-for keeping readers informed.
+### Adding theme as a Git submodule
 
-### Improved JSON-LD data
+From the root of your Hugo site, clone the theme into `themes/hugo-theme-console` by running:
 
-The theme enhances Hugo’s built-in [JSON-LD] structured data by adding more detailed metadata, helping search engines
-better understand your content and making it easier for your posts to appear in relevant search results.
+```bash
+$ git submodule add https://github.com/mrmierzejewski/hugo-theme-console.git hugo-theme-console
+```
+    
+See the [Hugo documentation](https://gohugo.io/hugo-modules/theme-components/) for more information.
 
-### Built-in blocking of generative AI/LLM associated web crawlers
+### Adding theme as a Hugo module
 
-If you’re concerned about your content being used as training data for generative AI and language models, the theme’s
-robots.txt template allows you to easily block a wide range of genAI and LLM-related web crawlers.
+From the root of your Hugo site, turn your site into a Hugo module by running:
 
-### Easy Creative Commons licensing
+```bash
+$ hugo mod init github.com/my-username/my-new-site
 
-The theme includes simple options for adding a [Creative Commons license] to your content, allowing you to define how
-others can use, share, or adapt your work. You can choose the most appropriate Creative Commons license, and it will
-automatically appear in the website footer with optional usage icons.
+```
 
-## Documentation
+Next declare the `Console` theme module as a dependency for your site.
 
-- [Installation and Setup](https://michenriksen.com/til-example-site/posts/installation/)
-- [Configuration Reference](https://michenriksen.com/til-example-site/posts/configuration/)
-- [Shortcodes](https://michenriksen.com/til-example-site/posts/shortcodes/)
+```bash
+$ hugo mod get github.com/mrmierzejewski/hugo-theme-console
+```
 
-[JSON-LD]: https://json-ld.org/
-[Creative Commons license]: https://creativecommons.org/share-your-work/cclicenses/
-[browse the repository]: https://github.com/michenriksen/til-example-site
+Finally, add this section to your config file `hugo.toml`:
+
+```toml
+[[module.imports]]
+  path = "github.com/mrmierzejewski/hugo-theme-console"
+```
+
+## Configuration
+
+Set theme parameter in your config file:
+
+```toml
+theme = "hugo-theme-console"
+```
+
+### Basic Configuration
+
+Add these parameters to your `hugo.toml` file for basic customization:
+
+```toml
+[params]
+  description = "Your site description"
+  animateStyle = "animate-fade-up" # Animation style for content
+
+[[params.navlinks]]
+  name = "About"
+  url = "/about/"
+
+[[params.navlinks]]
+  name = "Posts"
+  url = "/posts/"
+
+[[params.navlinks]]
+  name = "Photos"
+  url = "/photos/"
+```
+
+## Quick Start
+
+After installation, take a look in the `exampleSite` folder. This directory contains an example config file and the content for the demo.
+
+```
+exampleSite
+├── hugo.toml
+├── content
+│   ├── about
+│   │   └── index.md
+│   ├── photos
+│   │   └── arizona-us
+│   │       ├── arizona-us.jpg
+│   │       └── index.md
+│   └── posts
+│       └── introduction
+│           └── index.md
+├── layouts
+└── static
+```
+
+Copy at least the `hugo.toml` in the root directory of your website. Overwrite the existing config file if necessary.
+
+### Development Server
+
+Hugo includes a development server, so you can view your changes as you go—very handy. Spin it up with the following command:
+
+```bash
+hugo serve
+```
+
+Now you can go to [http://localhost:1313](http://localhost:1313) and the theme should be visible.
+
+### Building for Production
+
+To build your site for production:
+
+```bash
+hugo --minify
+```
+
+This will create a `public/` directory with your optimized site ready for deployment.
+
+## Example Site
+
+To run the example site, please type the following command.
+
+```
+make hugo-server
+```
+
+## Template System Upgrade
+
+This theme has been updated to be compatible with Hugo v0.146.0 and the new template system. For detailed information about the changes made, please see [TEMPLATE_UPGRADE.md](TEMPLATE_UPGRADE.md).
+
+## License
+
+Copyright &copy; 2024 [Marcin Mierzejewski](https://mrmierzejewski.com/). This theme is released under the [MIT License](https://github.com/panr/hugo-theme-terminal/blob/master/LICENSE.md).

@@ -1,11 +1,11 @@
----
-summary: 'Saat kita interaksi pasti terjadi komunikasi, bukan sekedar komunikasi, tapi komunikasi dengan jelas'
-date: '2021-11-20'
-featured_image: 'https://i.ibb.co/JRsfTzC/telephone-3594206-640.jpg'
-title: 'Merasa orang lain akan paham'
----
++++
+date = "2021-11-20"
+title = "Merasa orang lain akan paham"
++++
 
 Saat kita interaksi pasti terjadi komunikasi, bukan sekedar komunikasi, tapi komunikasi dengan jelas
+
+<!--more-->
 
 Ketika pemerintah mengeluarkan aturan PPKM misalnya, tidak adanya edukasi untuk menjelaskan kenapa sebuah aturan PPKM diberlakukan, dan hasilnya kejadian dilapangan tidak sesuai, masyarakat tidak paham akibat tidak adanya edukasi yang jelas
 

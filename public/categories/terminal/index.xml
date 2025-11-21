@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Terminal on Today I Learned</title>
+    <title>Terminal on fajar.today</title>
     <link>http://localhost:1313/categories/terminal/</link>
-    <description>Recent content in Terminal on Today I Learned</description>
+    <description>Recent content in Terminal on fajar.today</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>Fajar Today</copyright>
-    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build dan Push Docker Image ke Docker Hub</title>
+      <link>http://localhost:1313/notes/build-and-push-docker/</link>
+      <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/build-and-push-docker/</guid>
+      <description>&lt;p&gt;Build Docker image dan mengunggahnya ke Docker Hub, termasuk opsi untuk membuat image multi-architecture (&lt;code&gt;amd64&lt;/code&gt;, &lt;code&gt;arm64&lt;/code&gt;).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Customize iTerm menggunakan ohmyzsh&#43;powerline10k</title>
       <link>http://localhost:1313/notes/customize-terminal-menggunakan-iterm-powerline10k/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/customize-terminal-menggunakan-iterm-powerline10k/</guid>
-      <description>&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Download &lt;a href=&#34;https://iterm2.com/&#34;&gt;iterm2&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install &lt;a href=&#34;https://ohmyz.sh/&#34;&gt;ohmyzsh&lt;/a&gt; menggunakan brew atau lainnya (lihat di dokumentasi ohmyzsh)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Buka iterm Go to Preferences - profile - color lalu import color preset &lt;a href=&#34;https://github.com/fajaragngn/zsh-itermcolors&#34; title=&#34;https://github.com/fajaragngn/zsh-itermcolors&#34;&gt;https://github.com/fajaragngn/zsh-itermcolors&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Go to Preferences - profile - general klik icon menjadi built-in icon&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install theme &lt;a href=&#34;https://github.com/romkatv/powerlevel10k&#34;&gt;powerline10k&lt;/a&gt; (Lihat dokumentasi di github)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Config ketik &lt;strong&gt;nano ~/.zshrc&lt;/strong&gt; ubah &lt;strong&gt;ZSH_THEME=&amp;ldquo;apa ini saya lupa:V&amp;rdquo;&lt;/strong&gt; menjadi &lt;strong&gt;ZSH_THEME=&amp;ldquo;powerlevel10k/powerlevel10k&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Save, lalu restart iterm&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Ikuti konfigurasi yang di berikan dan selesai.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Untuk konfigurasi ulang ketik p10k configure&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>Fix BUILD FAILED (OS X 11.0.1 bigsur using python-build 20180424)</title>
       <link>http://localhost:1313/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</link>
       <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/fix-build-failed-os-x-11.0.1-using-python-build-20180424/</guid>
-      <description>&lt;p&gt;➜ brew install zlib openssl readline&lt;/p&gt;&#xA;&lt;p&gt;CFLAGS=&amp;quot;-I$(brew &amp;ndash;prefix openssl)/include -I$(brew &amp;ndash;prefix readline)/include -I$(xcrun &amp;ndash;show-sdk-path)/usr/include&amp;quot;&lt;/p&gt;&#xA;&lt;p&gt;LDFLAGS=&amp;quot;-L$(brew &amp;ndash;prefix openssl)/lib -L$(brew &amp;ndash;prefix readline)/lib -L$(brew &amp;ndash;prefix zlib)/lib&amp;quot;&lt;/p&gt;&#xA;&lt;p&gt;Warning: zlib 1.2.11 is already installed and up-to-date&lt;br&gt;&#xA;To reinstall 1.2.11, run &lt;code&gt;brew reinstall zlib&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Warning: &lt;a href=&#34;mailto:openssl@1.1&#34;&gt;openssl@1.1&lt;/a&gt; 1.1.1g is already installed and up-to-date&lt;br&gt;&#xA;To reinstall 1.1.1g, run &lt;code&gt;brew reinstall openssl@1.1&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Warning: readline 8.0.4 is already installed and up-to-date&lt;br&gt;&#xA;To reinstall 8.0.4, run &lt;code&gt;brew reinstall readline&lt;/code&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;➜ brew install zlib openssl readline&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,10 +1,12 @@
 ---
 date: 2020-11-24
 categories: [terminal, python, macos]
-title: 'Fix BUILD FAILED (OS X 11.0.1 bigsur using python-build 20180424)'
+title: "Fix BUILD FAILED (OS X 11.0.1 bigsur using python-build 20180424)"
 ---
 
 ➜ brew install zlib openssl readline
+
+<!--more-->
 
 CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include"
 

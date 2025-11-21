@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Photos on fajar.today</title>
+    <link>http://localhost:1313/photos/</link>
+    <description>Recent content in Photos on fajar.today</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/photos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tuban, Indonesia</title>
+      <link>http://localhost:1313/photos/tuban-indonesia/</link>
+      <pubDate>Wed, 19 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/tuban-indonesia/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://id.wikipedia.org/wiki/Kabupaten_Tuban&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tuban&lt;/a&gt; ,&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kuala Lumpur, Malaysia</title>
+      <link>http://localhost:1313/photos/kl-malaysia/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/kl-malaysia/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://id.wikipedia.org/wiki/Kuala_Lumpur&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Malaysia&lt;/a&gt; ,&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Melaka, Malaysia</title>
+      <link>http://localhost:1313/photos/melaka-malaysia/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/melaka-malaysia/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://id.wikipedia.org/wiki/Kota_Melaka&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Melaka&lt;/a&gt; ,&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Singapore</title>
+      <link>http://localhost:1313/photos/singapore/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/singapore/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://id.wikipedia.org/wiki/Singapura&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Singapore&lt;/a&gt; , formerly Panjim, is the capital of the Indian state of Goa and the headquarters of North Goa district. It lies on the banks of the Mandovi River estuary in the Ilhas de Goa sub-district (taluka). With a population of 114,759 in the metropolitan area, Panjim is Goa&amp;rsquo;s largest urban agglomeration, ahead of Margão and Vasco da Gama.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Changi International Airport, Singapore</title>
+      <link>http://localhost:1313/photos/changi-airport-singapore/</link>
+      <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/changi-airport-singapore/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.google.com/search?q=changi&amp;#43;airport&amp;amp;oq=changi&amp;amp;gs_lcrp=EgZjaHJvbWUqDQgAEAAY4wIYsQMYgAQyDQgAEAAY4wIYsQMYgAQyEAgBEC4YrwEYxwEYsQMYgAQyCggCEC4YsQMYgAQyDAgDEAAYQxiABBiKBTIHCAQQABiABDIMCAUQABhDGIAEGIoFMgcIBhAAGIAEMgYIBxBFGDzSAQgxNTA2ajBqOagCBrACAfEF7vD2FneCHMM&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Changi Airport&lt;/a&gt; ,&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,11 +1,11 @@
----
-summary: 'Merasa orang lain punya jalan instan, padahal sama susahnya'
-date: '2021-10-09'
-featured_image: 'https://i.ibb.co/d0yBqBM/old-woman-731423-640.jpg'
-title: 'Kehidupan orang lain terlihat lebih menarik'
----
++++
+date = "2021-10-09"
+title = "Kehidupan orang lain terlihat lebih menarik"
++++
 
 Mau menjadi “dia”, Berusaha seperti dia, Padahal Tuhan sengaja Menciptakan kita berbeda
+
+<!--more-->
 
 "pengen" deh kayak dia. Basa-basi dalam hati ketika kita cemburu dengan orang yang jauh lebih menarik dibanding kita
 

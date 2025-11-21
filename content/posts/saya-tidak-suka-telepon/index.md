@@ -1,11 +1,11 @@
----
-summary: 'Telepon atau bertemu langsung. Tidak ada waktu untuk berpikir dengan matang'
-date: '2022-03-27'
-featured_image: 'https://i.ibb.co/x2KxgPw/pexels-min-an-1006122.jpg'
-title: 'Saya tidak suka telepon'
----
++++
+date = "2022-03-27"
+title = "Saya tidak suka telepon"
++++
 
 Tidak ada waktu untuk berpikir dengan matang,
+
+<!--more-->
 
 Saat orang ingin meminta tolong, kita jadi sering tidak enak untuk menolak, akhirnya di"IYA"kan,
 

@@ -1,0 +1,26 @@
+{{ define "main" }}
+<h1>{{ .Page.Title }}</h1>
+{{ .Content }}
+<div class="bento-grid">
+  {{ range $index, $page := sort .Pages "Date" "desc" }} {{ if and (isset
+  .Params "image") .Params.image }}
+  <a
+    href="{{ .Permalink }}"
+    title="{{ .Title }}"
+    class="bento-item bento-item-{{ mod $index 6 }}"
+  >
+    {{ $image := .Page.Resources.GetMatch .Params.image }} {{ with $image }} {{
+    $thumb := .Resize "800x" }}
+    <img
+      src="{{ $thumb.RelPermalink }}"
+      alt="{{ .Title }}"
+      class="img-responsive"
+    />
+    <div class="bento-overlay">
+      <h3>{{ $page.Title }}</h3>
+    </div>
+    {{end}}
+  </a>
+  {{ end }} {{ end }}
+</div>
+{{ end }}

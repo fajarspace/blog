@@ -1,6 +1,0 @@
-{{- $data := dict
-  "@type" "WebSite"
-  "url" site.BaseURL
-  "name" ( site.Title | plainify | htmlUnescape | chomp | title )
--}}
-{{- return $data -}}

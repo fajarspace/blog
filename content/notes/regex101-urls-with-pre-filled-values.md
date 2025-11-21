@@ -7,13 +7,15 @@ categories: [regex, web-tools]
 It's possible to link to [regex101](https://regex101.com/) with pre-filled regular expression, flags, and test string,
 as well as pre-selected flavor/engine with these undocumented URL parameters:
 
+<!--more-->
+
 ```
 
 https://regex101.com/?regex=...&testString=...&flags=...&flavor=...
 
 ```
 
-[**Example link**](<https://regex101.com/?regex=p%28%5Ba%2Dz%5D%2B%29ch&testString=peach%20punch%20pinch&flavor=golang>)
+[**Example link**](https://regex101.com/?regex=p%28%5Ba%2Dz%5D%2B%29ch&testString=peach%20punch%20pinch&flavor=golang)
 
 The `flavor` value can be one of the following:
 

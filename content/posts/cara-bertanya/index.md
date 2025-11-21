@@ -1,14 +1,11 @@
----
-title: Cara bertanya
-slug: cara-bertanya
-date: '2023-10-04'
-summary: Begitu kita masuk ke dalam dunia komunikasi, seringkali kita menemui situasi
-  di mana seseorang memulai percakapan dengan kata "Halo" atau meminta izin
-  untuk bertanya, seperti "Boleh saya bertanya?, Kamu lagi sibuk nggak?".
-featured_image: /pexels-moose-photos-1587014.jpg
----
++++
+title = "Cara bertanya"
+date = "2023-10-04"
++++
 
 Begitu kita masuk ke dalam dunia komunikasi, seringkali kita menemui situasi di mana seseorang memulai percakapan dengan kata "Halo" atau meminta izin untuk bertanya, seperti "Boleh saya bertanya?, Kamu lagi sibuk nggak?".
+
+<!--more-->
 
 2 (dua) seni yang digunakan untuk bertanya, yaitu N**o Hello** & **Don't ask to ask**
 
@@ -30,7 +27,7 @@ Nah tim nya itu bingung si budi mau ngapain, dia baru mau nanya nih
 
 Hal hal yang seperti itu tidak diperlukan, seperti sapaan P, ping, atau sebutan nya, misal nya "Halo mas, boleh nanya nggak?" itu nggak perlu diomongin, kalau kita mau bertanya cukup sekali chat tapi to the point dengan pertanyaan apa yang mau kita ajuin, jadi ga perlu banyak basa-basi. Contoh "halo, kamu lagi sibuk nggak? Pinjam dulu seratus 💀" (ini serius ✌️)
 
-![](/pexels-roman-pohorecki-230554.jpg 'pexels-roman-pohorecki-230554')
+![](/pexels-roman-pohorecki-230554.jpg "pexels-roman-pohorecki-230554")
 
 ## Don't Ask to Ask, Just Ask
 

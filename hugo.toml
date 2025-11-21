@@ -1,41 +1,27 @@
-baseURL = 'https://fajar.today/'
-languageCode = 'en-us'
-title = "Today I Learned"
-copyright = 'Fajar Today' # Used in the footer copyright mention.
-enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's genAI/LLM web crawler blocking feature.
+baseurl = "https://example.com/"
+title = "fajar.today"
+theme = "/"
+languageCode = "en-us"
 
-[module]
-  [[module.imports]]
-    path = "github.com/michenriksen/hugo-theme-til"
+[params]
+  # Cutting off the page title to two chars for mobile (console-demo -> co)
+  titleCutting = true
 
-[outputs]
-  home = ['html']
-  section = ['html', 'rss', 'json']
-  page = ['html']
+  # Set the animation style -- https://animate.style/
+  # To disable animations, please remove or comment animationStyle parameter
+  animateStyle = "animated zoomIn fast" 
 
-[menus]
-  [[menus.main]]
-    name = 'Notes'
-    pageRef = '/notes'
-    weight = 20
-  [[menus.main]]
-    name = 'Posts'
-    pageRef = '/posts'
-    weight = 30
-  [[menus.main]]
-    name = 'Book Recommendations'
-    pageRef = '/rekomendasi-buku'
-    weight = 40
+  [[params.navlinks]]
+  name = "posts/"
+  url = "posts/"
 
-[markup]
-  [markup.highlight]
-    noClasses = false
-    style = 'tokyonight-night'
+  [[params.navlinks]]
+  name = "notes/"
+  url = "notes/"
+  
+  [[params.navlinks]]
+  name = "photos/"
+  url = "photos/"
 
-  [markup.goldmark]
-    [markup.goldmark.parser]
-      [markup.goldmark.parser.attribute]
-        block = true
-        
 [permalinks]
   posts = "/:slug/"
